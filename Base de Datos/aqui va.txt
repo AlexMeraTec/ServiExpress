@@ -1,1 +1,1 @@
-1
+en esta carpeta se subira el script de la base de datos
