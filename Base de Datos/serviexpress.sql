@@ -215,6 +215,7 @@ CREATE TABLE `reservas_servicios` (
 CREATE TABLE `servicios` (
   `id_servicios` int(11) NOT NULL,
   `nombre` varchar(30) COLLATE utf8_bin NOT NULL,
+  `precio` int(11) NOT NULL,
   `activo` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -486,3 +487,9 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+
+
+
+

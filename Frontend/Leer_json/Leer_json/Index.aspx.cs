@@ -15,11 +15,11 @@ namespace Leer_json
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string fileJson = File.ReadAllText(@"C:\Users\arekkusu888\Desktop\Leer_json\Leer_json\servicios.json");
-            JavaScriptSerializer jsd = new JavaScriptSerializer();
-            List<Servicio> lstserv = (List<Servicio>)jsd.Deserialize(fileJson, typeof(List<Servicio>));
+            string fileJson = File.ReadAllText(@"C:\GitHub\ServiExpress\Frontend\Leer_json\Leer_json\servicios.json");
+            //JavaScriptSerializer jsd = new JavaScriptSerializer();
+            //List<Servicio> lstserv = (List<Servicio>)jsd.Deserialize(fileJson, typeof(List<Servicio>));
             
-            DropDownList ddl = new DropDownList();
+           /* DropDownList ddl = new DropDownList();
             foreach (Servicio ser in lstserv)
             {
 
@@ -27,7 +27,7 @@ namespace Leer_json
                 DropDownList1.DataValueField = "id";
                 DropDownList1.DataTextField = "nombre";
                 DropDownList1.DataBind();
-            }
+            }*/
 
             //si vas a llenar una tabla 
 
