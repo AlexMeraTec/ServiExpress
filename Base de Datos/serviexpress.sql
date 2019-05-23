@@ -41,7 +41,7 @@ CREATE TABLE `clientes` (
 
 CREATE TABLE `empleados` (
   `id_personas` int(11) NOT NULL,
-  `nivel_acceso` int(11) NOT NULL
+  `nivel_acceso` int(11) NOT NULL --1 cliente ,2 empleado ,3moderador ,4 administrador
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------

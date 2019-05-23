@@ -8,7 +8,8 @@ namespace Leer_json
     public class Reserva
     {
         public string nombre { get; set; }
-        public  DateTime fecha{ get; set; }
-        public string servicio { get; set; }
+        public  string fecha{ get; set; }
+        public int servicio { get; set; }
+        public string hora { get; set; }
     }
 }
