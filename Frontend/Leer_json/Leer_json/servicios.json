@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "nombre": "Cambio de aceite",
+    "precio": 3500
+  },
+  {
+    "id": 2,
+    "nombre": "Balanceo",
+    "precio": 5000
+  },
+  {
+    "id": 3,
+    "nombre": "Cambio de ruedas",
+    "precio": 43000
+  },
+  {
+    "id": 4,
+    "nombre": "Cambio de Bateria",
+    "precio": 12000
+  }
+]
