@@ -191,7 +191,7 @@ DROP TABLE IF EXISTS `productos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `productos` (
-  `id_producto` varchar(17) NOT NULL,
+  `id_productos ` varchar(17) NOT NULL,
   `nombre` varchar(30) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `fecha_vencimiento` datetime NOT NULL,
   `proveedores_id_proveedor` int(3) NOT NULL,
@@ -201,7 +201,7 @@ CREATE TABLE `productos` (
   `precio_venta` int(11) NOT NULL,
   `stock` int(11) NOT NULL,
   `stock_critico` int(11) NOT NULL,
-  PRIMARY KEY (`id_producto`),
+  PRIMARY KEY (`id_productos`),
   KEY `productos_familias_fk` (`familias_id_familias`),
   KEY `productos_proveedores_fk` (`proveedores_id_proveedor`),
   KEY `productos_tipos_fk` (`tipos_id_tipos`),
@@ -228,14 +228,14 @@ DROP TABLE IF EXISTS `productos_pedidos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `productos_pedidos` (
-  `productos_id_productos` int(11) NOT NULL,
+  `productos_id_productos` varchar(11) NOT NULL,
   `pedidos_id_pedidos` int(11) NOT NULL,
   `cantidad` int(11) NOT NULL,
   PRIMARY KEY (`pedidos_id_pedidos`,`productos_id_productos`),
   KEY `PRODUCTOS-PEDIDOS_PRODUCTOS_FK` (`productos_id_productos`),
   KEY `PRODUCTOS_PEDIDOS_PEDIDOS_FK` (`pedidos_id_pedidos`),
   CONSTRAINT `PRODUCTOS-PEDIDOS_PEDIDOS_FK` FOREIGN KEY (`pedidos_id_pedidos`) REFERENCES `pedidos` (`id_pedidos`),
-  CONSTRAINT `PRODUCTOS-PEDIDOS_PRODUCTOS_FK` FOREIGN KEY (`productos_id_productos`) REFERENCES `productos` (`id_producto`)
+  CONSTRAINT `PRODUCTOS-PEDIDOS_PRODUCTOS_FK` FOREIGN KEY (`productos_id_productos`) REFERENCES `productos` (`id_productos`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -258,12 +258,12 @@ DROP TABLE IF EXISTS `productos_reservas`;
 CREATE TABLE `productos_reservas` (
   `cantidad` int(11) NOT NULL,
   `reservas_id_reservas` int(11) NOT NULL,
-  `productos_id_productos` int(11) NOT NULL,
+  `productos_id_productos` varchar(11) NOT NULL,
   PRIMARY KEY (`reservas_id_reservas`,`productos_id_productos`),
   KEY `prod_res_prod_fk` (`productos_id_productos`),
   KEY `productos_reservas_reservas_fk` (`reservas_id_reservas`) USING BTREE,
   CONSTRAINT `pro_res_res_fk` FOREIGN KEY (`reservas_id_reservas`) REFERENCES `reservas` (`id_reservas`),
-  CONSTRAINT `prod_res_prod_fk` FOREIGN KEY (`productos_id_productos`) REFERENCES `productos` (`id_producto`)
+  CONSTRAINT `prod_res_prod_fk` FOREIGN KEY (`productos_id_productos`) REFERENCES `productos` (`id_productos`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -476,3 +476,32 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2019-05-27  0:25:42
+
+/*
+--funcion para crear la id_productos
+CREATE FUNCTION serviexpress.Generar_id_productos
+(
+proveedor int(3),
+familia int(3),
+vencimiento DATE,
+tipo int(3)
+)
+RETURNS varchar(17)
+BEGIN
+-- DECLARE variables
+    DECLARE fechaint int(8);
+    DECLARE fechavar varchar(8);
+    DECLARE msj varchar(17);
+-- definition
+    IF vencimiento="0001-01-01" THEN
+      SET fechavar = "00000000";
+    else
+        SET fechaint=CAST(CAST(vencimiento as DATE) as UNSIGNED);
+        SET fechavar = concat("",fechaint);
+    END IF;
+    SET msj = CONCAT(right( POWER(10, 3)+proveedor, 3),right( POWER(10, 3)+familia, 3),fechavar,right( POWER(10, 3)+tipo, 3)); 
+    --right( POWER(10, 3)+proveedor, 3) esta sección permite convertir un numero desde 1 a 999 en un formato de 001
+-- RETURN variable | value
+    RETURN msj;
+END;
+*/
