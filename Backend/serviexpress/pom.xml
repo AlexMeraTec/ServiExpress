@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.serviexpress</groupId>
 	<artifactId>serviexpress</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.1.1-SNAPSHOT</version>
 	<name>serviexpress</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -19,7 +19,7 @@
 	</properties>
 
 	<dependencies>
-		<dependency>
+	<dependency>
 		    <groupId>io.springfox</groupId>
 		    <artifactId>springfox-swagger2</artifactId>
 		    <version>2.9.2</version>
@@ -54,14 +54,52 @@
 		<dependency>
     		<groupId>mysql</groupId>
     		<artifactId>mysql-connector-java</artifactId>
-		</dependency>
-		
+		</dependency>		
 	</dependencies>
 	<build>
+		<finalName>serviexpress</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>io.fabric8</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>0.21.0</version>
+				<configuration>
+					<images>
+						<image>
+							<name>timaeus8/${project.build.finalName}</name>
+							<build>
+								<from>openjdk:latest</from>
+								<entryPoint>java -Dspring.profiles.active=prod -jar /Users/arekkusu888/application/${project.build.finalName}.jar</entryPoint>
+								<assembly>
+									<basedir>/Users/arekkusu888/application/</basedir>
+									<descriptorRef>artifact</descriptorRef>
+									<inline>
+										<id>assembly</id>
+										<files>
+											<file>
+												<source>target/${project.build.finalName}.jar</source>
+											</file>
+										</files>
+									</inline>
+								</assembly>
+								<tags>
+									<tag>latest</tag>
+								</tags>
+								<ports>
+									<port>8080</port>
+								</ports>
+							</build>
+							<run>
+								<namingStrategy>alias</namingStrategy>
+							</run>
+							<alias>{project.build.finalName}</alias>
+						</image>
+					</images>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

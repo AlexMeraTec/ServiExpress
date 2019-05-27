@@ -4,7 +4,16 @@ docker start serviexpress
 docker exec -it serviexpress mysql -uroot -p
 127.0.0.1 
 password:serviexpress
-docker stop serviexpress
+docker stop serviexpress 
+
+para detenerlo daaah!
+
+# Backup
+docker exec CONTAINER /usr/bin/mysqldump -u root --password=root DATABASE > backup.sql
+
+# Restore
+cat backup.sql | docker exec -i CONTAINER /usr/bin/mysql -u root --password=root DATABASE
+
 */
 package com.serviexpress.serviexpress;
 

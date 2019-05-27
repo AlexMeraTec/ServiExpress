@@ -23,7 +23,7 @@ import lombok.Data;
 @NamedQuery(name = "Servicio.findById_servicios", query = "select s from Servicio s where s.id_servicios = ?1")
 public class Servicio {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue
 	private int id_servicios;
 	
 	@Column(name = "nombre")

@@ -1,6 +1,6 @@
 spring: 
   datasource:
-    url: jdbc:mysql://localhost:3306/serviexpress
+    url: jdbc:mysql://mysql_server:3306/serviexpress
     username: root
     password: serviexpress
     driver-class-name: com.mysql.jdbc.Driver
