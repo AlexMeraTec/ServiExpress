@@ -1,0 +1,19 @@
+{
+    "arrayUsuario":[
+		{
+            "confirma"			:	true,
+			"id"				:	"1", 
+			"rut"				:	18897468,
+			"digitoVerificador"	:"6",
+			"nombre"			:"miNombre",
+			"paterno"			:"apellidoPaterno",
+			"materno"			:"apellidoMaterno",
+			"direccion"			:"miDireccion",
+			"telefono"			:123456789,
+			"telefono2"			:null,
+			"usuario"			:"admin",
+			"password"			:"admin",
+			"email"				:"admin@admin.org"
+        }
+    ]
+}

@@ -77,3 +77,240 @@ C:\Users\Arekkusu888\Desktop\taller serviexpress 0.0.1\taller_serviexpress 0.0.1
 C:\Users\Arekkusu888\Desktop\taller serviexpress 0.0.1\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\obj\Debug\taller_serviexpress 0.0.1.pdb
 C:\Users\Arekkusu888\Desktop\taller serviexpress 0.0.1\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\RestSharp.dll
 C:\Users\Arekkusu888\Desktop\taller serviexpress 0.0.1\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\RestSharp.xml
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\taller_serviexpress 0.0.1.dll.config
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\taller_serviexpress 0.0.1.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\taller_serviexpress 0.0.1.pdb
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\csc.exe
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\csc.exe.config
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\csc.rsp
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\csi.exe
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\csi.exe.config
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\csi.rsp
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.CodeAnalysis.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.CSharp.Core.targets
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.Managed.Core.targets
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.VisualBasic.Core.targets
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.AppContext.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Collections.Immutable.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Console.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Diagnostics.StackTrace.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.IO.Compression.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.IO.FileSystem.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.IO.FileSystem.Primitives.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.IO.Pipes.AccessControl.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.IO.Pipes.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Reflection.Metadata.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Security.AccessControl.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Security.Claims.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Security.Cryptography.Encoding.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Security.Cryptography.Primitives.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Security.Principal.Windows.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Text.Encoding.CodePages.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.ValueTuple.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Xml.ReaderWriter.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Xml.XmlDocument.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Xml.XPath.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Xml.XPath.XDocument.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\vbc.exe
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\vbc.exe.config
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\vbc.rsp
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\VBCSCompiler.exe
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\VBCSCompiler.exe.config
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Antlr3.Runtime.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\AspNet.ScriptManager.bootstrap.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\AspNet.ScriptManager.jQuery.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Microsoft.AspNet.FriendlyUrls.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Microsoft.ScriptManager.MSAjax.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Microsoft.ScriptManager.WebForms.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Microsoft.Web.Infrastructure.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Newtonsoft.Json.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\RestSharp.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\System.Diagnostics.DiagnosticSource.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\System.Web.Optimization.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\WebGrease.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\RestSharp.xml
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\System.Web.Optimization.xml
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Newtonsoft.Json.xml
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Antlr3.Runtime.pdb
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Microsoft.AspNet.FriendlyUrls.xml
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\System.Diagnostics.DiagnosticSource.xml
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\es\System.Web.Optimization.resources.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\es\Microsoft.AspNet.FriendlyUrls.resources.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\obj\Debug\taller_serviexpress 0.0.1.csprojAssemblyReference.cache
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\obj\Debug\taller_serviexpress 0.0.1.csproj.CoreCompileInputs.cache
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\obj\Debug\taller_serviexpress 0.0.1.csproj.CopyComplete
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\obj\Debug\taller_serviexpress 0.0.1.dll
+H:\Descargas\ServiExpress-master\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\obj\Debug\taller_serviexpress 0.0.1.pdb
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\taller_serviexpress 0.0.1.dll.config
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\taller_serviexpress 0.0.1.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\taller_serviexpress 0.0.1.pdb
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\csc.exe
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\csc.exe.config
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\csc.rsp
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\csi.exe
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\csi.exe.config
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\csi.rsp
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.AppContext.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Console.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.IO.Compression.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.IO.Pipes.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Security.Claims.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.ValueTuple.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Xml.XPath.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\vbc.exe
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\vbc.exe.config
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\vbc.rsp
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\VBCSCompiler.exe
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Antlr3.Runtime.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\AspNet.ScriptManager.bootstrap.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\AspNet.ScriptManager.jQuery.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Microsoft.AspNet.FriendlyUrls.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Microsoft.ScriptManager.MSAjax.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Microsoft.ScriptManager.WebForms.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Newtonsoft.Json.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\RestSharp.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\System.Web.Optimization.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\WebGrease.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\RestSharp.xml
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\System.Web.Optimization.xml
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Newtonsoft.Json.xml
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Antlr3.Runtime.pdb
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Microsoft.AspNet.FriendlyUrls.xml
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\es\System.Web.Optimization.resources.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\es\Microsoft.AspNet.FriendlyUrls.resources.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\obj\Debug\taller_serviexpress 0.0.1.csprojAssemblyReference.cache
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\obj\Debug\taller_serviexpress 0.0.1.csproj.CoreCompileInputs.cache
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\obj\Debug\taller_serviexpress 0.0.1.csproj.CopyComplete
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\obj\Debug\taller_serviexpress 0.0.1.dll
+C:\Users\rodri\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\obj\Debug\taller_serviexpress 0.0.1.pdb
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\obj\Debug\taller_serviexpress 0.0.1.csprojAssemblyReference.cache
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\obj\Debug\taller_serviexpress 0.0.1.csproj.CoreCompileInputs.cache
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\obj\Debug\taller_serviexpress 0.0.1.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\obj\Debug\taller_serviexpress 0.0.1.pdb
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\taller_serviexpress 0.0.1.dll.config
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\taller_serviexpress 0.0.1.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\taller_serviexpress 0.0.1.pdb
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\csc.exe
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\csc.exe.config
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\csc.rsp
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\csi.exe
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\csi.exe.config
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\csi.rsp
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.AppContext.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Console.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.IO.Compression.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.IO.Pipes.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Security.Claims.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.ValueTuple.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Xml.XPath.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\vbc.exe
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\vbc.exe.config
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\vbc.rsp
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\VBCSCompiler.exe
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Antlr3.Runtime.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\AspNet.ScriptManager.bootstrap.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\AspNet.ScriptManager.jQuery.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Microsoft.AspNet.FriendlyUrls.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Microsoft.ScriptManager.MSAjax.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Microsoft.ScriptManager.WebForms.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Newtonsoft.Json.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\RestSharp.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\System.Web.Optimization.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\WebGrease.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\RestSharp.xml
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\System.Web.Optimization.xml
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Newtonsoft.Json.xml
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Antlr3.Runtime.pdb
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Microsoft.AspNet.FriendlyUrls.xml
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\es\System.Web.Optimization.resources.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\es\Microsoft.AspNet.FriendlyUrls.resources.dll
+C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\obj\Debug\taller_serviexpress 0.0.1.csproj.CopyComplete

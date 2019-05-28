@@ -9,13 +9,18 @@ using System.Web.SessionState;
 
 namespace taller_serviexpress_0._0._1
 {
-    public class Global : HttpApplication
+    public class Global : System.Web.HttpApplication
     {
-        void Application_Start(object sender, EventArgs e)
+        protected void Application_Start(object sender, EventArgs e)
         {
             // Código que se ejecuta al iniciar la aplicación
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+        }
+
+        protected void Session_Start(object sender, EventArgs e)
+        {
+            Session["ARCHIVOJSON"] = string.Empty;
         }
     }
 }

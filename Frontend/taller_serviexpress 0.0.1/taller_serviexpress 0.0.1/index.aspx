@@ -33,7 +33,8 @@
       <ul>
         <li><a href="index.html"><i class="fa fa-lg fa-home"></i></a></li>
         <li><a href="login.aspx">iniciar</a></li>
-        <li><a href="#">Registrase</a></li>
+        <li><a href="Registro.aspx">Registrase</a></li>
+        <li><a href="reserva.aspx">Reserva</a></li>
       </ul>
     </div>
     <!-- ################################################################################################ -->
