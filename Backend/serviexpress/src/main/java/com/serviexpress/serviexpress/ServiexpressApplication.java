@@ -9,6 +9,7 @@ docker stop serviexpress
 para detenerlo daaah!
 
 # Backup
+docker exec serviexpress /usr/bin/mysqldump -u root --password=serviexpress serviexpress > backup.sql
 docker exec CONTAINER /usr/bin/mysqldump -u root --password=root DATABASE > backup.sql
 
 # Restore
