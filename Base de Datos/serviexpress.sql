@@ -191,7 +191,7 @@ DROP TABLE IF EXISTS `productos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `productos` (
-  `id_productos ` varchar(17) NOT NULL,
+  `id_productos` varchar(17) NOT NULL,
   `nombre` varchar(30) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `fecha_vencimiento` datetime NOT NULL,
   `proveedores_id_proveedor` int(3) NOT NULL,
