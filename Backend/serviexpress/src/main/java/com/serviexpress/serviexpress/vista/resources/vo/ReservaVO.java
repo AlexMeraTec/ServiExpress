@@ -1,38 +1,24 @@
-package com.serviexpress.serviexpress.modelo;
+package com.serviexpress.serviexpress.vista.resources.vo;
+
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
-
 import lombok.Data;
+
 
 /**
  * @author arekkusu888
  *
  */
 @Data
-@Entity
-@Table(name = "reservas") //cambiar por reservas
-@NamedQuery(name = "Reserva.findById_reservas", query = "select r from Reserva r where r.id_reservas = ?1")
-public class Reserva {
-	@Id
-	@Column(name = "id_reservas")
+public class ReservaVO {
 	private int id_reservas;
-	@Column(name = "empleados_id_personas")
 	private int empleados_id_personas;
-	@Column(name = "fecha")
 	private Date fecha;
-	@Column(name = "observaciones")
 	private String observaciones;
-	@Column(name = "se_atendio")
 	private boolean se_atendio;
-	@Column(name = "clientes_id_personas")
 	private int clientes_id_personas;
+	
 	public int getId_reservas() {
 		return id_reservas;
 	}
@@ -57,7 +43,7 @@ public class Reserva {
 	public void setObservaciones(String observaciones) {
 		this.observaciones = observaciones;
 	}
-	public boolean isSe_atendio() {
+	public boolean getSe_atendio() {
 		return se_atendio;
 	}
 	public void setSe_atendio(boolean se_atendio) {

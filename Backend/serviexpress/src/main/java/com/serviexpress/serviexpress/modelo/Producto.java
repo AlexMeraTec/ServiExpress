@@ -14,11 +14,14 @@ import lombok.Data;
  * @author arekkusu888
  *
  */
+/*
 @Data
 @Entity
 @Table(name = "productos")
+*/
 @NamedQuery(name = "Producto.findById_productos", query = "select p from producto p where p.id_productos = ?1")
 public class Producto {
+	/*
 	@Id
 	@Column(name = "id_productos")
 	private String id_productos; 
@@ -63,7 +66,7 @@ public class Producto {
 	public boolean getActivo() {
 		return activo;
 	}
-	/*
+	
 	public Producto
 	(
 		String nombre, 
@@ -88,6 +91,7 @@ public class Producto {
 		this.stock = stock;
 		this.stock_critico = stock_critico;
 		this.activo = activo;
-	}*/
+	}
+	*/
 	
 }

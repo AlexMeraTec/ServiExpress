@@ -15,6 +15,7 @@ docker exec CONTAINER /usr/bin/mysqldump -u root --password=root DATABASE > back
 cat backup.sql | docker exec -i CONTAINER /usr/bin/mysql -u root --password=root DATABASE
 
 */
+
 package com.serviexpress.serviexpress;
 
 import org.springframework.boot.SpringApplication;
