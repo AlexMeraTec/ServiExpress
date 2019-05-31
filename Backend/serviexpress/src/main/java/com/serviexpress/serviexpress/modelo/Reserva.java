@@ -17,7 +17,7 @@ import lombok.Data;
  */
 @Data
 @Entity
-@Table(name = "Reserva") //cambiar por reservas
+@Table(name = "reservas") //cambiar por reservas
 @NamedQuery(name = "Reserva.findById_reservas", query = "select r from Reserva r where r.id_reservas = ?1")
 public class Reserva {
 	@Id
