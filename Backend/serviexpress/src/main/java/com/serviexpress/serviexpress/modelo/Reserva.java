@@ -1,13 +1,13 @@
 package com.serviexpress.serviexpress.modelo;
 
 import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.Data;
 
@@ -26,6 +26,7 @@ public class Reserva {
 	@Column(name = "empleados_id_personas")
 	private int empleados_id_personas;
 	@Column(name = "fecha")
+	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ssZ")
 	private Date fecha;
 	@Column(name = "observaciones")
 	private String observaciones;

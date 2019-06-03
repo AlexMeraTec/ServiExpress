@@ -53,7 +53,7 @@ public class ServicioService {
 	}
 	
 	public Servicio findById_servicios(int id_servicios){
-		return this.findById_servicios(id_servicios);
+		return this.servicioRepository.findById_servicios(id_servicios);
 	}
 	
 	public List<Servicio> findAll(){
