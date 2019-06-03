@@ -1,12 +1,15 @@
 package com.serviexpress.serviexpress.modelo;
 
 import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.Data;
 
@@ -14,14 +17,12 @@ import lombok.Data;
  * @author arekkusu888
  *
  */
-/*
 @Data
 @Entity
 @Table(name = "productos")
-*/
-@NamedQuery(name = "Producto.findById_productos", query = "select p from producto p where p.id_productos = ?1")
+@NamedQuery(name = "Producto.findById_productos", query = "select p from Producto p where p.id_productos = ?1") //no olvidar que from Producto es con mayuscula porque es la CLASE
 public class Producto {
-	/*
+	
 	@Id
 	@Column(name = "id_productos")
 	private String id_productos; 
@@ -30,6 +31,7 @@ public class Producto {
 	private String nombre;
 	
 	@Column(name = "fecha_vencimiento")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date fecha_vencimiento;
 	
 	@Column(name = "proveedores_id_proveedor")
@@ -59,28 +61,19 @@ public class Producto {
 	public Producto() {
 		super();
 	}
-	
-	public String getId_productos() {
-		return id_productos;
-	}
-	public boolean getActivo() {
-		return activo;
-	}
-	
 	public Producto
 	(
-		String nombre, 
-		Date fecha_vencimiento, 
-		int proveedores_id_proveedor, 
+		String nombre,
+		Date fecha_vencimiento,
+		int proveedores_id_proveedor,
 		int tipos_id_tipos,
-		int familias_id_familias, 
-		int precio_compra, 
-		int precio_venta, 
-		int stock, 
+		int familias_id_familias,
+		int precio_compra,
+		int precio_venta,
+		int stock,
 		int stock_critico,
 		boolean activo
-	){	
-		super();
+	){
 		this.nombre = nombre;
 		this.fecha_vencimiento = fecha_vencimiento;
 		this.proveedores_id_proveedor = proveedores_id_proveedor;
@@ -91,7 +84,13 @@ public class Producto {
 		this.stock = stock;
 		this.stock_critico = stock_critico;
 		this.activo = activo;
+		
 	}
-	*/
+	public String getId_productos() {
+		return id_productos;
+	}
+	public boolean getActivo() {
+		return activo;
+	}
 	
 }

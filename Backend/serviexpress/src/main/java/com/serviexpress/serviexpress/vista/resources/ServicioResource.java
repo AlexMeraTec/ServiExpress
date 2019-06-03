@@ -60,7 +60,7 @@ public class ServicioResource {
 			servicio.setNombre(servicioVO.getNombre());
 			servicio.setActivo(servicioVO.getActivo());
 		}
-		return new ResponseEntity<>(this.servicioService.create(servicio), HttpStatus.CREATED);
+		return new ResponseEntity<>(this.servicioService.create(servicio), HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/{id_servicio}")

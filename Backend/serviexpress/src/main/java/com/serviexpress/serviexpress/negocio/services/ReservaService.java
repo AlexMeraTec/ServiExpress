@@ -53,7 +53,7 @@ public class ReservaService {
 	}
 	
 	public Reserva findById_reservas(int id_reservas){
-		return this.findById_reservas(id_reservas);
+		return this.reservaRepository.findById_reservas(id_reservas);
 	}
 	
 	public List<Reserva> findAll(){

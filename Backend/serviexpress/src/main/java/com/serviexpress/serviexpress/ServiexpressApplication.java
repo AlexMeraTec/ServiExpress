@@ -9,8 +9,14 @@ docker stop serviexpress
 para detenerlo daaah!
 
 # Backup
-docker exec serviexpress /usr/bin/mysqldump -u root --password=serviexpress serviexpress > backup.sql
-docker exec CONTAINER /usr/bin/mysqldump -u root --password=root DATABASE > backup.sql
+- docker exec serviexpress /usr/bin/mysqldump -u root --password=serviexpress serviexpress > backup.sql
+- docker exec CONTAINER /usr/bin/mysqldump -u root --password=root DATABASE > backup.sql
+
+#generar contenedor con la imagen de docker de esta aplicacion
+- ejecutar en maven build el siguiente comando :  clean install docker:build
+- para subir la imagen a docker hub estando logueado en docker mediante consola usar el sig comando: docker push NOMBREIMAGENCREADA
+- el comando para descargar la imagen subida al docker hub es el siguiente: docker pull NOMBREIMAGENCREADA
+- docker run -d --name servi2 --add-host=mysql_server:192.168.0.??? -p 8080:8080 timaeus8/serviexpress:latest
 
 # Restore
 cat backup.sql | docker exec -i CONTAINER /usr/bin/mysql -u root --password=root DATABASE
