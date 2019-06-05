@@ -120,6 +120,9 @@ C:\Users\vina\Desktop\Leer_json\Leer_json\obj\Debug\Leer_json.csproj.CoreCompile
 C:\Users\vina\Desktop\Leer_json\Leer_json\obj\Debug\Leer_json.csproj.CopyComplete
 C:\Users\vina\Desktop\Leer_json\Leer_json\obj\Debug\Leer_json.dll
 C:\Users\vina\Desktop\Leer_json\Leer_json\obj\Debug\Leer_json.pdb
+C:\Users\arekkusu888\Desktop\Leer_json\Leer_json\obj\Debug\Leer_json.csproj.CoreCompileInputs.cache
+C:\Users\arekkusu888\Desktop\Leer_json\Leer_json\obj\Debug\Leer_json.dll
+C:\Users\arekkusu888\Desktop\Leer_json\Leer_json\obj\Debug\Leer_json.pdb
 C:\Users\arekkusu888\Desktop\Leer_json\Leer_json\bin\Leer_json.dll.config
 C:\Users\arekkusu888\Desktop\Leer_json\Leer_json\bin\Leer_json.dll
 C:\Users\arekkusu888\Desktop\Leer_json\Leer_json\bin\Leer_json.pdb
@@ -176,7 +179,5 @@ C:\Users\arekkusu888\Desktop\Leer_json\Leer_json\bin\Microsoft.CodeDom.Providers
 C:\Users\arekkusu888\Desktop\Leer_json\Leer_json\bin\Newtonsoft.Json.dll
 C:\Users\arekkusu888\Desktop\Leer_json\Leer_json\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\arekkusu888\Desktop\Leer_json\Leer_json\bin\Newtonsoft.Json.xml
-C:\Users\arekkusu888\Desktop\Leer_json\Leer_json\obj\Debug\Leer_json.csproj.CoreCompileInputs.cache
 C:\Users\arekkusu888\Desktop\Leer_json\Leer_json\obj\Debug\Leer_json.csproj.CopyComplete
-C:\Users\arekkusu888\Desktop\Leer_json\Leer_json\obj\Debug\Leer_json.dll
-C:\Users\arekkusu888\Desktop\Leer_json\Leer_json\obj\Debug\Leer_json.pdb
+C:\Users\arekkusu888\Desktop\Leer_json\Leer_json\obj\Debug\Leer_json.csprojAssemblyReference.cache
