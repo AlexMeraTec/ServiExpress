@@ -76,7 +76,16 @@ public class ProductoResource {
 		}
 		return new ResponseEntity<>(this.productoService.update(producto), HttpStatus.OK);
 	}
-	
+	@PutMapping("/{precio_venta}/{id_productos}")
+	@ApiOperation(value = "Actualizar precio_venta", notes = "Servicio para actualizar un producto")
+	@ApiResponses(value = {@ApiResponse(code = 201, message = "Producto ACTUALIZADO correctamente"),@ApiResponse(code = 404, message = "Producto NO encontrado")})
+	public void updatePrecio_venta(@PathVariable("precio_venta") int precio_venta,@PathVariable("id_productos") String id_productos){
+		Producto producto = this.productoService.findById_productos(id_productos);
+		if (producto!=null) {
+			producto.setPrecio_venta(precio_venta);
+			this.productoService.update(producto);
+		}
+	}
 	@DeleteMapping("/{id_producto}")
 	@ApiOperation(value = "Eliminar Producto", notes = "Servicio para eliminar una producto")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Producto ELIMINADO correctamente"),@ApiResponse(code = 404, message = "Producto NO encontrado")})
