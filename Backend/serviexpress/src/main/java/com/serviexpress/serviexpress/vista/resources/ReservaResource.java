@@ -30,7 +30,7 @@ import io.swagger.annotations.ApiResponses;
 @RestController
 @RequestMapping("/api/reserva") //el nombre con el cual llamar a esta clase como Servicio web
 @Api(tags = "reserva")
-public class ReservaResource {
+public class ReservaResource extends Elohim{
 	private final ReservaService reservaService;
 	
 	public ReservaResource(ReservaService reservaService) {
@@ -42,12 +42,15 @@ public class ReservaResource {
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Reserva CREADO correctamente"),@ApiResponse(code = 404, message = "Solicitud Invalida")})
 	public ResponseEntity<Reserva> createReserva(@RequestBody ReservaVO reservaVO){
 		Reserva reserva = new Reserva();
+		/*
 		reserva.setId_reservas(reservaVO.getId_reservas());
 		reserva.setEmpleados_id_personas(reservaVO.getEmpleados_id_personas());
 		reserva.setFecha(reservaVO.getFecha());
 		reserva.setObservaciones(reservaVO.getObservaciones());
 		reserva.setSe_atendio(reservaVO.getSe_atendio());
 		reserva.setClientes_id_personas(reservaVO.getClientes_id_personas());
+		*/
+		copiarPropiedadesNoNulas(reservaVO, reserva);
 		return new ResponseEntity<>(this.reservaService.create(reserva), HttpStatus.CREATED);
 	}
 	
@@ -59,15 +62,17 @@ public class ReservaResource {
 		if (reserva==null) {
 			return new ResponseEntity<Reserva>(HttpStatus.NOT_FOUND);
 		}else {
+			/*
 			reserva.setId_reservas(reservaVO.getId_reservas());
 			reserva.setEmpleados_id_personas(reservaVO.getEmpleados_id_personas());
 			reserva.setFecha(reservaVO.getFecha());
 			reserva.setObservaciones(reservaVO.getObservaciones());
 			reserva.setSe_atendio(reservaVO.getSe_atendio());
 			reserva.setClientes_id_personas(reservaVO.getClientes_id_personas());
-			
+			*/
+			copiarPropiedadesNoNulas(reservaVO, reserva);
 		}
-		return new ResponseEntity<>(this.reservaService.create(reserva), HttpStatus.CREATED);
+		return new ResponseEntity<>(this.reservaService.update(reserva), HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/{id_Reserva}")

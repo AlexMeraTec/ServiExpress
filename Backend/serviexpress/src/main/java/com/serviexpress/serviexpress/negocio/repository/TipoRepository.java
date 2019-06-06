@@ -1,19 +1,15 @@
-/**
- * 
- */
 package com.serviexpress.serviexpress.negocio.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.serviexpress.serviexpress.modelo.Servicio;
+import com.serviexpress.serviexpress.modelo.Tipo;
 
 /**
  * Interface para definir las operaciones de bd relacionadas con servicios
  * @author arekkusu888
  *
  */
-public interface ServicioRepository extends JpaRepository<Servicio, Integer>{
+public interface TipoRepository extends JpaRepository<Tipo, Integer>{
 	//public List<Servicio> findByNombreServ(String nombreServ);
-	public Servicio findById_servicios(int id_servicios);
+	public Tipo findById_tipos(int id_tipos);
 	
 }

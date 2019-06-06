@@ -33,7 +33,6 @@ public class ServiexpressApplication {
 //run as maven build usando el comando clean install spring-boot:run
 	public static void main(String[] args) {
 		SpringApplication.run(ServiexpressApplication.class, args);
-		
 	}
 
 }

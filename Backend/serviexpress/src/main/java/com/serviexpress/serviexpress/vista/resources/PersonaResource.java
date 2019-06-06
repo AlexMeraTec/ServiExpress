@@ -30,7 +30,7 @@ import io.swagger.annotations.ApiResponses;
 @RestController
 @RequestMapping("/api/persona") //el nombre con el cual llamar a esta clase como Servicio web
 @Api(tags = "persona")
-public class PersonaResource {
+public class PersonaResource extends Elohim{
 	private final PersonaService personaService;
 	
 	public PersonaResource(PersonaService personaService) {
@@ -42,7 +42,10 @@ public class PersonaResource {
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "persona CREADO correctamente"),@ApiResponse(code = 404, message = "Solicitud Invalida")})
 	public ResponseEntity<Persona> createpersona(@RequestBody PersonaVO personaVO){
 		Persona persona = new Persona();
-		persona.setId_personas(personaVO.getId_personas());
+		if(personaVO.getTipo_personas()!='e' || personaVO.getTipo_personas()!='c') {
+			persona.setTipo_personas('c');
+		}
+	/*
 		persona.setRut(personaVO.getRut());
 		persona.setDigito_verificador(personaVO.getDigito_verificador());
 		persona.setNombre(personaVO.getNombre());
@@ -56,17 +59,23 @@ public class PersonaResource {
 		persona.setE_mail(personaVO.getE_mail());
 		persona.setActiva(personaVO.isActiva());
 		persona.setTipo_personas(personaVO.getTipo_personas());
+	*/
+		copiarPropiedadesNoNulas(personaVO, persona);
 		return new ResponseEntity<>(this.personaService.create(persona), HttpStatus.CREATED);
 	}
 	
 	@PutMapping("/{id_personas}")
 	@ApiOperation(value = "actualizar persona", notes = "Servicio para actualizar un persona")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "persona ACTUALIZADA correctamente"),@ApiResponse(code = 404, message = "persona NO encontrada")})
-	public ResponseEntity<Persona> updatepersona(@PathVariable("id_persona") int id_personas, PersonaVO personaVO){
+	public ResponseEntity<Persona> updatepersona(@PathVariable("id_personas") int id_personas, PersonaVO personaVO){
 		Persona persona = this.personaService.findById_personas(id_personas);
 		if (persona==null) {
 			return new ResponseEntity<Persona>(HttpStatus.NOT_FOUND);
 		}else {
+			if(personaVO.getTipo_personas()!='e' || personaVO.getTipo_personas()!='c') {
+				personaVO.setTipo_personas(persona.getTipo_personas());
+			}
+			/*
 			persona.setId_personas(personaVO.getId_personas());
 			persona.setRut(personaVO.getRut());
 			persona.setDigito_verificador(personaVO.getDigito_verificador());
@@ -81,8 +90,10 @@ public class PersonaResource {
 			persona.setE_mail(personaVO.getE_mail());
 			persona.setActiva(personaVO.isActiva());
 			persona.setTipo_personas(personaVO.getTipo_personas());
+			*/
+			copiarPropiedadesNoNulas(personaVO, persona);
 		}
-		return new ResponseEntity<>(this.personaService.create(persona), HttpStatus.CREATED);
+		return new ResponseEntity<>(this.personaService.update(persona), HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/{id_personas}")

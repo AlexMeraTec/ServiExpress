@@ -27,7 +27,7 @@ import io.swagger.annotations.ApiResponses;
 @RestController
 @RequestMapping("/api/producto") //el nombre con el cual llamar a esta clase como Servicio web
 @Api(tags = "producto")
-public class ProductoResource {
+public class ProductoResource extends Elohim{
 	private final ProductoService productoService;
 	
 	public ProductoResource(ProductoService productoService) {
@@ -39,6 +39,7 @@ public class ProductoResource {
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Producto CREADO correctamente"),@ApiResponse(code = 404, message = "Solicitud Invalida")})
 	public ResponseEntity<Producto> createProducto(@RequestBody ProductoVO productoVO){
 		Producto producto = new Producto();
+		/*
 		producto.setId_productos(productoVO.getId_productos());
 		producto.setNombre(productoVO.getNombre());
 		producto.setFecha_vencimiento(productoVO.getFecha_vencimiento());
@@ -50,7 +51,8 @@ public class ProductoResource {
 		producto.setStock(productoVO.getStock());
 		producto.setStock_critico(productoVO.getStock_critico());
 		producto.setActivo(productoVO.getActivo());
-	
+		*/
+		copiarPropiedadesNoNulas(productoVO, producto);
 		return new ResponseEntity<>(this.productoService.create(producto), HttpStatus.CREATED);
 	}
 	
@@ -62,7 +64,8 @@ public class ProductoResource {
 		if (producto==null) {
 			return new ResponseEntity<Producto>(HttpStatus.NOT_FOUND);
 		}else {
-			producto.setId_productos(productoVO.getId_productos());
+			/*
+			producto.setId_productos(productoVO.getId_productos())
 			producto.setNombre(productoVO.getNombre());
 			producto.setFecha_vencimiento(productoVO.getFecha_vencimiento());
 			producto.setProveedores_id_proveedor(productoVO.getProveedores_id_proveedor());
@@ -73,6 +76,8 @@ public class ProductoResource {
 			producto.setStock(productoVO.getStock());
 			producto.setStock_critico(productoVO.getStock_critico());
 			producto.setActivo(productoVO.getActivo());
+			*/
+			copiarPropiedadesNoNulas(productoVO, producto);
 		}
 		return new ResponseEntity<>(this.productoService.update(producto), HttpStatus.OK);
 	}
@@ -92,16 +97,6 @@ public class ProductoResource {
 	public void removeProducto(@PathVariable("id_productos") String id_productos, ProductoVO productoVO) {
 		Producto producto = this.productoService.findById_productos(id_productos);
 		if (producto!=null) {
-			producto.setId_productos(productoVO.getId_productos());
-			producto.setNombre(productoVO.getNombre());
-			producto.setFecha_vencimiento(productoVO.getFecha_vencimiento());
-			producto.setProveedores_id_proveedor(productoVO.getProveedores_id_proveedor());
-			producto.setTipos_id_tipos(productoVO.getTipos_id_tipos());
-			producto.setFamilias_id_familias(productoVO.getFamilias_id_familias());
-			producto.setPrecio_compra(productoVO.getPrecio_compra());
-			producto.setPrecio_venta(productoVO.getPrecio_venta());
-			producto.setStock(productoVO.getStock());
-			producto.setStock_critico(productoVO.getStock_critico());
 			producto.setActivo(false);
 			this.productoService.update(producto);
 		}
