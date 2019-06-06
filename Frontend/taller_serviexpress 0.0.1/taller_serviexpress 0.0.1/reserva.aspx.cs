@@ -14,13 +14,25 @@ namespace taller_serviexpress_0._0._1
 {
     public partial class reserva : System.Web.UI.Page
     {
+        //declaro la direccion y el puerto por el que hacemos el pedido a la api 
+        static String puerto = "8080";
+        static String host = "http://localhost:";//"54.233.167.87"; cambiar localhost por la direccion que este en linea
+        String url = host + puerto;
+        //Puede parecer tedioso pero ayuda cuando cambiamos el servidor o el puerto
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack == false)
             {
-                string fileJson = File.ReadAllText(@"C:\Users\vina\Desktop\Leer_json\Leer_json\servicios.json");
+                //local
+                //string fileJson = File.ReadAllText(@"C:\Users\vina\Desktop\Leer_json\Leer_json\servicios.json");
+                //por URL
+                var http = new WebClient();
+                string fileJson = http.DownloadString(url + "/api/servicio");
+                //creamos un objeto que controla la serealizacion o desealizacion
                 JavaScriptSerializer jsd = new JavaScriptSerializer();
+                //deserealizamos una lista de servicios que nos va a llegar
                 List<Servicio> lstserv = (List<Servicio>)jsd.Deserialize(fileJson, typeof(List<Servicio>));
+
                 foreach (Servicio ser in lstserv)
                 {
                     ddlservicios.DataSource = lstserv;
@@ -50,28 +62,32 @@ namespace taller_serviexpress_0._0._1
             //Response.Write("<script>alert('json creado');</script>");
             //TextBox1.Text = "";
 
-            var reserva = new Reserva();
-            ServicePointManager.ServerCertificateValidationCallback = new RemoteCertificateValidationCallback(
-           delegate { return true; }
-           );
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("");
+            var reserva = new Reserva()
+            {
+                clientes_id_personas = 3,
+                empleados_id_personas = 1,
+                fecha = DateTime.Parse("2019-05-01T14:08:53.819Z"),
+                id_reservas = 1,
+                observaciones = "Hola Pelao",
+                se_atendio = false,
+            };
+            string json = JsonConvert.SerializeObject(reserva);
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(url + "/api/reserva");
             httpWebRequest.ContentType = "application/json; charset=utf-8";
-            httpWebRequest.Accept = "application/json";
             httpWebRequest.Method = "POST";
+            httpWebRequest.Accept = "application/json; charset=utf-8";
+
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
-                string json = JsonConvert.SerializeObject(reserva);
-
                 streamWriter.Write(json);
                 streamWriter.Flush();
                 streamWriter.Close();
-            }
 
-            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
-            {
-                var result = streamReader.ReadToEnd();
-                Response.Write(" < script > alert('Reserva Guardada');</ script > ");
+                var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    var result = streamReader.ReadToEnd();
+                }
 
             }
         }

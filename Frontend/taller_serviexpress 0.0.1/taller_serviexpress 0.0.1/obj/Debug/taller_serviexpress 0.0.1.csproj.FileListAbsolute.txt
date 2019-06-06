@@ -314,3 +314,82 @@ C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Mi
 C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\es\System.Web.Optimization.resources.dll
 C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\es\Microsoft.AspNet.FriendlyUrls.resources.dll
 C:\Users\vina\Desktop\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\obj\Debug\taller_serviexpress 0.0.1.csproj.CopyComplete
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\taller_serviexpress 0.0.1.dll.config
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\taller_serviexpress 0.0.1.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\taller_serviexpress 0.0.1.pdb
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\csc.exe
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\csc.exe.config
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\csc.rsp
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\csi.exe
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\csi.exe.config
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\csi.rsp
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.Managed.Core.targets
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.AppContext.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Collections.Immutable.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Console.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.IO.Compression.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.IO.FileSystem.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.IO.Pipes.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Reflection.Metadata.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Security.AccessControl.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Security.Claims.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Security.Principal.Windows.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.ValueTuple.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Xml.XmlDocument.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Xml.XPath.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\vbc.exe
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\vbc.exe.config
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\vbc.rsp
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\VBCSCompiler.exe
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\roslyn\VBCSCompiler.exe.config
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Antlr3.Runtime.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\AspNet.ScriptManager.bootstrap.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\AspNet.ScriptManager.jQuery.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Microsoft.AspNet.FriendlyUrls.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Microsoft.ScriptManager.MSAjax.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Microsoft.ScriptManager.WebForms.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Microsoft.Web.Infrastructure.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Newtonsoft.Json.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\RestSharp.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\System.Diagnostics.DiagnosticSource.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\System.Web.Optimization.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\WebGrease.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\RestSharp.xml
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\System.Web.Optimization.xml
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Newtonsoft.Json.xml
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Antlr3.Runtime.pdb
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Microsoft.AspNet.FriendlyUrls.xml
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\System.Diagnostics.DiagnosticSource.xml
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\es\System.Web.Optimization.resources.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\bin\es\Microsoft.AspNet.FriendlyUrls.resources.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\obj\Debug\taller_serviexpress 0.0.1.csprojAssemblyReference.cache
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\obj\Debug\taller_serviexpress 0.0.1.csproj.CoreCompileInputs.cache
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\obj\Debug\taller_serviexpress 0.0.1.csproj.CopyComplete
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\obj\Debug\taller_serviexpress 0.0.1.dll
+C:\GitHub\ServiExpress\Frontend\taller_serviexpress 0.0.1\taller_serviexpress 0.0.1\obj\Debug\taller_serviexpress 0.0.1.pdb
