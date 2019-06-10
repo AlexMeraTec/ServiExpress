@@ -7,5 +7,5 @@ import com.serviexpress.serviexpress.modelo.Persona;
  *
  */
 public interface PersonaRepository extends JpaRepository<Persona, Integer>{
-	public Persona findById_persona(int id_personas);
+	public Persona findById_personas(int id_personas);
 }

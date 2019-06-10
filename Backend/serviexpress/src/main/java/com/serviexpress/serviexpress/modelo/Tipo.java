@@ -22,4 +22,6 @@ public class Tipo{
 	private int id_tipos;
 	@Column(name = "nombre")
 	private String nombre;
+	@Column(name = "activo")
+	private String activo;
 }

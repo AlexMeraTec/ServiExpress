@@ -53,7 +53,7 @@ public class PersonaService {
 	}
 	
 	public Persona findById_personas(int id_personas){
-		return this.personaRepository.findById_persona(id_personas);
+		return this.personaRepository.findById_personas(id_personas);
 	}
 	
 	public List<Persona> findAll(){

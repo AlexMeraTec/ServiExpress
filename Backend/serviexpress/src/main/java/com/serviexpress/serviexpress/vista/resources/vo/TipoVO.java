@@ -10,4 +10,5 @@ import lombok.Data;
 public class TipoVO {
 	private int id_tipos;
 	private String nombre;
+	private boolean activo;
 }

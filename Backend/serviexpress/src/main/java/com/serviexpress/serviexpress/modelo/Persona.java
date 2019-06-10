@@ -1,17 +1,9 @@
 package com.serviexpress.serviexpress.modelo;
 
-
-import javax.persistence.Column; 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-
-//import javax.persistence.MappedSuperclass;
-
 import javax.persistence.NamedQuery;
-
 import javax.persistence.Table;
 import lombok.Data;
 /**
@@ -21,9 +13,8 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "personas")
-@NamedQuery(name = "Persona.findById_persona", query = "select p from Persona p where p.id_personas = ?1") //no olvidar que from Producto es con mayuscula porque es la CLASE
+@NamedQuery(name = "Persona.findById_personas", query = "select p from Persona p where p.id_personas = ?1") //no olvidar que from Producto es con mayuscula porque es la CLASE
 @NamedQuery(name = "Persona.findByRut", query = "select p from Persona p where p.rut = ?1 and p.digito_verificador = ?1") //no olvidar que from Producto es con mayuscula porque es la CLASE
-@Inheritance (strategy=InheritanceType.TABLE_PER_CLASS)
 public class Persona {
 	@Id
 	@Column(name = "id_personas")
@@ -67,11 +58,11 @@ public class Persona {
 	
 	@Column(name = "tipo_personas")
 	private char tipo_personas;
-	/*
+/*
 	@OneToOne
-    @MapsId
 	private Cliente cliente;
-	*/
 	
-	
+	@OneToOne
+	private Empleado empleado;
+*/
 }

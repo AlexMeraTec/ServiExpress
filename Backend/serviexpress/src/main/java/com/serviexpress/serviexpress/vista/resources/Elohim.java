@@ -12,24 +12,24 @@ import org.springframework.beans.BeanWrapperImpl;
 
 public class Elohim {
 	
-	public static void copiarPropiedadesNoNulas(Object objetoVirtual, Object claseObjetivo) {
-	    BeanUtils.copyProperties(objetoVirtual, claseObjetivo, getNullPropertyNames(objetoVirtual));
-	}
+	public void copiarPropiedadesNoNulas(Object objetoVirtual, Object claseObjetivo) {
+		BeanUtils.copyProperties(objetoVirtual, claseObjetivo, getPropiedadesNulas(objetoVirtual));
+	}	
 
-	public static String[] getPropiedadesNulas (Object objVirtual) {
-	    final BeanWrapper src = new BeanWrapperImpl(objVirtual);
+	public String[] getPropiedadesNulas (Object objVirtual) {
+		BeanWrapper src = new BeanWrapperImpl(objVirtual);
 	    PropertyDescriptor[] pds = src.getPropertyDescriptors();
 
-	    Set<String> emptyNames = new HashSet<String>();
+	    Set<String> nombresVacios = new HashSet<String>();
 	    for(PropertyDescriptor pd : pds) {
 	        Object srcValue = src.getPropertyValue(pd.getName());
-	        if (srcValue == null) emptyNames.add(pd.getName());
+	        if (srcValue == null) nombresVacios.add(pd.getName());
 	    }
-	    String[] result = new String[emptyNames.size()];
-	    return emptyNames.toArray(result);
+	    String[] result = new String[nombresVacios.size()];
+	    return nombresVacios.toArray(result);
 	}
 	
-	public static String[] getNullPropertyNames(Object source) {
+	public String[] getNullPropertyNames(Object source) {
 	    final BeanWrapper wrappedSource = new BeanWrapperImpl(source);
 	    return Stream.of(wrappedSource.getPropertyDescriptors())
 	            .map(FeatureDescriptor::getName)

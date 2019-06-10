@@ -55,38 +55,14 @@ public class Producto {
 	
 	@Column(name = "activo")
 	private boolean activo;
-
-	public Producto() {
-		super();
-	}
-	public Producto
-	(
-		String nombre,
-		Date fecha_vencimiento,
-		int proveedores_id_proveedor,
-		int tipos_id_tipos,
-		int familias_id_familias,
-		int precio_compra,
-		int precio_venta,
-		int stock,
-		int stock_critico,
-		boolean activo
-	){
-		this.nombre = nombre;
-		this.fecha_vencimiento = fecha_vencimiento;
-		this.proveedores_id_proveedor = proveedores_id_proveedor;
-		this.tipos_id_tipos = tipos_id_tipos;
-		this.familias_id_familias = familias_id_familias;
-		this.precio_compra = precio_compra;
-		this.precio_venta = precio_venta;
-		this.stock = stock;
-		this.stock_critico = stock_critico;
-		this.activo = activo;
-		
-	}
-	public String getId_productos() {
-		return id_productos;
-	}
+/*
+	private Proveedor proveedor;
+	
+	private Familia familia;
+	
+	private Tipo tipo;
+*/
+	
 	public boolean getActivo() {
 		return activo;
 	}
