@@ -42,31 +42,31 @@ public class RecepcionResource extends Elohim{
 	@ApiOperation(value = "Crear Recepcion", notes = "Servicio para crear una nueva Recepcion")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Recepcion CREADA correctamente"),@ApiResponse(code = 404, message = "Solicitud Invalida")})
 	public ResponseEntity<Recepcion> createRecepcion(@RequestBody RecepcionVO VO){
-		Recepcion resep = new Recepcion();
-		copiarPropiedadesNoNulas(VO, resep);
-		return new ResponseEntity<>(this.recService.create(resep), HttpStatus.CREATED);
+		Recepcion reon = new Recepcion();
+		copiarPropiedadesNoNulas(VO, reon);
+		return new ResponseEntity<>(this.recService.create(reon), HttpStatus.CREATED);
 	}
 	
 	@PutMapping("/{id_recepcion}")
 	@ApiOperation(value = "actualizar Recepcion", notes = "Servicio para actualizar una Recepcion")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Recepcion ACTUALIZADA correctamente"),@ApiResponse(code = 404, message = "Recepcion NO encontrado")})
 	public ResponseEntity<Recepcion> updateRecepcion(@PathVariable("id_recepcion") int id_recepcion, RecepcionVO VO){
-		Recepcion resep = this.recService.findById_recepcion(id_recepcion);
-		if (resep==null) {
+		Recepcion reon = this.recService.findById_recepcion(id_recepcion);
+		if (reon==null) {
 			return new ResponseEntity<Recepcion>(HttpStatus.NOT_FOUND);
 		}else {
-			copiarPropiedadesNoNulas(VO, resep);
+			copiarPropiedadesNoNulas(VO, reon);
 		}
-		return new ResponseEntity<>(this.recService.update(resep), HttpStatus.OK);
+		return new ResponseEntity<>(this.recService.update(reon), HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/{id_recepcion}")
 	@ApiOperation(value = "Eliminar Recepcion", notes = "Servicio para eliminar una Recepcion")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Recepcion ELIMINADA correctamente"),@ApiResponse(code = 404, message = "Recepcion NO encontrado")})
 	public void removeRecepcion(@PathVariable("id_recepcion") int id_recepcion) {
-		Recepcion resep = this.recService.findById_recepcion(id_recepcion);
-		if (resep!=null) {
-			this.recService.delete(resep);
+		Recepcion reon = this.recService.findById_recepcion(id_recepcion);
+		if (reon!=null) {
+			this.recService.delete(reon);
 		}
 	}
 
@@ -74,8 +74,8 @@ public class RecepcionResource extends Elohim{
 	@ApiOperation(value = "Buscar Recepcion", notes = "servicio para buscar una Recepcion")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Recepcion ENCONTRADA correctamente"),@ApiResponse(code = 404, message = "Recepcion NO encontrada")})
 	public ResponseEntity<Recepcion> findById_recepcion(int id_recepcion) {
- 		Recepcion resep = this.recService.findById_recepcion(id_recepcion);
-		return ResponseEntity.ok(resep);
+ 		Recepcion reon = this.recService.findById_recepcion(id_recepcion);
+		return ResponseEntity.ok(reon);
 		
 	}
  

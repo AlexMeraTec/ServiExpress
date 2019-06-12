@@ -21,5 +21,5 @@ public class PersonaVO {
 	private String password;
 	private String e_mail;
 	private boolean activa;
-	private char tipo_personas;
+	private int tipo_personas;
 }

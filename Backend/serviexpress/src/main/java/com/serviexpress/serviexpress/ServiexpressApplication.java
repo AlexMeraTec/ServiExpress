@@ -1,4 +1,12 @@
 /*
+nota IMPORTANTE:
+- dependiendo de la version de MYSQL en la base de datos deberemos cambiar en las dependencias por la version necesarioa en el archivo pom.xml
+	<dependency>
+		<groupId>mysql</groupId>
+		<artifactId>mysql-connector-java</artifactId>
+		<version>5.1.43</version> <!--poner 8.0.11 en caso de que la variable de innodb sea 8.0.X  -->
+	</dependency>
+
 docker run -p 3306:3306 --name serviexpress -v C:\DockerImages:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=serviexpress -d mysql:8.0 --character-set-server=utf8 --collation-server=utf8_bin
 docker start serviexpress
 docker exec -it serviexpress mysql -uroot -p

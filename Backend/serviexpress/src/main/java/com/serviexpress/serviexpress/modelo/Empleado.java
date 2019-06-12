@@ -21,7 +21,7 @@ import lombok.Data;
 @Table(name = "empleados")
 @DiscriminatorValue(value="e")
 @NamedQuery(name = "Empleado.findById_personas", query = "select e from Empleado e where e.id_personas = ?1")
-public class Empleado{
+public class Empleado extends Persona{
 	@Id
 	@Column(name = "id_personas")
 	private int id_personas;
