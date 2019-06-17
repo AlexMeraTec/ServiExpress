@@ -50,8 +50,8 @@ public class Reserva_servicioResource extends Elohim{
 	@PutMapping("/{id_reserva}")
 	@ApiOperation(value = "actualizar Reserva_servicio", notes = "Servicio para actualizar un Reserva_servicio")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Reserva_servicio ACTUALIZADO correctamente"),@ApiResponse(code = 404, message = "Reserva_servicio NO encontrado")})
-	public ResponseEntity<Reserva_servicio> updateReserva_servicio(@PathVariable("id_reserva") int id_reserva, Reserva_servicioVO VO){
-		Reserva_servicio resSer = this.resSerService.findByReserva_servicio_id_reservas(id_reserva);
+	public ResponseEntity<Reserva_servicio> updateReserva_servicio(@PathVariable("id_reserva") int id_reserva,@PathVariable("id_servicios") int id_servicios, Reserva_servicioVO VO){
+		Reserva_servicio resSer = this.resSerService.findByReserva_servicio_id_reservas(id_reserva,id_servicios);
 		if (resSer==null) {
 			return new ResponseEntity<Reserva_servicio>(HttpStatus.NOT_FOUND);
 		}else {
@@ -63,8 +63,8 @@ public class Reserva_servicioResource extends Elohim{
 	@DeleteMapping("/{id_reserva}")
 	@ApiOperation(value = "Eliminar Reserva_servicio", notes = "Servicio para eliminar un Reserva_servicio")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Reserva_servicio ELIMINADO correctamente"),@ApiResponse(code = 404, message = "Reserva_servicio NO encontrado")})
-	public void removeReserva_servicio(@PathVariable("id_reserva") int id_reservas) {
-		Reserva_servicio resSer = this.resSerService.findByReserva_servicio_id_reservas(id_reservas);
+	public void removeReserva_servicio(@PathVariable("id_reserva") int id_reservas,@PathVariable("id_servicios") int id_servicios) {
+		Reserva_servicio resSer = this.resSerService.findByReserva_servicio_id_reservas(id_reservas,id_servicios);
 		if (resSer!=null) {
 			this.resSerService.delete(resSer);
 		}
@@ -73,8 +73,8 @@ public class Reserva_servicioResource extends Elohim{
  	@GetMapping("/{id_reserva}")
 	@ApiOperation(value = "Buscar Reserva_servicio", notes = "servicio para buscar un Reserva_servicio")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Reserva_servicio ENCONTRADO correctamente"),@ApiResponse(code = 404, message = "Reserva_servicio NO encontrado")})
-	public ResponseEntity<Reserva_servicio> findById_reserva_servicio(int id_reserva) {
- 		Reserva_servicio resSer = this.resSerService.findByReserva_servicio_id_reservas(id_reserva);
+	public ResponseEntity<Reserva_servicio> findById_reserva_servicio(int id_reserva, int id_servicios) {
+ 		Reserva_servicio resSer = this.resSerService.findByReserva_servicio_id_reservas(id_reserva,id_servicios);
 		return ResponseEntity.ok(resSer);
 		
 	}

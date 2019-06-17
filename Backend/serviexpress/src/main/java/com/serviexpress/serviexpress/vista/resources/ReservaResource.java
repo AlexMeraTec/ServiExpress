@@ -13,7 +13,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.serviexpress.serviexpress.modelo.Cliente;
+import com.serviexpress.serviexpress.modelo.Empleado;
 import com.serviexpress.serviexpress.modelo.Reserva;
+import com.serviexpress.serviexpress.negocio.services.ClienteService;
+import com.serviexpress.serviexpress.negocio.services.EmpleadoService;
 import com.serviexpress.serviexpress.negocio.services.ReservaService;
 import com.serviexpress.serviexpress.vista.resources.vo.ReservaVO;
 
@@ -32,12 +36,16 @@ import io.swagger.annotations.ApiResponses;
 @Api(tags = "reserva")
 public class ReservaResource extends Elohim{
 	private final ReservaService reservaService;
+	private final ClienteService clienteService;
+	private final EmpleadoService empleadoService;
 	
-	public ReservaResource(ReservaService reservaService) {
+	public ReservaResource(ReservaService reservaService, ClienteService clienteService, EmpleadoService empleadoService) {
 		this.reservaService = reservaService;
+		this.clienteService = clienteService;
+		this.empleadoService =  empleadoService;
 	}
 	
-	@PostMapping
+	@PostMapping("crea")
 	@ApiOperation(value = "Crear Reserva", notes = "Servicio para crear una nueva Reserva")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Reserva CREADO correctamente"),@ApiResponse(code = 404, message = "Solicitud Invalida")})
 	public ResponseEntity<Reserva> createReserva(@RequestBody ReservaVO reservaVO){
@@ -51,6 +59,10 @@ public class ReservaResource extends Elohim{
 		reserva.setClientes_id_personas(reservaVO.getClientes_id_personas());
 		*/
 		copiarPropiedadesNoNulas(reservaVO, reserva);
+		reserva.setEmpleadoReserva(this.empleadoService.findById_empleado(reservaVO.getID_EMPLEADO()));
+		reserva.setClienteReserva(this.clienteService.findById_cliente(reservaVO.getID_CLIENTE()));
+		//reserva.getEmpleadoReserva().setId_empleado(reservaVO.getID_EMPLEADO());
+		//reserva.getClienteReserva().setId_cliente(reservaVO.getID_EMPLEADO());
 		return new ResponseEntity<>(this.reservaService.create(reserva), HttpStatus.CREATED);
 	}
 	

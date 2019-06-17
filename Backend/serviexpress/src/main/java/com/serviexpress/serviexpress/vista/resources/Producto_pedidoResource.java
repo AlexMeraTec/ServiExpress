@@ -50,8 +50,8 @@ public class Producto_pedidoResource extends Elohim{
 	@PutMapping("/{id_pedidos}")
 	@ApiOperation(value = "actualizar Producto_pedido", notes = "Servicio para actualizar un Producto_pedido")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Producto_pedido ACTUALIZADO correctamente"),@ApiResponse(code = 404, message = "Producto_pedido NO encontrado")})
-	public ResponseEntity<Producto_pedido> updateProducto_pedido(@PathVariable("id_pedidos") int id_pedidos, Producto_pedidoVO VO){
-		Producto_pedido ppdo = this.ppdoService.findByProducto_pedido_id_pedidos(id_pedidos);
+	public ResponseEntity<Producto_pedido> updateProducto_pedido(@PathVariable("id_pedidos") int id_pedidos,@PathVariable("id_productos") String id_productos, Producto_pedidoVO VO){
+		Producto_pedido ppdo = this.ppdoService.findByProducto_pedido_id_pedidos(id_pedidos,id_productos);
 		if (ppdo==null) {
 			return new ResponseEntity<Producto_pedido>(HttpStatus.NOT_FOUND);
 		}else {
@@ -63,8 +63,8 @@ public class Producto_pedidoResource extends Elohim{
 	@DeleteMapping("/{id_pedidos}")
 	@ApiOperation(value = "Eliminar Producto_pedido", notes = "Servicio para eliminar un Producto_pedido")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Producto_pedido ELIMINADO correctamente"),@ApiResponse(code = 404, message = "Producto_pedido NO encontrado")})
-	public void removeProducto_pedido(@PathVariable("id_pedidos") int id_pedidos) {
-		Producto_pedido ppdo = this.ppdoService.findByProducto_pedido_id_pedidos(id_pedidos);
+	public void removeProducto_pedido(@PathVariable("id_pedidos") int id_pedidos,@PathVariable("id_productos") String id_productos) {
+		Producto_pedido ppdo = this.ppdoService.findByProducto_pedido_id_pedidos(id_pedidos,id_productos);
 		if (ppdo!=null) {
 			this.ppdoService.delete(ppdo);
 		}
@@ -73,8 +73,8 @@ public class Producto_pedidoResource extends Elohim{
  	@GetMapping("/{id_pedidos}")
 	@ApiOperation(value = "Buscar Producto_pedido", notes = "servicio para buscar un Producto_pedido")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Producto_pedido ENCONTRADO correctamente"),@ApiResponse(code = 404, message = "Producto_pedido NO encontrado")})
-	public ResponseEntity<Producto_pedido> findById_pedidos(int id_pedidos) {
- 		Producto_pedido ppdo = this.ppdoService.findByProducto_pedido_id_pedidos(id_pedidos);
+	public ResponseEntity<Producto_pedido> findById_pedidos(int id_pedidos,String id_productos) {
+ 		Producto_pedido ppdo = this.ppdoService.findByProducto_pedido_id_pedidos(id_pedidos,id_productos);
 		return ResponseEntity.ok(ppdo);
 		
 	}

@@ -1,6 +1,5 @@
 package com.serviexpress.serviexpress.vista.resources.vo;
 
-
 import lombok.Data;
 /**
  * @author arekkusu888
@@ -21,5 +20,11 @@ public class PersonaVO {
 	private String password;
 	private String e_mail;
 	private boolean activa;
-	private int tipo_personas;
+	private boolean tipo;
+	
+//	@JsonIgnore
+//	private ClienteVO cVO;
+//	
+//	@JsonIgnore
+//	private EmpleadoVO eVO;
 }

@@ -12,12 +12,11 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.serviexpress.serviexpress.modelo.Empleado;
+import com.serviexpress.serviexpress.modelo.Persona;
 import com.serviexpress.serviexpress.negocio.services.EmpleadoService;
-//vo es por Virtual Object
-import com.serviexpress.serviexpress.vista.resources.vo.EmpleadoVO;
-
+import com.serviexpress.serviexpress.negocio.services.PersonaService;
+import com.serviexpress.serviexpress.vista.resources.vo.EmpleadoVO;//vo es por Virtual Object
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -33,38 +32,57 @@ import io.swagger.annotations.ApiResponses;
 @Api(tags = "empleado")
 public class EmpleadoResource extends Elohim{
 	private final EmpleadoService empService;
+	private final  PersonaService personaService;
 	
-	public EmpleadoResource(EmpleadoService EmpleadoService) {
+	public EmpleadoResource(EmpleadoService EmpleadoService, PersonaService personaService) {
 		this.empService = EmpleadoService;
+		this.personaService = personaService;
 	}
 	
 	@PostMapping
 	@ApiOperation(value = "Crear Empleado", notes = "Servicio para crear un nuevo Empleado")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Empleado CREADO correctamente"),@ApiResponse(code = 404, message = "Solicitud Invalida")})
 	public ResponseEntity<Empleado> createEmpleado(@RequestBody EmpleadoVO VO){
-		Empleado perso = new Empleado();
-		copiarPropiedadesNoNulas(VO, perso);
-		return new ResponseEntity<>(this.empService.create(perso), HttpStatus.CREATED);
+		Empleado empleadoPerso = new Empleado();
+		
+		if(empService.findById_empleado(VO.getId_empleado()) != null) {
+			return new ResponseEntity<>(HttpStatus.ALREADY_REPORTED);
+		}else{
+			copiarPropiedadesNoNulas(VO, empleadoPerso);
+			Persona persona = new Persona();
+			copiarPropiedadesNoNulas(VO.getPersonaVO(), persona);
+			persona.setTipo(true);
+			empleadoPerso.setPersonaEmpleado(persona);
+			this.personaService.create(persona);
+			return new ResponseEntity<>(this.empService.create(empleadoPerso), HttpStatus.CREATED);	
+		}
+		
 	}
 	
-	@PutMapping("/{id_personas}")
+	@PutMapping("/actualiza/{id_personas}")
 	@ApiOperation(value = "actualizar Empleado", notes = "Servicio para actualizar un Empleado")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Empleado ACTUALIZADA correctamente"),@ApiResponse(code = 404, message = "Empleado NO encontrada")})
 	public ResponseEntity<Empleado> updateEmpleado(@PathVariable("id_personas") int id_personas, EmpleadoVO VO){
-		Empleado perso = this.empService.findById_personas(id_personas);
-		if (perso==null) {
+		Empleado empleadoPerso = this.empService.findById_empleado(id_personas);
+		if (empleadoPerso==null) {
 			return new ResponseEntity<Empleado>(HttpStatus.NOT_FOUND);
 		}else {
-			copiarPropiedadesNoNulas(VO, perso);
+			copiarPropiedadesNoNulas(VO, empleadoPerso);
+			Persona persona = this.personaService.findById_personas(id_personas);
+			copiarPropiedadesNoNulas(VO.getPersonaVO(), persona);
+			persona.setTipo(true);
+			empleadoPerso.setPersonaEmpleado(persona);
+			this.personaService.update(persona);
+			return new ResponseEntity<>(this.empService.update(empleadoPerso), HttpStatus.OK);
 		}
-		return new ResponseEntity<>(this.empService.update(perso), HttpStatus.OK);
+		
 	}
 	
 	@DeleteMapping("/{id_personas}")
 	@ApiOperation(value = "Eliminar Empleado", notes = "Servicio para eliminar un Empleado")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Empleado ELIMINADO correctamente"),@ApiResponse(code = 404, message = "Empleado NO encontrado")})
 	public void removeEmpleado(@PathVariable("id_personas") int id_personas) {
-		Empleado perso = this.empService.findById_personas(id_personas);
+		Empleado perso = this.empService.findById_empleado(id_personas);
 		if (perso!=null) {
 			this.empService.delete(perso);
 		}
@@ -74,7 +92,7 @@ public class EmpleadoResource extends Elohim{
 	@ApiOperation(value = "Buscar Empleado", notes = "servicio para buscar un Empleado")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Empleado ENCONTRADO correctamente"),@ApiResponse(code = 404, message = "Empleado NO encontrado")})
 	public ResponseEntity<Empleado> findByid_empleados(int id_personas) {
- 		Empleado perso = this.empService.findById_personas(id_personas);
+ 		Empleado perso = this.empService.findById_empleado(id_personas);
 		return ResponseEntity.ok(perso);
 		
 	}

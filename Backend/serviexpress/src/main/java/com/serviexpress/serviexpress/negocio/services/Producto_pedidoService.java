@@ -49,8 +49,8 @@ public class Producto_pedidoService {
 		this.ppRepository.delete(pp);
 	}
 	
-	public Producto_pedido findByProducto_pedido_id_pedidos(int pedido_id_pedidos){
-		return this.ppRepository.findByProducto_pedido_id_pedidos(pedido_id_pedidos);
+	public Producto_pedido findByProducto_pedido_id_pedidos(int pedido_id_pedidos,String id_productos){
+		return this.ppRepository.findByProducto_pedido_id_pedidos(pedido_id_pedidos, id_productos);
 	}
 	
 	public List<Producto_pedido> findAll(){

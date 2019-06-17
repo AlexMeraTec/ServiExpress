@@ -47,11 +47,11 @@ public class Producto_reservaResource extends Elohim{
 		return new ResponseEntity<>(this.prService.create(prorev), HttpStatus.CREATED);
 	}
 	
-	@PutMapping("/{id_pedidos}")
+	@PutMapping("/{id_productos}")
 	@ApiOperation(value = "actualizar Producto_reserva", notes = "Servicio para actualizar un Producto_reserva")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Producto_reserva ACTUALIZADO correctamente"),@ApiResponse(code = 404, message = "Producto_reserva NO encontrado")})
-	public ResponseEntity<Producto_reserva> updateProducto_reserva(@PathVariable("id_pedidos") String id_pedidos, Producto_reservaVO VO){
-		Producto_reserva prorev = this.prService.findByProducto_reserva_id_reservas(id_pedidos);
+	public ResponseEntity<Producto_reserva> updateProducto_reserva(@PathVariable("id_productos") String id_productos, @PathVariable("id_reservas") int id_reservas, Producto_reservaVO VO){
+		Producto_reserva prorev = this.prService.findByProducto_reserva_id_reservas(id_productos, id_reservas);
 		if (prorev==null) {
 			return new ResponseEntity<Producto_reserva>(HttpStatus.NOT_FOUND);
 		}else {
@@ -60,21 +60,21 @@ public class Producto_reservaResource extends Elohim{
 		return new ResponseEntity<>(this.prService.update(prorev), HttpStatus.OK);
 	}
 	
-	@DeleteMapping("/{id_pedidos}")
+	@DeleteMapping("/{id_productos}")
 	@ApiOperation(value = "Eliminar Producto_reserva", notes = "Servicio para eliminar un Producto_reserva")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Producto_reserva ELIMINADO correctamente"),@ApiResponse(code = 404, message = "Producto_reserva NO encontrado")})
-	public void removeProducto_reserva(@PathVariable("id_pedidos") String id_pedidos) {
-		Producto_reserva prorev = this.prService.findByProducto_reserva_id_reservas(id_pedidos);
+	public void removeProducto_reserva(@PathVariable("id_productos") String id_productos, @PathVariable("id_reservas") int id_reservas) {
+		Producto_reserva prorev = this.prService.findByProducto_reserva_id_reservas(id_productos, id_reservas);
 		if (prorev!=null) {
 			this.prService.delete(prorev);
 		}
 	}
 
- 	@GetMapping("/{id_pedidos}")
+ 	@GetMapping("/{id_productos}")
 	@ApiOperation(value = "Buscar Producto_reserva", notes = "servicio para buscar un Producto_reserva")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Producto_reserva ENCONTRADO correctamente"),@ApiResponse(code = 404, message = "Producto_reserva NO encontrado")})
-	public ResponseEntity<Producto_reserva> findById_pedidos(String id_pedidos) {
- 		Producto_reserva prorev = this.prService.findByProducto_reserva_id_reservas(id_pedidos);
+	public ResponseEntity<Producto_reserva> findById_pedidos(String id_productos, int id_reservas) {
+ 		Producto_reserva prorev = this.prService.findByProducto_reserva_id_reservas(id_productos, id_reservas);
 		return ResponseEntity.ok(prorev);
 		
 	}

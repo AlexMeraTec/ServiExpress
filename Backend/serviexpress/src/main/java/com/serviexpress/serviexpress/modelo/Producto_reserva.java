@@ -3,8 +3,11 @@ package com.serviexpress.serviexpress.modelo;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.NamedQuery;
+import javax.persistence.IdClass;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.NamedQuery;
 import lombok.Data;
 
 /**
@@ -14,14 +17,18 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "productos_reservas")
-@NamedQuery(name = "Producto_reserva.findByProducto_reserva_id_reservas", query = "select p from Producto_reserva p where p.pedidos_id_pedidos = ?1")
+@IdClass(value = IdProducReserva.class)
+@NamedQuery(name = "Producto_reserva.findByProducto_reserva_id_reservas", query = "select pr from Producto_reserva pr where pr.id_reservas = ?1 and pr.id_productos = ?1 ")
 public class Producto_reserva {
 
-	@Column(name = "productos_id_productos")
-	private int productos_id_productos;
 	@Id
-	@Column(name = "reservas_id_reservas")
-	private int pedidos_id_pedidos;
+	@ManyToOne
+	@JoinColumn(name = "id_reservas", updatable = false, nullable = false)
+	private Reserva id_reservas;
+	@Id
+	@ManyToOne
+	@JoinColumn(name = "id_productos", updatable = false, nullable = false)
+	private Producto id_productos;
 	
 	@Column(name = "cantidad")
 	private int cantidad;

@@ -5,7 +5,9 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -41,7 +43,8 @@ public class Pago {
 	@Column(name = "anulada")
 	private boolean anulada;
 	
-	@Column(name = "reservas_id_reservas")
-	private int reservas_id_reservas;
+	@OneToOne
+	@JoinColumn(name = "id_reservas", updatable = false, nullable = false)
+	private Reserva id_reservas;
 	
 }

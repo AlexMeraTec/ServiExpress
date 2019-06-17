@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
@@ -19,8 +21,9 @@ import lombok.Data;
 @Table(name = "vehiculos")
 @NamedQuery(name = "Vehiculo.findByPatente", query = "select v from Vehiculo v where v.patente = ?1")
 public class Vehiculo {
-	@Column(name = "id_personas")
-	private int id_personas;
+	@ManyToOne
+	@JoinColumn(name = "id_cliente", updatable = false, nullable = false)
+	private Cliente clienteReserva;
 	
 	@Id
 	@Column(name = "patente")

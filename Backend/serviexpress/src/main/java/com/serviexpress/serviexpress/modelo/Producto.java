@@ -1,13 +1,21 @@
 package com.serviexpress.serviexpress.modelo;
 
 import java.util.Date;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 
@@ -31,16 +39,7 @@ public class Producto {
 	@Column(name = "fecha_vencimiento")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date fecha_vencimiento;
-	
-	@Column(name = "proveedores_id_proveedor")
-	private int proveedores_id_proveedor;
-	
-	@Column(name = "tipos_id_tipos")
-	private int tipos_id_tipos;
-	
-	@Column(name = "familias_id_familias")
-	private int familias_id_familias;
-	
+		
 	@Column(name = "precio_compra")
 	private int precio_compra;
 	
@@ -55,6 +54,19 @@ public class Producto {
 	
 	@Column(name = "activo")
 	private boolean activo;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_proveedor", updatable = false, nullable = false) 
+	private Proveedor id_proveedor;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_tipos", updatable = false, nullable = false) 
+	private Tipo id_tipos;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_familias", updatable = false, nullable = false) 
+	private Familia id_familias;
+
 /*
 	private Proveedor proveedor;
 	
@@ -62,6 +74,13 @@ public class Producto {
 	
 	private Tipo tipo;
 */
+	@OneToMany(mappedBy = "id_productos",cascade = CascadeType.ALL)
+	@JsonIgnore
+	List<Producto_reserva> pProductoReserva;
+	
+	@OneToMany(mappedBy = "id_productos",cascade = CascadeType.ALL)
+	@JsonIgnore
+	List<Producto_pedido> pProductoPedido;
 	
 	public boolean getActivo() {
 		return activo;

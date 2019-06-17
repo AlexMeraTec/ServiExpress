@@ -3,11 +3,17 @@
  */
 package com.serviexpress.serviexpress.modelo;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 
@@ -38,5 +44,9 @@ public class Proveedor {
 	
 	@Column(name = "e_mail")
 	private String e_mail;
+	
+	@OneToMany(mappedBy = "id_proveedor",cascade = CascadeType.ALL)//en mappedBy debe ir el nombre que tiene esta clase dentro de la otra clase
+	@JsonIgnore
+	private List<Producto> productosProveedor;
 	
 }

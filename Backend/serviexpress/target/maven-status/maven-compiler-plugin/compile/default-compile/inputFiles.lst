@@ -10,6 +10,7 @@ C:\Users\arekkusu888\Desktop\serviexpress\src\main\java\com\serviexpress\serviex
 C:\Users\arekkusu888\Desktop\serviexpress\src\main\java\com\serviexpress\serviexpress\vista\resources\TipoResource.java
 C:\Users\arekkusu888\Desktop\serviexpress\src\main\java\com\serviexpress\serviexpress\negocio\repository\ProveedorRepository.java
 C:\Users\arekkusu888\Desktop\serviexpress\src\main\java\com\serviexpress\serviexpress\vista\resources\vo\ProductoVO.java
+C:\Users\arekkusu888\Desktop\serviexpress\src\main\java\com\serviexpress\serviexpress\modelo\IdProducPedido.java
 C:\Users\arekkusu888\Desktop\serviexpress\src\main\java\com\serviexpress\serviexpress\modelo\Producto_pedido.java
 C:\Users\arekkusu888\Desktop\serviexpress\src\main\java\com\serviexpress\serviexpress\modelo\Servicio.java
 C:\Users\arekkusu888\Desktop\serviexpress\src\main\java\com\serviexpress\serviexpress\vista\resources\PersonaResource.java
@@ -41,6 +42,7 @@ C:\Users\arekkusu888\Desktop\serviexpress\src\main\java\com\serviexpress\serviex
 C:\Users\arekkusu888\Desktop\serviexpress\src\main\java\com\serviexpress\serviexpress\negocio\repository\ProductoRepository.java
 C:\Users\arekkusu888\Desktop\serviexpress\src\main\java\com\serviexpress\serviexpress\modelo\Recepcion.java
 C:\Users\arekkusu888\Desktop\serviexpress\src\main\java\com\serviexpress\serviexpress\vista\resources\ReservaResource.java
+C:\Users\arekkusu888\Desktop\serviexpress\src\main\java\com\serviexpress\serviexpress\modelo\IdProducReserva.java
 C:\Users\arekkusu888\Desktop\serviexpress\src\main\java\com\serviexpress\serviexpress\vista\resources\vo\PedidoVO.java
 C:\Users\arekkusu888\Desktop\serviexpress\src\main\java\com\serviexpress\serviexpress\vista\resources\vo\TipoVO.java
 C:\Users\arekkusu888\Desktop\serviexpress\src\main\java\com\serviexpress\serviexpress\negocio\repository\PersonaRepository.java
@@ -78,6 +80,7 @@ C:\Users\arekkusu888\Desktop\serviexpress\src\main\java\com\serviexpress\serviex
 C:\Users\arekkusu888\Desktop\serviexpress\src\main\java\com\serviexpress\serviexpress\negocio\services\PagoService.java
 C:\Users\arekkusu888\Desktop\serviexpress\src\main\java\com\serviexpress\serviexpress\negocio\services\PedidoService.java
 C:\Users\arekkusu888\Desktop\serviexpress\src\main\java\com\serviexpress\serviexpress\vista\resources\vo\ReservaVO.java
+C:\Users\arekkusu888\Desktop\serviexpress\src\main\java\com\serviexpress\serviexpress\modelo\IntCompuesta.java
 C:\Users\arekkusu888\Desktop\serviexpress\src\main\java\com\serviexpress\serviexpress\vista\resources\PagoResource.java
 C:\Users\arekkusu888\Desktop\serviexpress\src\main\java\com\serviexpress\serviexpress\ServiexpressApplication.java
 C:\Users\arekkusu888\Desktop\serviexpress\src\main\java\com\serviexpress\serviexpress\modelo\Pago.java

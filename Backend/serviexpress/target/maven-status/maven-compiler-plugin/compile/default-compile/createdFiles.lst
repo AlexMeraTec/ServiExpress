@@ -35,10 +35,12 @@ com\serviexpress\serviexpress\vista\resources\ClienteResource.class
 com\serviexpress\serviexpress\modelo\Empleado.class
 com\serviexpress\serviexpress\negocio\services\EmpleadoService.class
 com\serviexpress\serviexpress\vista\resources\vo\FamiliaVO.class
+com\serviexpress\serviexpress\modelo\IntCompuesta.class
 com\serviexpress\serviexpress\vista\resources\vo\Reserva_servicioVO.class
 com\serviexpress\serviexpress\vista\resources\EmpleadoResource.class
 com\serviexpress\serviexpress\vista\resources\vo\PagoVO.class
 com\serviexpress\serviexpress\negocio\repository\TipoRepository.class
+com\serviexpress\serviexpress\modelo\IdProducReserva.class
 com\serviexpress\serviexpress\negocio\repository\PersonaRepository.class
 com\serviexpress\serviexpress\vista\resources\PagoResource.class
 com\serviexpress\serviexpress\negocio\repository\RecepcionRepository.class
@@ -74,6 +76,7 @@ com\serviexpress\serviexpress\negocio\repository\ServicioRepository.class
 com\serviexpress\serviexpress\negocio\services\PedidoService.class
 com\serviexpress\serviexpress\vista\resources\Elohim.class
 com\serviexpress\serviexpress\vista\resources\VehiculoResource.class
+com\serviexpress\serviexpress\modelo\IdProducPedido.class
 com\serviexpress\serviexpress\negocio\repository\ProductoRepository.class
 com\serviexpress\serviexpress\vista\resources\RecepcionResource.class
 com\serviexpress\serviexpress\modelo\Servicio.class

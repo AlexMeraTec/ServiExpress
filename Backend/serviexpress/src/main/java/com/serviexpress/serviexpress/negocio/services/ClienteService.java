@@ -52,8 +52,8 @@ public class ClienteService {
 		this.clienteRepository.delete(persona);
 	}
 	
-	public Cliente findById_personas(int id_personas){
-		return this.clienteRepository.findById_personas(id_personas);
+	public Cliente findById_cliente(int id_personas){
+		return this.clienteRepository.findById_cliente(id_personas);
 	}
 	
 	public List<Cliente> findAll(){

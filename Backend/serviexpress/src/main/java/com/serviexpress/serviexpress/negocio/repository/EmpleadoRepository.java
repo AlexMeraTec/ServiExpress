@@ -7,5 +7,5 @@ import com.serviexpress.serviexpress.modelo.Empleado;
  *
  */
 public interface EmpleadoRepository extends JpaRepository<Empleado, Integer>{
-	public Empleado findById_personas(int id_personas);
+	public Empleado findById_empleado(int id_personas);
 }

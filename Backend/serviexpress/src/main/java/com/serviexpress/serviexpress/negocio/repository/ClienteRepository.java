@@ -7,5 +7,5 @@ import com.serviexpress.serviexpress.modelo.Cliente;
  *
  */
 public interface ClienteRepository extends JpaRepository<Cliente, Integer>{
-	public Cliente findById_personas(int id_personas);
+	public Cliente findById_cliente(int id_personas);
 }

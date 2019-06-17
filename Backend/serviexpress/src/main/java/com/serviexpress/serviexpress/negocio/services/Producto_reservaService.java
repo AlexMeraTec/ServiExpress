@@ -49,8 +49,8 @@ public class Producto_reservaService {
 		this.prRepository.delete(pp);
 	}
 	
-	public Producto_reserva findByProducto_reserva_id_reservas(String pedido_id_pedidos){
-		return this.prRepository.findByProducto_reserva_id_reservas(pedido_id_pedidos);
+	public Producto_reserva findByProducto_reserva_id_reservas(String id_productos, int id_reservas){
+		return this.prRepository.findByProducto_reserva_id_reservas(id_productos, id_reservas);
 	}
 	
 	public List<Producto_reserva> findAll(){

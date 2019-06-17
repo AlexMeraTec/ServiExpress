@@ -52,8 +52,8 @@ public class EmpleadoService {
 		this.empReposiroty.delete(persona);
 	}
 	
-	public Empleado findById_personas(int id_personas){
-		return this.empReposiroty.findById_personas(id_personas);
+	public Empleado findById_empleado(int id_personas){
+		return this.empReposiroty.findById_empleado(id_personas);
 	}
 	
 	public List<Empleado> findAll(){

@@ -50,12 +50,13 @@
 			<artifactId>lombok</artifactId>
 			<scope>provided</scope>
 		</dependency>
-
+		
 		<dependency>
-    		<groupId>mysql</groupId>
-    		<artifactId>mysql-connector-java</artifactId>
-    		<version>5.1.43</version><!--poner 8.0.15 en caso de que la variable de innodb sea 8.0.X ver la variable en la base de datos poniendo ' SHOW VARIABLES LIKE "%version%"; ' -->
-		</dependency>		
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc7</artifactId>
+            <version>12.1.0</version>
+		</dependency>
+			
 	</dependencies>
 	<build>
 		<finalName>serviexpress</finalName>

@@ -18,7 +18,6 @@ import com.serviexpress.serviexpress.modelo.Persona;
 import com.serviexpress.serviexpress.negocio.services.ClienteService;
 import com.serviexpress.serviexpress.negocio.services.PersonaService;
 import com.serviexpress.serviexpress.vista.resources.vo.ClienteVO;
-import com.serviexpress.serviexpress.vista.resources.vo.PersonaVO;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -34,30 +33,29 @@ import io.swagger.annotations.ApiResponses;
 @RequestMapping("/api/cliente") //el nombre con el cual llamar a esta clase como Servicio web
 @Api(tags = "cliente")
 public class ClienteResource extends Elohim{
-	private final ClienteService ClienteService;
-	private final PersonaService personaService;
-	
-	public ClienteResource(ClienteService ClienteService,PersonaService personaService) {
-		this.ClienteService = ClienteService;
-		this.personaService=personaService;
+	private final  ClienteService clienteService;
+	private final  PersonaService personaService;
+	public ClienteResource(ClienteService clienteService,PersonaService personaService) {
+		this.clienteService = clienteService;
+		this.personaService = personaService;
 	}
 	
 	@PostMapping
 	@ApiOperation(value = "Crear Cliente", notes = "Servicio para crear una nueva Cliente")
-	@ApiResponses(value = {@ApiResponse(code = 201, message = "Cliente CREADO correctamente"),@ApiResponse(code = 404, message = "Solicitud Invalida")})
-	public ResponseEntity<Cliente> createCliente(@RequestBody ClienteVO cVO,PersonaVO pVO){
+	@ApiResponses(value = {@ApiResponse(code = 201, message = "Cliente CREADO correctamente"),@ApiResponse(code = 404, message = "Solicitud Invalida"),@ApiResponse(code = 208, message = "Cliente con la ID YA EXISTE")})
+	public ResponseEntity<Cliente> createCliente(@RequestBody ClienteVO cVO){
 		Cliente clientePersona = new Cliente();
-		Persona persona = personaService.findById_personas(pVO.getId_personas());
-		//copiarPropiedadesNoNulas(pVO, persona);
-		//copiarPropiedadesNoNulas(cVO, clientePersona);
-		if(persona!=null) {
-			return new ResponseEntity<>(HttpStatus.CONFLICT);	
+		
+		if(clienteService.findById_cliente(cVO.getId_cliente()) != null) {
+			return new ResponseEntity<>(HttpStatus.ALREADY_REPORTED);
 		}else{
-			persona = new Persona();
-			copiarPropiedadesNoNulas(pVO, persona);
 			copiarPropiedadesNoNulas(cVO, clientePersona);
+			Persona persona = new Persona();
+			copiarPropiedadesNoNulas(cVO.getPersonaVO(), persona);
+			persona.setTipo(false);
+			clientePersona.setPersonaCliente(persona);
 			this.personaService.create(persona);
-			return new ResponseEntity<>(this.ClienteService.create(clientePersona), HttpStatus.CREATED);	
+			return new ResponseEntity<>(this.clienteService.create(clientePersona), HttpStatus.CREATED);	
 		}
 		
 	}
@@ -65,24 +63,24 @@ public class ClienteResource extends Elohim{
 	@PutMapping("/{id_personas}")
 	@ApiOperation(value = "actualizar Cliente", notes = "Servicio para actualizar un Cliente")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Cliente ACTUALIZADA correctamente"),@ApiResponse(code = 404, message = "Cliente NO encontrada")})
-	public ResponseEntity<Cliente> updateCliente(@PathVariable("id_personas") int id_personas, ClienteVO personaVO, PersonaVO pVO){
-		Cliente perso = this.ClienteService.findById_personas(id_personas);
-		if (perso==null) {
+	public ResponseEntity<Cliente> updateCliente(@PathVariable("id_personas") int id_personas, ClienteVO personaVO){
+		Cliente cliPerso = this.clienteService.findById_cliente(id_personas);
+		if (cliPerso==null) {
 			return new ResponseEntity<Cliente>(HttpStatus.NOT_FOUND);
 		}else{
 			
-			copiarPropiedadesNoNulas(personaVO, perso);
+			copiarPropiedadesNoNulas(personaVO, cliPerso);
 		}
-		return new ResponseEntity<>(this.ClienteService.update(perso), HttpStatus.OK);
+		return new ResponseEntity<>(this.clienteService.update(cliPerso), HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/{id_personas}")
 	@ApiOperation(value = "Eliminar Cliente", notes = "Servicio para eliminar una Cliente")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Cliente ELIMINADa correctamente"),@ApiResponse(code = 404, message = "Cliente NO encontrado")})
 	public void removeCliente(@PathVariable("id_personas") int id_personas) {
-		Cliente perso = this.ClienteService.findById_personas(id_personas);
-		if (perso!=null) {
-			this.ClienteService.delete(perso);
+		Cliente cliPerso = this.clienteService.findById_cliente(id_personas);
+		if (cliPerso!=null) {
+			this.clienteService.delete(cliPerso);
 		}
 	}
 
@@ -90,8 +88,8 @@ public class ClienteResource extends Elohim{
 	@ApiOperation(value = "Buscar Cliente", notes = "servicio para buscar un Cliente")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Cliente ENCONTRADO correctamente"),@ApiResponse(code = 404, message = "Cliente NO encontrado")})
 	public ResponseEntity<Cliente> findByid_personas(int id_personas) {
- 		Cliente perso = this.ClienteService.findById_personas(id_personas);
-		return ResponseEntity.ok(perso);
+ 		Cliente cliPerso = this.clienteService.findById_cliente(id_personas);
+		return ResponseEntity.ok(cliPerso);
 		
 	}
  
@@ -99,6 +97,6 @@ public class ClienteResource extends Elohim{
 	@ApiOperation(value = "Listar Clientes", notes = "servicio para listar todos los Clientes")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Clientes ENCONTRADOS correctamente"),@ApiResponse(code = 404, message = "Clientes NO encontrado")})
 	public ResponseEntity<List<Cliente>> findAll() {
-		return ResponseEntity.ok(this.ClienteService.findAll());
+		return ResponseEntity.ok(this.clienteService.findAll());
 	}
 }

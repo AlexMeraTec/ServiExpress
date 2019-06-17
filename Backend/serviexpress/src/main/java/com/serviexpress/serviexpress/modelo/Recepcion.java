@@ -5,7 +5,9 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -26,9 +28,6 @@ public class Recepcion {
 	@Column(name = "id_recepcion")
 	private int id_recepcion;
 	
-	@Column(name = "pedidos_id_pedidos")
-	private int pedidos_id_pedidos;
-	
 	@Column(name = "fecha")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date fecha;
@@ -38,4 +37,8 @@ public class Recepcion {
 	
 	@Column(name = "id_emp_recep")
 	private int id_emp_recep;
+	
+	@OneToOne
+	@JoinColumn(name = "id_pedidos", updatable = false, nullable = false)
+	private Pedido id_pedidos;
 }

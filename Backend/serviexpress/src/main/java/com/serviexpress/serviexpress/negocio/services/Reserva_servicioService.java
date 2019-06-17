@@ -49,8 +49,8 @@ public class Reserva_servicioService {
 		this.rsRepository.delete(rs);
 	}
 	
-	public Reserva_servicio findByReserva_servicio_id_reservas(int id_reservas){
-		return this.rsRepository.findByReserva_servicio_id_reservas(id_reservas);
+	public Reserva_servicio findByReserva_servicio_id_reservas(int id_reservas, int id_servicios){
+		return this.rsRepository.findByReserva_servicio_id_reservas(id_reservas,id_servicios);
 	}
 	
 	public List<Reserva_servicio> findAll(){

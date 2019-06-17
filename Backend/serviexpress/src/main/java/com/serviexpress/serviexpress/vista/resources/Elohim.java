@@ -12,11 +12,11 @@ import org.springframework.beans.BeanWrapperImpl;
 
 public class Elohim {
 	
-	public void copiarPropiedadesNoNulas(Object objetoVirtual, Object claseObjetivo) {
+	public static void copiarPropiedadesNoNulas(Object objetoVirtual, Object claseObjetivo) {
 		BeanUtils.copyProperties(objetoVirtual, claseObjetivo, getPropiedadesNulas(objetoVirtual));
 	}	
 
-	public String[] getPropiedadesNulas (Object objVirtual) {
+	public static String[] getPropiedadesNulas (Object objVirtual) {
 		BeanWrapper src = new BeanWrapperImpl(objVirtual);
 	    PropertyDescriptor[] pds = src.getPropertyDescriptors();
 
@@ -29,7 +29,7 @@ public class Elohim {
 	    return nombresVacios.toArray(result);
 	}
 	
-	public String[] getNullPropertyNames(Object source) {
+	public static String[] getNullPropertyNames(Object source) {
 	    final BeanWrapper wrappedSource = new BeanWrapperImpl(source);
 	    return Stream.of(wrappedSource.getPropertyDescriptors())
 	            .map(FeatureDescriptor::getName)

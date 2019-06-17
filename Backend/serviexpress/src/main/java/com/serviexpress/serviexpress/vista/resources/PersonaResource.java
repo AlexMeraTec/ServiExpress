@@ -42,9 +42,7 @@ public class PersonaResource extends Elohim{
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "persona CREADO correctamente"),@ApiResponse(code = 404, message = "Solicitud Invalida")})
 	public ResponseEntity<Persona> createpersona(@RequestBody PersonaVO personaVO){
 		Persona persona = new Persona();
-		if(personaVO.getTipo_personas()!='e' || personaVO.getTipo_personas()!='c') {
-			persona.setTipo_personas('c');
-		}
+		
 	/*
 		persona.setRut(personaVO.getRut());
 		persona.setDigito_verificador(personaVO.getDigito_verificador());
@@ -72,9 +70,7 @@ public class PersonaResource extends Elohim{
 		if (persona==null) {
 			return new ResponseEntity<Persona>(HttpStatus.NOT_FOUND);
 		}else {
-			if(personaVO.getTipo_personas()!='e' || personaVO.getTipo_personas()!='c') {
-				personaVO.setTipo_personas(persona.getTipo_personas());
-			}
+			
 			/*
 			persona.setId_personas(personaVO.getId_personas());
 			persona.setRut(personaVO.getRut());

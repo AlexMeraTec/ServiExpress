@@ -29,6 +29,13 @@ para detenerlo daaah!
 # Restore
 cat backup.sql | docker exec -i CONTAINER /usr/bin/mysql -u root --password=root DATABASE
 
+
+Para conectarse con UNA BASE DE DATOS MYSQL
+<dependency>
+	<groupId>mysql</groupId>
+	<artifactId>mysql-connector-java</artifactId>
+	<version>5.1.43</version><!--poner 8.0.15 en caso de que la variable de innodb sea 8.0.X ver la variable en la base de datos poniendo ' SHOW VARIABLES LIKE "%version%"; ' -->
+</dependency>
 */
 
 package com.serviexpress.serviexpress;
