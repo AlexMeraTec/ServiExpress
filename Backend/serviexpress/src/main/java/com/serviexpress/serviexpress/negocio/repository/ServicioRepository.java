@@ -12,7 +12,7 @@ import com.serviexpress.serviexpress.modelo.Servicio;
  * @author arekkusu888
  *
  */
-public interface ServicioRepository extends JpaRepository<Servicio, String>{
+public interface ServicioRepository extends JpaRepository<Servicio, Integer>{
 	//public List<Servicio> findByNombreServ(String nombreServ);
 	public Servicio findById_servicios(int id_servicios);
 	

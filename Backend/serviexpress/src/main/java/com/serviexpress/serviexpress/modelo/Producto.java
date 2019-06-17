@@ -1,15 +1,21 @@
 package com.serviexpress.serviexpress.modelo;
 
 import java.util.Date;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 
@@ -33,16 +39,7 @@ public class Producto {
 	@Column(name = "fecha_vencimiento")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date fecha_vencimiento;
-	
-	@Column(name = "proveedores_id_proveedor")
-	private int proveedores_id_proveedor;
-	
-	@Column(name = "tipos_id_tipos")
-	private int tipos_id_tipos;
-	
-	@Column(name = "familias_id_familias")
-	private int familias_id_familias;
-	
+		
 	@Column(name = "precio_compra")
 	private int precio_compra;
 	
@@ -57,38 +54,34 @@ public class Producto {
 	
 	@Column(name = "activo")
 	private boolean activo;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_proveedor", updatable = false, nullable = false) 
+	private Proveedor id_proveedor;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_tipos", updatable = false, nullable = false) 
+	private Tipo id_tipos;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_familias", updatable = false, nullable = false) 
+	private Familia id_familias;
 
-	public Producto() {
-		super();
-	}
-	public Producto
-	(
-		String nombre,
-		Date fecha_vencimiento,
-		int proveedores_id_proveedor,
-		int tipos_id_tipos,
-		int familias_id_familias,
-		int precio_compra,
-		int precio_venta,
-		int stock,
-		int stock_critico,
-		boolean activo
-	){
-		this.nombre = nombre;
-		this.fecha_vencimiento = fecha_vencimiento;
-		this.proveedores_id_proveedor = proveedores_id_proveedor;
-		this.tipos_id_tipos = tipos_id_tipos;
-		this.familias_id_familias = familias_id_familias;
-		this.precio_compra = precio_compra;
-		this.precio_venta = precio_venta;
-		this.stock = stock;
-		this.stock_critico = stock_critico;
-		this.activo = activo;
-		
-	}
-	public String getId_productos() {
-		return id_productos;
-	}
+/*
+	private Proveedor proveedor;
+	
+	private Familia familia;
+	
+	private Tipo tipo;
+*/
+	@OneToMany(mappedBy = "id_productos",cascade = CascadeType.ALL)
+	@JsonIgnore
+	List<Producto_reserva> pProductoReserva;
+	
+	@OneToMany(mappedBy = "id_productos",cascade = CascadeType.ALL)
+	@JsonIgnore
+	List<Producto_pedido> pProductoPedido;
+	
 	public boolean getActivo() {
 		return activo;
 	}

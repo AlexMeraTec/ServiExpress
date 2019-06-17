@@ -30,7 +30,7 @@ import io.swagger.annotations.ApiResponses;
 @RestController
 @RequestMapping("/api/servicio") //el nombre con el cual llamare a esta clase como servicio web
 @Api(tags = "servicio")
-public class ServicioResource {
+public class ServicioResource extends Elohim {
 	private final ServicioService servicioService;
 	
 	public ServicioResource(ServicioService servicioService) {
@@ -42,9 +42,12 @@ public class ServicioResource {
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Servicio CREADO correctamente"),@ApiResponse(code = 404, message = "Solicitud Invalida")})
 	public ResponseEntity<Servicio> createServicio(@RequestBody ServicioVO servicioVO){
 		Servicio servicio = new Servicio();
+		/*
 		servicio.setId_servicios(servicioVO.getId_servicios());
 		servicio.setNombre(servicioVO.getNombre());
 		servicio.setActivo(servicioVO.getActivo());
+		*/
+		copiarPropiedadesNoNulas(servicioVO, servicio);
 		return new ResponseEntity<>(this.servicioService.create(servicio), HttpStatus.CREATED);
 	}
 	
@@ -56,11 +59,14 @@ public class ServicioResource {
 		if (servicio==null) {
 			return new ResponseEntity<Servicio>(HttpStatus.NOT_FOUND);
 		}else {
+			/*
 			servicio.setId_servicios(servicioVO.getId_servicios());
 			servicio.setNombre(servicioVO.getNombre());
 			servicio.setActivo(servicioVO.getActivo());
+			*/
+			copiarPropiedadesNoNulas(servicioVO, servicio);
 		}
-		return new ResponseEntity<>(this.servicioService.create(servicio), HttpStatus.OK);
+		return new ResponseEntity<>(this.servicioService.update(servicio), HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/{id_servicio}")
@@ -69,7 +75,8 @@ public class ServicioResource {
 	public void removeServicio(@PathVariable("id_servicio") int id_servicio) {
 		Servicio servicio = this.servicioService.findById_servicios(id_servicio);
 		if (servicio!=null) {
-			this.servicioService.delete(servicio);
+			servicio.setActivo(false);
+			this.servicioService.update(servicio);
 		}
 	}
 

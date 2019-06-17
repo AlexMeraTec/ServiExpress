@@ -11,6 +11,6 @@ import com.serviexpress.serviexpress.modelo.Reserva;
  * @author Arekkusu888
  *
  */
-public interface ReservaRepository extends JpaRepository<Reserva,String>{
+public interface ReservaRepository extends JpaRepository<Reserva,Integer>{
 	public Reserva findById_reservas(int id_servicios);
 }
