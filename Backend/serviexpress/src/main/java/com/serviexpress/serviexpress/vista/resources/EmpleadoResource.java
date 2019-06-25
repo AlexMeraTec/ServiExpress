@@ -41,36 +41,40 @@ public class EmpleadoResource extends Elohim{
 	
 	@PostMapping
 	@ApiOperation(value = "Crear Empleado", notes = "Servicio para crear un nuevo Empleado")
-	@ApiResponses(value = {@ApiResponse(code = 201, message = "Empleado CREADO correctamente"),@ApiResponse(code = 404, message = "Solicitud Invalida")})
-	public ResponseEntity<Empleado> createEmpleado(@RequestBody EmpleadoVO VO){
+	@ApiResponses(value = {@ApiResponse(code = 201, message = "Empleado CREADO correctamente"),@ApiResponse(code = 404, message = "Solicitud Invalida"),@ApiResponse(code = 208, message = "Empleado con la ID YA EXISTE")})
+	public ResponseEntity<Empleado> createEmpleado(@RequestBody EmpleadoVO eVO){
 		Empleado empleadoPerso = new Empleado();
-		
-		if(empService.findById_empleado(VO.getId_empleado()) != null) {
+		if(empService.findById_empleado(eVO.getId_empleado()) != null) {
 			return new ResponseEntity<>(HttpStatus.ALREADY_REPORTED);
 		}else{
-			copiarPropiedadesNoNulas(VO, empleadoPerso);
+			copiarPropiedadesNoNulas(eVO, empleadoPerso);
 			Persona persona = new Persona();
-			copiarPropiedadesNoNulas(VO.getPersonaVO(), persona);
+
+			copiarPropiedadesNoNulas(eVO.getPersonaEmpleado(), persona);
 			persona.setTipo(true);
+			persona.setActiva(true);
 			empleadoPerso.setPersonaEmpleado(persona);
 			this.personaService.create(persona);
-			return new ResponseEntity<>(this.empService.create(empleadoPerso), HttpStatus.CREATED);	
+			empleadoPerso.setId_empleado(this.personaService.getLastId());
+			return new ResponseEntity<>(this.empService.create(empleadoPerso), HttpStatus.CREATED);
 		}
 		
 	}
 	
-	@PutMapping("/actualiza/{id_personas}")
+	@PutMapping("/{id_personas}")
 	@ApiOperation(value = "actualizar Empleado", notes = "Servicio para actualizar un Empleado")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Empleado ACTUALIZADA correctamente"),@ApiResponse(code = 404, message = "Empleado NO encontrada")})
-	public ResponseEntity<Empleado> updateEmpleado(@PathVariable("id_personas") int id_personas, EmpleadoVO VO){
+	public ResponseEntity<Empleado> updateEmpleado(@PathVariable("id_personas") int id_personas, @RequestBody EmpleadoVO VO){
 		Empleado empleadoPerso = this.empService.findById_empleado(id_personas);
 		if (empleadoPerso==null) {
 			return new ResponseEntity<Empleado>(HttpStatus.NOT_FOUND);
-		}else {
+		}else{
 			copiarPropiedadesNoNulas(VO, empleadoPerso);
 			Persona persona = this.personaService.findById_personas(id_personas);
-			copiarPropiedadesNoNulas(VO.getPersonaVO(), persona);
+			copiarPropiedadesNoNulas(VO.getPersonaEmpleado(), persona);
+			persona.setId_personas(id_personas);
 			persona.setTipo(true);
+			empleadoPerso.setId_empleado(id_personas);
 			empleadoPerso.setPersonaEmpleado(persona);
 			this.personaService.update(persona);
 			return new ResponseEntity<>(this.empService.update(empleadoPerso), HttpStatus.OK);
@@ -85,6 +89,7 @@ public class EmpleadoResource extends Elohim{
 		Empleado perso = this.empService.findById_empleado(id_personas);
 		if (perso!=null) {
 			this.empService.delete(perso);
+			this.personaService.delete(this.personaService.findById_personas(id_personas));
 		}
 	}
 
@@ -94,7 +99,6 @@ public class EmpleadoResource extends Elohim{
 	public ResponseEntity<Empleado> findByid_empleados(int id_personas) {
  		Empleado perso = this.empService.findById_empleado(id_personas);
 		return ResponseEntity.ok(perso);
-		
 	}
  
 	@GetMapping

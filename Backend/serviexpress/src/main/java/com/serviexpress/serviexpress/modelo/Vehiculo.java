@@ -20,10 +20,12 @@ import lombok.Data;
 @Entity
 @Table(name = "vehiculos")
 @NamedQuery(name = "Vehiculo.findByPatente", query = "select v from Vehiculo v where v.patente = ?1")
+@NamedQuery(name = "Vehiculo.findByCliente", query = "select v from Vehiculo v join v.clienteVehiculo c where c.id_cliente = ?1")
 public class Vehiculo {
+	
 	@ManyToOne
 	@JoinColumn(name = "id_cliente", updatable = false, nullable = false)
-	private Cliente clienteReserva;
+	private Cliente clienteVehiculo;
 	
 	@Id
 	@Column(name = "patente")

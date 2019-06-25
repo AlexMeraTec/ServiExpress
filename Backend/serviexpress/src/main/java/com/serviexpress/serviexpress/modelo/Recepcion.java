@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.NamedQuery;
@@ -26,6 +28,7 @@ public class Recepcion {
 
 	@Id
 	@Column(name = "id_recepcion")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_recepcion;
 	
 	@Column(name = "fecha")

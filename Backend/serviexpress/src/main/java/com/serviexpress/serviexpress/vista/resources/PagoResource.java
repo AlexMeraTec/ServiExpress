@@ -50,7 +50,7 @@ public class PagoResource extends Elohim{
 	@PutMapping("/{id_pago}")
 	@ApiOperation(value = "actualizar Pago", notes = "Servicio para actualizar una Pago")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Pago ACTUALIZADA correctamente"),@ApiResponse(code = 404, message = "Pago NO encontrado")})
-	public ResponseEntity<Pago> updatePago(@PathVariable("id_pago") int id_pago, PagoVO VO){
+	public ResponseEntity<Pago> updatePago(@PathVariable("id_pago") int id_pago, @RequestBody PagoVO VO){
 		Pago pgo = this.pagoService.findById_pago(id_pago);
 		if (pgo==null) {
 			return new ResponseEntity<Pago>(HttpStatus.NOT_FOUND);

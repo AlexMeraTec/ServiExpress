@@ -26,7 +26,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "productos")
-@NamedQuery(name = "Producto.findById_productos", query = "select p from Producto p where p.id_productos = ?1") //no olvidar que from Producto es con mayuscula porque es la CLASE
+@NamedQuery(name = "Producto.findById_productos", query = "select p from Producto p join p.id_proveedor pr join p.id_tipos join p.id_familias where p.id_productos = ?1") //no olvidar que from Producto es con mayuscula porque es la CLASE
 public class Producto {
 	
 	@Id
@@ -67,13 +67,6 @@ public class Producto {
 	@JoinColumn(name = "id_familias", updatable = false, nullable = false) 
 	private Familia id_familias;
 
-/*
-	private Proveedor proveedor;
-	
-	private Familia familia;
-	
-	private Tipo tipo;
-*/
 	@OneToMany(mappedBy = "id_productos",cascade = CascadeType.ALL)
 	@JsonIgnore
 	List<Producto_reserva> pProductoReserva;

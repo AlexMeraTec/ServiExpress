@@ -50,7 +50,7 @@ public class RecepcionResource extends Elohim{
 	@PutMapping("/{id_recepcion}")
 	@ApiOperation(value = "actualizar Recepcion", notes = "Servicio para actualizar una Recepcion")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Recepcion ACTUALIZADA correctamente"),@ApiResponse(code = 404, message = "Recepcion NO encontrado")})
-	public ResponseEntity<Recepcion> updateRecepcion(@PathVariable("id_recepcion") int id_recepcion, RecepcionVO VO){
+	public ResponseEntity<Recepcion> updateRecepcion(@PathVariable("id_recepcion") int id_recepcion, @RequestBody RecepcionVO VO){
 		Recepcion reon = this.recService.findById_recepcion(id_recepcion);
 		if (reon==null) {
 			return new ResponseEntity<Recepcion>(HttpStatus.NOT_FOUND);

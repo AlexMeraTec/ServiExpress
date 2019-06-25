@@ -5,6 +5,8 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -25,11 +27,12 @@ import lombok.Data;
 public class Tipo{
 	@Id
 	@Column(name = "id_tipos")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_tipos;
 	@Column(name = "nombre")
 	private String nombre;
 	@Column(name = "activo")
-	private String activo;
+	private boolean activo;
 	
 	@OneToMany(mappedBy = "id_tipos",cascade = CascadeType.ALL)//en mappedBy debe ir el nombre que tiene esta clase dentro de la otra clase
 	@JsonIgnore

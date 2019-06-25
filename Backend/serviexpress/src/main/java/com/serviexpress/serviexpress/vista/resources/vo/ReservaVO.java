@@ -1,6 +1,10 @@
 package com.serviexpress.serviexpress.vista.resources.vo;
 
 import java.time.LocalDateTime;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 
 
@@ -19,10 +23,14 @@ public class ReservaVO {
 	
 	private boolean se_atendio;
 
-	private int ID_CLIENTE;
-	private int ID_EMPLEADO;
+	private int id_cliente;
+	private int id_empleado;
 	
 	public boolean getSe_atendio(){return se_atendio;}
 	public void setSe_atendio(boolean se_atendio) {this.se_atendio = se_atendio;}
 	
+	
+	private List<Integer> servicios;
+	
+	private List<String> productos;
 }

@@ -46,7 +46,7 @@ public class VehiculoResource extends Elohim{
 	@PutMapping("/{patente}")
 	@ApiOperation(value = "Actualizar Vehiculo", notes = "Servicio para actualizar un vehiculo")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Vehiculo ACTUALIZADO correctamente"),@ApiResponse(code = 404, message = "Vehiculo NO encontrado")})
-	public ResponseEntity<Vehiculo> updateReserva(@PathVariable("patente") String patente, VehiculoVO vo){
+	public ResponseEntity<Vehiculo> updateReserva(@PathVariable("patente") String patente, @RequestBody VehiculoVO vo){
 		Vehiculo vehiculo = this.veService.findByPatente(patente);
 		if (vehiculo==null) {
 			return new ResponseEntity<Vehiculo>(HttpStatus.NOT_FOUND);

@@ -10,4 +10,5 @@ import lombok.Data;
 public class FamiliaVO {
 	private int id_familias;
 	private String nombre;
+	private boolean activa;
 }

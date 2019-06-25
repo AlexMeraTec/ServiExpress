@@ -17,6 +17,6 @@ public class PagoVO {
 	private int descuento;
 	private int total_final;
 	private boolean anulada;
-	private int reservas_id_reservas;
+	private int id_reservas;
 	
 }

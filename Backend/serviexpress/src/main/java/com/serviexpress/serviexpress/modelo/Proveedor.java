@@ -8,6 +8,8 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -28,6 +30,7 @@ import lombok.Data;
 public class Proveedor {
 	@Id
 	@Column(name = "id_proveedor")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_proveedor;
 	
 	@Column(name = "rubro")
@@ -44,6 +47,9 @@ public class Proveedor {
 	
 	@Column(name = "e_mail")
 	private String e_mail;
+	
+	@Column(name = "activo")
+	private boolean activo;
 	
 	@OneToMany(mappedBy = "id_proveedor",cascade = CascadeType.ALL)//en mappedBy debe ir el nombre que tiene esta clase dentro de la otra clase
 	@JsonIgnore

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.serviexpress.serviexpress.modelo.Reserva_servicio;
+import com.serviexpress.serviexpress.modelo.Servicio;
 import com.serviexpress.serviexpress.negocio.repository.Reserva_servicioRepository;
 
 /**
@@ -51,6 +52,9 @@ public class Reserva_servicioService {
 	
 	public Reserva_servicio findByReserva_servicio_id_reservas(int id_reservas, int id_servicios){
 		return this.rsRepository.findByReserva_servicio_id_reservas(id_reservas,id_servicios);
+	}
+	public List<Servicio>findServiciosReserva(int id_reservas){
+		return this.rsRepository.findServiciosReserva(id_reservas);
 	}
 	
 	public List<Reserva_servicio> findAll(){

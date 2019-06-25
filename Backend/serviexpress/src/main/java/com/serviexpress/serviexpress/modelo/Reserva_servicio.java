@@ -14,6 +14,7 @@ import lombok.Data;
 @Table(name = "reservas_servicios")
 @IdClass(value = IntCompuesta.class)
 @NamedQuery(name = "Reserva_servicio.findByReserva_servicio_id_reservas", query = "select rs from Reserva_servicio rs where rs.id_reservas = ?1 and rs.id_servicios = ?1 ")
+@NamedQuery(name = "Reserva_servicio.findServiciosReserva", query = "select r from Reserva_servicio rs join rs.id_reservas r where rs.id_reservas = ?1 and rs.id_reservas = r.id_reservas ")
 public class Reserva_servicio {
 
 //	@Id

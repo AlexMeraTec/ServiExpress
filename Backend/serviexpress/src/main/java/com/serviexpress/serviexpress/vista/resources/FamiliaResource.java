@@ -50,12 +50,13 @@ public class FamiliaResource extends Elohim{
 	@PutMapping("/{id_familias}")
 	@ApiOperation(value = "actualizar Familia", notes = "Servicio para actualizar una Familia")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Familia ACTUALIZADA correctamente"),@ApiResponse(code = 404, message = "Familia NO encontrada")})
-	public ResponseEntity<Familia> updateFamilia(@PathVariable("id_familias") int id_familias, FamiliaVO VO){
+	public ResponseEntity<Familia> updateFamilia(@PathVariable("id_familias") int id_familias, @RequestBody FamiliaVO VO){
 		Familia fami = this.famService.findById_familias(id_familias);
 		if (fami==null) {
 			return new ResponseEntity<Familia>(HttpStatus.NOT_FOUND);
 		}else {
 			copiarPropiedadesNoNulas(VO, fami);
+			fami.setActiva(VO.isActiva());
 		}
 		return new ResponseEntity<>(this.famService.update(fami), HttpStatus.OK);
 	}
@@ -73,9 +74,11 @@ public class FamiliaResource extends Elohim{
  	@GetMapping("/{id_familias}")
 	@ApiOperation(value = "Buscar Familia", notes = "servicio para buscar una Familia")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Familia ENCONTRADA correctamente"),@ApiResponse(code = 404, message = "Familia NO encontrada")})
-	public ResponseEntity<Familia> findByid_empleados(int id_familias) {
+	public ResponseEntity<FamiliaVO> findByid_empleados(int id_familias) {
  		Familia fami = this.famService.findById_familias(id_familias);
-		return ResponseEntity.ok(fami);
+ 		FamiliaVO fVO=new FamiliaVO();
+ 		copiarPropiedadesNoNulas(fami, fVO);
+		return ResponseEntity.ok(fVO);
 		
 	}
  

@@ -17,4 +17,5 @@ public class ProveedorVO {
 	private String direccion;
 	private int telefono;
 	private String e_mail;
+	private boolean activo;
 }

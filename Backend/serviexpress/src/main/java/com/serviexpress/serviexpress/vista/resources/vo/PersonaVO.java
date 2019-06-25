@@ -1,5 +1,7 @@
 package com.serviexpress.serviexpress.vista.resources.vo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 /**
  * @author arekkusu888
@@ -7,7 +9,9 @@ import lombok.Data;
  */
 @Data
 public class PersonaVO {
+	@JsonIgnore
 	private int id_personas;
+	
 	private int rut;
 	private char digito_verificador;
 	private String nombre;

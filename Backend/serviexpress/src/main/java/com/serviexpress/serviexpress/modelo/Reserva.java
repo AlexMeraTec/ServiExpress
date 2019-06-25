@@ -6,6 +6,8 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -24,9 +26,19 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "reservas") //cambiar por reservas
-@NamedQuery(name = "Reserva.findById_reservas", query = "select r from Reserva r where r.id_reservas = ?1")
+@NamedQuery(
+		name = "Reserva.findById_reservas", 
+		query = "select r,cr,er from Reserva r join r.clienteReserva cr join r.empleadoReserva er where r.id_reservas = ?1")
+@NamedQuery(
+		name = "Reserva.findReservasByCliente", 
+		query = "select r from Reserva r join r.clienteReserva cr where cr.id_cliente = ?1 ")
+@NamedQuery(
+		name = "Reserva.findReservasByEmpleado", 
+		query = "select r from Reserva r join r.empleadoReserva er where er.id_empleado = ?1 ")
+
 public class Reserva {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_reservas")
 	private int id_reservas;
 	

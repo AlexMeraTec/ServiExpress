@@ -18,4 +18,6 @@ public class RecepcionVO {
 	private Date fecha;
 	private int cantidad;
 	private int id_emp_recep;
+	
+	private PedidoVO pedidovo;
 }

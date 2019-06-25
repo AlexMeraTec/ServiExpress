@@ -36,7 +36,10 @@ public class Cliente{
 	@JsonIgnore
 	private List<Reserva> reservasCliente;
 	
-	@OneToMany(mappedBy = "clienteReserva",cascade = CascadeType.ALL)//en mappedBy debe ir el nombre que tiene esta clase dentro de la otra clase
+	@OneToMany(mappedBy = "clienteVehiculo",cascade = CascadeType.ALL)//en mappedBy debe ir el nombre que tiene esta clase dentro de la otra clase
 	@JsonIgnore
-	private List<Vehiculo> vehiculosProducto;
+	private List<Vehiculo> vehiculosCliente;
+	
+	@Column(name = "fiable")
+	private boolean fiable;
 }

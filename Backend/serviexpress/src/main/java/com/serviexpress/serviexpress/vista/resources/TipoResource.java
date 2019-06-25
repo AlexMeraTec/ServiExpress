@@ -50,7 +50,7 @@ public class TipoResource extends Elohim{
 	@PutMapping("/{id_tipos}")
 	@ApiOperation(value = "actualizar Tipo", notes = "Servicio para actualizar una Tipo")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Tipo ACTUALIZADA correctamente"),@ApiResponse(code = 404, message = "Tipo NO encontrada")})
-	public ResponseEntity<Tipo> updateTipo(@PathVariable("id_tipos") int id_tipos, TipoVO VO){
+	public ResponseEntity<Tipo> updateTipo(@PathVariable("id_tipos") int id_tipos, @RequestBody TipoVO VO){
 		Tipo tipo = this.tipoService.findById_tipos(id_tipos);
 		if (tipo==null) {
 			return new ResponseEntity<Tipo>(HttpStatus.NOT_FOUND);
