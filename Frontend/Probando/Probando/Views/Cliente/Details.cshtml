@@ -1,0 +1,145 @@
+﻿@model Probando.Models.Cliente
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Cliente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id_cliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_cliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.natural_empresa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.natural_empresa)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.personaCliente.id_personas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.personaCliente.id_personas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.personaCliente.rut)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.personaCliente.rut)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.personaCliente.digito_verificador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.personaCliente.digito_verificador)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.personaCliente.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.personaCliente.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.personaCliente.paterno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.personaCliente.paterno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.personaCliente.materno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.personaCliente.materno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.personaCliente.direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.personaCliente.direccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.personaCliente.telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.personaCliente.telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.personaCliente.telefono2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.personaCliente.telefono2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.personaCliente.usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.personaCliente.usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.personaCliente.password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.personaCliente.password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.personaCliente.e_mail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.personaCliente.e_mail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.personaCliente.activa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.personaCliente.activa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.personaCliente.tipo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.personaCliente.tipo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {  id = Model.id_cliente  }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Probando.Models.Familia>
+
+@{
+    ViewBag.Title = "Modulo Familias";
+}
+
+<h2>Modulo Familias</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id_familias)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.activa)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_familias)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.activa)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.id_familias }) |
+            @Html.ActionLink("Details", "Details", new { id = item.id_familias }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.id_familias })
+        </td>
+    </tr>
+}
+
+</table>

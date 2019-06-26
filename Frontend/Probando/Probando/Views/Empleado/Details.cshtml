@@ -1,0 +1,144 @@
+﻿@model Probando.Models.Empleado
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Empleado</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id_empleado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_empleado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nivel_acceso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nivel_acceso)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.personaEmpleado.id_personas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.personaEmpleado.id_personas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.personaEmpleado.rut)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.personaEmpleado.rut)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.personaEmpleado.digito_verificador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.personaEmpleado.digito_verificador)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.personaEmpleado.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.personaEmpleado.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.personaEmpleado.paterno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.personaEmpleado.paterno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.personaEmpleado.materno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.personaEmpleado.materno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.personaEmpleado.direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.personaEmpleado.direccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.personaEmpleado.telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.personaEmpleado.telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.personaEmpleado.telefono2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.personaEmpleado.telefono2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.personaEmpleado.usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.personaEmpleado.usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.personaEmpleado.password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.personaEmpleado.password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.personaEmpleado.e_mail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.personaEmpleado.e_mail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.personaEmpleado.activa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.personaEmpleado.activa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.personaEmpleado.tipo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.personaEmpleado.tipo)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {  id = Model.id_empleado}) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

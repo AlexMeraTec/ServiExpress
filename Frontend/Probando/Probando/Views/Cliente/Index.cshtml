@@ -1,0 +1,99 @@
+﻿@model IEnumerable<Probando.Models.Cliente>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+           <b> @Html.DisplayNameFor(model => model.id_cliente)</b>
+        </th>
+        <th>
+            <b>@Html.DisplayNameFor(model => model.natural_empresa)</b>
+        </th>
+        <td>
+            <b>@Html.DisplayNameFor(model => model.personaCliente.rut)</b>
+        </td>
+        <td>
+            <b>@Html.DisplayNameFor(model => model.personaCliente.digito_verificador)</b>
+        </td>
+        <td>
+            <b>@Html.DisplayNameFor(model => model.personaCliente.nombre)</b>
+        </td>
+        <td>
+            <b>@Html.DisplayNameFor(model => model.personaCliente.paterno)</b>
+        </td>
+        <td>
+            @Html.DisplayNameFor(model => model.personaCliente.materno)
+        </td>
+        <td>
+            @Html.DisplayNameFor(model => model.personaCliente.direccion)
+        </td>
+        <td>
+            @Html.DisplayNameFor(model => model.personaCliente.telefono)
+        </td>
+        <td>
+            @Html.DisplayNameFor(model => model.personaCliente.telefono2)
+        </td>
+        <td>
+            @Html.DisplayNameFor(model => model.personaCliente.usuario)
+        </td>
+        <td>
+            @Html.DisplayNameFor(model => model.personaCliente.e_mail)
+        </td>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_cliente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.natural_empresa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.personaCliente.rut)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.personaCliente.digito_verificador)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.personaCliente.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.personaCliente.paterno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.personaCliente.materno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.personaCliente.direccion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.personaCliente.telefono)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.personaCliente.telefono2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.personaCliente.usuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.personaCliente.e_mail)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.id_cliente }) |
+            @Html.ActionLink("Details", "Details", new { id = item.id_cliente }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.id_cliente })
+        </td>
+    </tr>
+}
+
+</table>

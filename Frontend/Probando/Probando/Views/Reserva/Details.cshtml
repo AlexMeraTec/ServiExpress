@@ -1,0 +1,66 @@
+﻿@model Probando.Models.Reserva
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Reserva</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id_reservas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_reservas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.observaciones)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.observaciones)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.se_atendio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.se_atendio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.id_cliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_cliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.id_empleado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_empleado)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
