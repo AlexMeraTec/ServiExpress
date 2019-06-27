@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.serviexpress.serviexpress.ServiexpressApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 66.986 s - in com.serviexpress.serviexpress.ServiexpressApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 55.223 s - in com.serviexpress.serviexpress.ServiexpressApplicationTests
