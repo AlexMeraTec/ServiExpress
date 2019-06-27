@@ -98,7 +98,6 @@ public class ReservaResource extends Elohim{
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Reserva ACTUALIZADO correctamente"),@ApiResponse(code = 404, message = "Reserva NO encontrado")})
 	public ResponseEntity<Reserva> updateReserva(@PathVariable("id_reservas") int id_reservas, @RequestBody ReservaVO rVO){
 		Reserva rva = this.rService.findById_reservas(id_reservas);
-		rva.getClass().getName();
 		if (rva==null) {
 			return new ResponseEntity<Reserva>(HttpStatus.NOT_FOUND);
 		}else {
