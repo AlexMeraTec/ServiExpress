@@ -96,17 +96,16 @@ public class ReservaResource extends Elohim{
 	@PutMapping("/{id_reservas}")
 	@ApiOperation(value = "actualizar Reserva", notes = "Servicio para actualizar un Reserva")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Reserva ACTUALIZADO correctamente"),@ApiResponse(code = 404, message = "Reserva NO encontrado")})
-	public ResponseEntity<Reserva> updateReserva(@PathVariable("id_reservas") int id_reservas, @RequestBody ReservaVO rVO){
+	public ResponseEntity<ReservaVO> updateReserva(@PathVariable("id_reservas") int id_reservas, @RequestBody ReservaVO rVO){
 		Reserva rva = this.rService.findById_reservas(id_reservas);
 		if (rva==null) {
-			return new ResponseEntity<Reserva>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<ReservaVO>(HttpStatus.NOT_FOUND);
 		}else {
 			copiarPropiedadesNoNulas(rVO, rva);
 			try {
 				
 				this.rService.update(rva);
-				int idr=this.rService.getLastId();
-				rva.setId_reservas(idr);
+				
 				if (rVO.getProductos()!=null) {
 					for (String pVO : rVO.getProductos()) {
 						Producto_reserva pr = new Producto_reserva();
@@ -123,11 +122,14 @@ public class ReservaResource extends Elohim{
 						this.rsService.update(rs);
 					}
 				}
+				
+				this.rService.update(rva);
+
 			} catch (Exception e) {
-				return new ResponseEntity<Reserva>(HttpStatus.NOT_FOUND);
+				return new ResponseEntity<ReservaVO>(HttpStatus.NOT_FOUND);
 			}
 		}
-		return new ResponseEntity<>(this.rService.update(rva), HttpStatus.OK);
+		return new ResponseEntity<>(rVO, HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/{id_reservas}")
