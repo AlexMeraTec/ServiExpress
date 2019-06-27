@@ -1,11 +1,7 @@
 package com.serviexpress.serviexpress.vista.resources;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -16,8 +12,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.serviexpress.serviexpress.modelo.Producto;
 import com.serviexpress.serviexpress.modelo.Producto_reserva;
 import com.serviexpress.serviexpress.modelo.Reserva;
 import com.serviexpress.serviexpress.modelo.Reserva_servicio;
@@ -28,10 +22,7 @@ import com.serviexpress.serviexpress.negocio.services.Producto_reservaService;
 import com.serviexpress.serviexpress.negocio.services.ReservaService;
 import com.serviexpress.serviexpress.negocio.services.Reserva_servicioService;
 import com.serviexpress.serviexpress.negocio.services.ServicioService;
-import com.serviexpress.serviexpress.vista.resources.vo.ProductoVO;
 import com.serviexpress.serviexpress.vista.resources.vo.ReservaVO;
-import com.serviexpress.serviexpress.vista.resources.vo.ServicioVO;
-
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -111,6 +102,7 @@ public class ReservaResource extends Elohim{
 			return new ResponseEntity<Reserva>(HttpStatus.NOT_FOUND);
 		}else {
 			copiarPropiedadesNoNulas(rVO, rva);
+			
 		}
 		return new ResponseEntity<>(this.rService.update(rva), HttpStatus.OK);
 	}
@@ -131,7 +123,8 @@ public class ReservaResource extends Elohim{
 	public ResponseEntity<ReservaVO> findById_Reservas(int id_reservas) {
 		Reserva rva = this.rService.findById_reservas(id_reservas);
 		ReservaVO rVO = new ReservaVO();
-		rVO.setId_reservas(id_reservas);
+		copiarPropiedadesNoNulas(rva,rVO);
+		rVO.setId_reservas(rva.getId_reservas());
 		rVO.setFecha(rva.getFecha());
 		rVO.setObservaciones(rva.getObservaciones());
 		rVO.setSe_atendio(rva.getSe_atendio());
@@ -146,9 +139,10 @@ public class ReservaResource extends Elohim{
 	public ResponseEntity<List<ReservaVO>> findAll() {
  		List<Reserva>reservas = this.rService.findAll();
  		List<ReservaVO> rVos = new ArrayList();
-
+ 		
  		for (Reserva rva : reservas) {
  			ReservaVO rVO = new ReservaVO();
+ 			copiarPropiedadesNoNulas(rva,rVO);
  			rVO.setId_reservas(rva.getId_reservas());
  			rVO.setFecha(rva.getFecha());
  			rVO.setObservaciones(rva.getObservaciones());

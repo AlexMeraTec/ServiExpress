@@ -38,4 +38,17 @@ public class Reserva_servicio {
 	@ManyToOne
 	@JoinColumn(name = "id_servicios", updatable = false, nullable = false)
 	private Servicio id_servicios;
+	public Reserva getId_reservas() {
+		return id_reservas;
+	}
+	public void setId_reservas(Reserva id_reservas) {
+		this.id_reservas = id_reservas;
+	}
+	public Servicio getId_servicios() {
+		return id_servicios;
+	}
+	public void setId_servicios(Servicio id_servicios) {
+		this.id_servicios = id_servicios;
+	}
+	
 }

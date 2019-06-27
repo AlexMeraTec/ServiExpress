@@ -37,4 +37,37 @@ public class Tipo{
 	@OneToMany(mappedBy = "id_tipos",cascade = CascadeType.ALL)//en mappedBy debe ir el nombre que tiene esta clase dentro de la otra clase
 	@JsonIgnore
 	private List<Producto> productosTipo;
+
+	public int getId_tipos() {
+		return id_tipos;
+	}
+
+	public void setId_tipos(int id_tipos) {
+		this.id_tipos = id_tipos;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public boolean isActivo() {
+		return activo;
+	}
+
+	public void setActivo(boolean activo) {
+		this.activo = activo;
+	}
+
+	public List<Producto> getProductosTipo() {
+		return productosTipo;
+	}
+
+	public void setProductosTipo(List<Producto> productosTipo) {
+		this.productosTipo = productosTipo;
+	}
+	
 }

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.serviexpress.serviexpress.modelo.Vehiculo;
+import com.serviexpress.serviexpress.negocio.services.ClienteService;
 import com.serviexpress.serviexpress.negocio.services.VehiculoService;
 import com.serviexpress.serviexpress.vista.resources.vo.VehiculoVO;
 import io.swagger.annotations.Api;
@@ -29,18 +30,21 @@ import io.swagger.annotations.ApiResponses;
 @Api(tags = "vehiculo")
 public class VehiculoResource extends Elohim{
 	private final VehiculoService veService;
-	
-	public VehiculoResource(VehiculoService veService) {
-		this.veService = veService;
+	private final ClienteService perService;
+	public VehiculoResource(VehiculoService veService,ClienteService perService) {
+		this.veService	=	veService;
+		this.perService	=	perService;
 	}
 	
 	@PostMapping
 	@ApiOperation(value = "Crear Vehiculo", notes = "Servicio para crear un nuevo vehiculo")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Vehiculo CREADO correctamente"),@ApiResponse(code = 404, message = "Solicitud Invalida")})
-	public ResponseEntity<Vehiculo> createVehiculo(@RequestBody VehiculoVO vo){
+	public ResponseEntity<VehiculoVO> createVehiculo(@RequestBody VehiculoVO VO){
 		Vehiculo vehiculo = new Vehiculo();
-		copiarPropiedadesNoNulas(vo, vehiculo);
-		return new ResponseEntity<>(this.veService.create(vehiculo), HttpStatus.CREATED);
+		copiarPropiedadesNoNulas(VO, vehiculo);
+		vehiculo.setClienteVehiculo(this.perService.findById_cliente(VO.getId_cliente()));
+		this.veService.create(vehiculo);
+		return new ResponseEntity<>(VO, HttpStatus.CREATED);
 	}
 	
 	@PutMapping("/{patente}")

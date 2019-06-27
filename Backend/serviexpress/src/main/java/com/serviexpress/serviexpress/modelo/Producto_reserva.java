@@ -32,4 +32,29 @@ public class Producto_reserva {
 	
 	@Column(name = "cantidad")
 	private int cantidad;
+
+	public Reserva getId_reservas() {
+		return id_reservas;
+	}
+
+	public void setId_reservas(Reserva id_reservas) {
+		this.id_reservas = id_reservas;
+	}
+
+	public Producto getId_productos() {
+		return id_productos;
+	}
+
+	public void setId_productos(Producto id_productos) {
+		this.id_productos = id_productos;
+	}
+
+	public int getCantidad() {
+		return cantidad;
+	}
+
+	public void setCantidad(int cantidad) {
+		this.cantidad = cantidad;
+	}
+	
 }

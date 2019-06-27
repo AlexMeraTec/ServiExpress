@@ -1,5 +1,10 @@
 /*
 nota IMPORTANTE:
+
+install:install-file -Dfile=ojdbc7.jar -DgroupId=com.oracle -DartifactId=ojdbc7 -Dversion=12.1.0 -Dpackaging=jar
+istala el driver para la conexion oracle
+siempre y cuando exista el ojdbc7 en la carpeta de inicio del proyecto
+
 - dependiendo de la version de MYSQL en la base de datos deberemos cambiar en las dependencias por la version necesarioa en el archivo pom.xml
 	<dependency>
 		<groupId>mysql</groupId>

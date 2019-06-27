@@ -75,5 +75,53 @@ public class Reserva {
 	public void setSe_atendio(boolean se_atendio) {
 		this.se_atendio = se_atendio;
 	}
+	public int getId_reservas() {
+		return id_reservas;
+	}
+	public void setId_reservas(int id_reservas) {
+		this.id_reservas = id_reservas;
+	}
+	public LocalDateTime getFecha() {
+		return fecha;
+	}
+	public void setFecha(LocalDateTime fecha) {
+		this.fecha = fecha;
+	}
+	public String getObservaciones() {
+		return observaciones;
+	}
+	public void setObservaciones(String observaciones) {
+		this.observaciones = observaciones;
+	}
+	public Cliente getClienteReserva() {
+		return clienteReserva;
+	}
+	public void setClienteReserva(Cliente clienteReserva) {
+		this.clienteReserva = clienteReserva;
+	}
+	public Empleado getEmpleadoReserva() {
+		return empleadoReserva;
+	}
+	public void setEmpleadoReserva(Empleado empleadoReserva) {
+		this.empleadoReserva = empleadoReserva;
+	}
+	public List<Reserva_servicio> getrReserva_servicio() {
+		return rReserva_servicio;
+	}
+	public void setrReserva_servicio(List<Reserva_servicio> rReserva_servicio) {
+		this.rReserva_servicio = rReserva_servicio;
+	}
+	public List<Producto_reserva> getrProductoReserva() {
+		return rProductoReserva;
+	}
+	public void setrProductoReserva(List<Producto_reserva> rProductoReserva) {
+		this.rProductoReserva = rProductoReserva;
+	}
+	public Pago getPago() {
+		return pago;
+	}
+	public void setPago(Pago pago) {
+		this.pago = pago;
+	}
 	
 }

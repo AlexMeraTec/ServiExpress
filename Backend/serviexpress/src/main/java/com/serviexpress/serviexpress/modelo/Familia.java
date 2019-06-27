@@ -36,5 +36,38 @@ public class Familia{
 	
 	@OneToMany(mappedBy = "id_familias",cascade = CascadeType.ALL)
 	@JsonIgnore
-	private List<Producto> productoFamilia; 
+	private List<Producto> productoFamilia;
+
+	public int getId_familias() {
+		return id_familias;
+	}
+
+	public void setId_familias(int id_familias) {
+		this.id_familias = id_familias;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public boolean isActiva() {
+		return activa;
+	}
+
+	public void setActiva(boolean activa) {
+		this.activa = activa;
+	}
+
+	public List<Producto> getProductoFamilia() {
+		return productoFamilia;
+	}
+
+	public void setProductoFamilia(List<Producto> productoFamilia) {
+		this.productoFamilia = productoFamilia;
+	}
+	
 }
