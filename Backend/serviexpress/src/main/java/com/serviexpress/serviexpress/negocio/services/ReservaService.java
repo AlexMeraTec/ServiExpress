@@ -59,5 +59,14 @@ public class ReservaService {
 	public List<Reserva> findAll(){
 		return this.reservaRepository.findAll();
 	}
+	public List<Reserva> findReservasByCliente(int id_cliente){
+		return this.reservaRepository.findReservasByCliente(id_cliente);
+	}
+	public List<Reserva> findReservasByEmpleado(int id_empleado){
+		return this.reservaRepository.findReservasByEmpleado(id_empleado);
+	}
+	public int getLastId() {
+		return this.reservaRepository.getLastId();
+	}
 	
 }

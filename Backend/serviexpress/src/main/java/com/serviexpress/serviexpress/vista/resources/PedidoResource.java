@@ -50,7 +50,7 @@ public class PedidoResource extends Elohim{
 	@PutMapping("/{id_pedidos}")
 	@ApiOperation(value = "actualizar Pedido", notes = "Servicio para actualizar un Pedido")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Pedido ACTUALIZADO correctamente"),@ApiResponse(code = 404, message = "Pedido NO encontrado")})
-	public ResponseEntity<Pedido> updatePedido(@PathVariable("id_pedidos") int id_pedidos, PedidoVO VO){
+	public ResponseEntity<Pedido> updatePedido(@PathVariable("id_pedidos") int id_pedidos, @RequestBody PedidoVO VO){
 		Pedido pdo = this.pdoService.findById_pedidos(id_pedidos);
 		if (pdo==null) {
 			return new ResponseEntity<Pedido>(HttpStatus.NOT_FOUND);

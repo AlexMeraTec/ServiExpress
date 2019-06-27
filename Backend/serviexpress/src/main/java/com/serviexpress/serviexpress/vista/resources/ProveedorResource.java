@@ -50,11 +50,12 @@ public class ProveedorResource extends Elohim{
 	@PutMapping("/{id_proveedor}")
 	@ApiOperation(value = "actualizar Proveedor", notes = "Servicio para actualizar un Proveedor")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Proveedor ACTUALIZADO correctamente"),@ApiResponse(code = 404, message = "Proveedor NO encontrado")})
-	public ResponseEntity<Proveedor> updateProveedor(@PathVariable("id_proveedor") int id_proveedor, ProveedorVO VO){
+	public ResponseEntity<Proveedor> updateProveedor(@PathVariable("id_proveedor") int id_proveedor, @RequestBody ProveedorVO VO){
 		Proveedor prvee = this.pveService.findById_proveedor(id_proveedor);
 		if (prvee==null) {
 			return new ResponseEntity<Proveedor>(HttpStatus.NOT_FOUND);
 		}else {
+			VO.setId_proveedor(id_proveedor);
 			copiarPropiedadesNoNulas(VO, prvee);
 		}
 		return new ResponseEntity<>(this.pveService.update(prvee), HttpStatus.OK);

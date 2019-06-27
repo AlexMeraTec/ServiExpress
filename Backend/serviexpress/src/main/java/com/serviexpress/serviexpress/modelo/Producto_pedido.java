@@ -32,4 +32,29 @@ public class Producto_pedido {
 	
 	@Column(name = "cantidad")
 	private int cantidad;
+
+	public Pedido getId_pedidos() {
+		return id_pedidos;
+	}
+
+	public void setId_pedidos(Pedido id_pedidos) {
+		this.id_pedidos = id_pedidos;
+	}
+
+	public Producto getId_productos() {
+		return id_productos;
+	}
+
+	public void setId_productos(Producto id_productos) {
+		this.id_productos = id_productos;
+	}
+
+	public int getCantidad() {
+		return cantidad;
+	}
+
+	public void setCantidad(int cantidad) {
+		this.cantidad = cantidad;
+	}
+	
 }

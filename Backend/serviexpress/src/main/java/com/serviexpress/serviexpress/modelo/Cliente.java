@@ -36,7 +36,59 @@ public class Cliente{
 	@JsonIgnore
 	private List<Reserva> reservasCliente;
 	
-	@OneToMany(mappedBy = "clienteReserva",cascade = CascadeType.ALL)//en mappedBy debe ir el nombre que tiene esta clase dentro de la otra clase
+	@OneToMany(mappedBy = "clienteVehiculo",cascade = CascadeType.ALL)//en mappedBy debe ir el nombre que tiene esta clase dentro de la otra clase
 	@JsonIgnore
-	private List<Vehiculo> vehiculosProducto;
+	private List<Vehiculo> vehiculosCliente;
+	
+	@Column(name = "fiable")
+	private boolean fiable;
+
+	public int getId_cliente() {
+		return id_cliente;
+	}
+
+	public void setId_cliente(int id_cliente) {
+		this.id_cliente = id_cliente;
+	}
+
+	public boolean isNatural_empresa() {
+		return natural_empresa;
+	}
+
+	public void setNatural_empresa(boolean natural_empresa) {
+		this.natural_empresa = natural_empresa;
+	}
+
+	public Persona getPersonaCliente() {
+		return personaCliente;
+	}
+
+	public void setPersonaCliente(Persona personaCliente) {
+		this.personaCliente = personaCliente;
+	}
+
+	public List<Reserva> getReservasCliente() {
+		return reservasCliente;
+	}
+
+	public void setReservasCliente(List<Reserva> reservasCliente) {
+		this.reservasCliente = reservasCliente;
+	}
+
+	public List<Vehiculo> getVehiculosCliente() {
+		return vehiculosCliente;
+	}
+
+	public void setVehiculosCliente(List<Vehiculo> vehiculosCliente) {
+		this.vehiculosCliente = vehiculosCliente;
+	}
+
+	public boolean isFiable() {
+		return fiable;
+	}
+
+	public void setFiable(boolean fiable) {
+		this.fiable = fiable;
+	}
+	
 }

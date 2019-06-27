@@ -12,7 +12,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.serviexpress.serviexpress.modelo.Producto;
+import com.serviexpress.serviexpress.negocio.services.FamiliaService;
 import com.serviexpress.serviexpress.negocio.services.ProductoService;
+import com.serviexpress.serviexpress.negocio.services.ProveedorService;
+import com.serviexpress.serviexpress.negocio.services.TipoService;
 import com.serviexpress.serviexpress.vista.resources.vo.ProductoVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -29,76 +32,62 @@ import io.swagger.annotations.ApiResponses;
 @Api(tags = "producto")
 public class ProductoResource extends Elohim{
 	private final ProductoService productoService;
-	
-	public ProductoResource(ProductoService productoService) {
+	private final FamiliaService fService;
+	private final TipoService tService;
+	private final ProveedorService pService;
+	public ProductoResource(ProductoService productoService,FamiliaService fService,TipoService tService,ProveedorService pService) {
 		this.productoService = productoService;
+		this.fService  = fService;
+		this.tService = tService;
+		this.pService = pService;
 	}
 	
 	@PostMapping
 	@ApiOperation(value = "Crear Producto", notes = "Servicio para crear un nuevo producto")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Producto CREADO correctamente"),@ApiResponse(code = 404, message = "Solicitud Invalida")})
-	public ResponseEntity<Producto> createProducto(@RequestBody ProductoVO productoVO){
-		Producto producto = new Producto();
-		/*
-		producto.setId_productos(productoVO.getId_productos());
-		producto.setNombre(productoVO.getNombre());
-		producto.setFecha_vencimiento(productoVO.getFecha_vencimiento());
-		producto.setProveedores_id_proveedor(productoVO.getProveedores_id_proveedor());
-		producto.setTipos_id_tipos(productoVO.getTipos_id_tipos());
-		producto.setFamilias_id_familias(productoVO.getFamilias_id_familias());
-		producto.setPrecio_compra(productoVO.getPrecio_compra());
-		producto.setPrecio_venta(productoVO.getPrecio_venta());
-		producto.setStock(productoVO.getStock());
-		producto.setStock_critico(productoVO.getStock_critico());
-		producto.setActivo(productoVO.getActivo());
-		*/
-		copiarPropiedadesNoNulas(productoVO, producto);
-		return new ResponseEntity<>(this.productoService.create(producto), HttpStatus.CREATED);
+	public ResponseEntity<Producto> createProducto(@RequestBody ProductoVO ptoVO){
+		Producto pto = new Producto();
+		copiarPropiedadesNoNulas(ptoVO, pto);
+		pto.setId_familias(this.fService.findById_familias(ptoVO.getId_familias()));
+		pto.setId_tipos(this.tService.findById_tipos(ptoVO.getId_tipos()));
+		pto.setId_proveedor(this.pService.findById_proveedor(ptoVO.getId_proveedor()));
+		
+		return new ResponseEntity<>(this.productoService.create(pto), HttpStatus.CREATED);
 	}
 	
 	@PutMapping("/{id_productos}")
 	@ApiOperation(value = "Actualizar Producto", notes = "Servicio para actualizar un producto")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Producto ACTUALIZADO correctamente"),@ApiResponse(code = 404, message = "Producto NO encontrado")})
-	public ResponseEntity<Producto> updateReserva(@PathVariable("id_productos") String id_productos, ProductoVO productoVO){
-		Producto producto = this.productoService.findById_productos(id_productos);
-		if (producto==null) {
+	public ResponseEntity<Producto> updateReserva(@PathVariable("id_productos") String id_productos, @RequestBody ProductoVO ptoVO){
+		Producto pto = this.productoService.findById_productos(id_productos);
+		if (pto==null) {
 			return new ResponseEntity<Producto>(HttpStatus.NOT_FOUND);
 		}else {
-			/*
-			producto.setId_productos(productoVO.getId_productos())
-			producto.setNombre(productoVO.getNombre());
-			producto.setFecha_vencimiento(productoVO.getFecha_vencimiento());
-			producto.setProveedores_id_proveedor(productoVO.getProveedores_id_proveedor());
-			producto.setTipos_id_tipos(productoVO.getTipos_id_tipos());
-			producto.setFamilias_id_familias(productoVO.getFamilias_id_familias());
-			producto.setPrecio_compra(productoVO.getPrecio_compra());
-			producto.setPrecio_venta(productoVO.getPrecio_venta());
-			producto.setStock(productoVO.getStock());
-			producto.setStock_critico(productoVO.getStock_critico());
-			producto.setActivo(productoVO.getActivo());
-			*/
-			copiarPropiedadesNoNulas(productoVO, producto);
+			copiarPropiedadesNoNulas(ptoVO, pto);
+			pto.setId_familias(this.fService.findById_familias(ptoVO.getId_familias()));
+			pto.setId_tipos(this.tService.findById_tipos(ptoVO.getId_tipos()));
+			pto.setId_proveedor(this.pService.findById_proveedor(ptoVO.getId_proveedor()));
 		}
-		return new ResponseEntity<>(this.productoService.update(producto), HttpStatus.OK);
+		return new ResponseEntity<>(this.productoService.update(pto), HttpStatus.OK);
 	}
 	@PutMapping("/{precio_venta}/{id_productos}")
 	@ApiOperation(value = "Actualizar precio_venta", notes = "Servicio para actualizar un producto")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Producto ACTUALIZADO correctamente"),@ApiResponse(code = 404, message = "Producto NO encontrado")})
 	public void updatePrecio_venta(@PathVariable("precio_venta") int precio_venta,@PathVariable("id_productos") String id_productos){
-		Producto producto = this.productoService.findById_productos(id_productos);
-		if (producto!=null) {
-			producto.setPrecio_venta(precio_venta);
-			this.productoService.update(producto);
+		Producto pto = this.productoService.findById_productos(id_productos);
+		if (pto!=null && precio_venta!= pto.getPrecio_venta()) {
+			pto.setPrecio_venta(precio_venta);
+			this.productoService.update(pto);
 		}
 	}
 	@DeleteMapping("/{id_producto}")
 	@ApiOperation(value = "Eliminar Producto", notes = "Servicio para eliminar una producto")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Producto ELIMINADO correctamente"),@ApiResponse(code = 404, message = "Producto NO encontrado")})
 	public void removeProducto(@PathVariable("id_productos") String id_productos, ProductoVO productoVO) {
-		Producto producto = this.productoService.findById_productos(id_productos);
-		if (producto!=null) {
-			producto.setActivo(false);
-			this.productoService.update(producto);
+		Producto pto = this.productoService.findById_productos(id_productos);
+		if (pto!=null) {
+			pto.setActivo(false);
+			this.productoService.update(pto);
 		}
 	}
 
@@ -106,8 +95,8 @@ public class ProductoResource extends Elohim{
 	@ApiOperation(value = "Buscar Producto", notes = "Reserva para buscar un producto")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Producto ENCONTRADO correctamente"),@ApiResponse(code = 404, message = "Producto NO encontrado")})
 	public ResponseEntity<Producto> findByid_productoss(String id_productos) {
-		Producto prod = this.productoService.findById_productos(id_productos);
-		return ResponseEntity.ok(prod);
+		Producto pto = this.productoService.findById_productos(id_productos);
+		return ResponseEntity.ok(pto);
 	}
 	
 

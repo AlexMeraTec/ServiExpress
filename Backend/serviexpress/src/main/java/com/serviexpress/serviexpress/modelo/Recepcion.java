@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.NamedQuery;
@@ -26,6 +28,7 @@ public class Recepcion {
 
 	@Id
 	@Column(name = "id_recepcion")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_recepcion;
 	
 	@Column(name = "fecha")
@@ -41,4 +44,45 @@ public class Recepcion {
 	@OneToOne
 	@JoinColumn(name = "id_pedidos", updatable = false, nullable = false)
 	private Pedido id_pedidos;
+
+	public int getId_recepcion() {
+		return id_recepcion;
+	}
+
+	public void setId_recepcion(int id_recepcion) {
+		this.id_recepcion = id_recepcion;
+	}
+
+	public Date getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+
+	public int getCantidad() {
+		return cantidad;
+	}
+
+	public void setCantidad(int cantidad) {
+		this.cantidad = cantidad;
+	}
+
+	public int getId_emp_recep() {
+		return id_emp_recep;
+	}
+
+	public void setId_emp_recep(int id_emp_recep) {
+		this.id_emp_recep = id_emp_recep;
+	}
+
+	public Pedido getId_pedidos() {
+		return id_pedidos;
+	}
+
+	public void setId_pedidos(Pedido id_pedidos) {
+		this.id_pedidos = id_pedidos;
+	}
+	
 }

@@ -26,7 +26,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "productos")
-@NamedQuery(name = "Producto.findById_productos", query = "select p from Producto p where p.id_productos = ?1") //no olvidar que from Producto es con mayuscula porque es la CLASE
+@NamedQuery(name = "Producto.findById_productos", query = "select p from Producto p join p.id_proveedor pr join p.id_tipos join p.id_familias where p.id_productos = ?1") //no olvidar que from Producto es con mayuscula porque es la CLASE
 public class Producto {
 	
 	@Id
@@ -67,13 +67,6 @@ public class Producto {
 	@JoinColumn(name = "id_familias", updatable = false, nullable = false) 
 	private Familia id_familias;
 
-/*
-	private Proveedor proveedor;
-	
-	private Familia familia;
-	
-	private Tipo tipo;
-*/
 	@OneToMany(mappedBy = "id_productos",cascade = CascadeType.ALL)
 	@JsonIgnore
 	List<Producto_reserva> pProductoReserva;
@@ -84,6 +77,106 @@ public class Producto {
 	
 	public boolean getActivo() {
 		return activo;
+	}
+
+	public String getId_productos() {
+		return id_productos;
+	}
+
+	public void setId_productos(String id_productos) {
+		this.id_productos = id_productos;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public Date getFecha_vencimiento() {
+		return fecha_vencimiento;
+	}
+
+	public void setFecha_vencimiento(Date fecha_vencimiento) {
+		this.fecha_vencimiento = fecha_vencimiento;
+	}
+
+	public int getPrecio_compra() {
+		return precio_compra;
+	}
+
+	public void setPrecio_compra(int precio_compra) {
+		this.precio_compra = precio_compra;
+	}
+
+	public int getPrecio_venta() {
+		return precio_venta;
+	}
+
+	public void setPrecio_venta(int precio_venta) {
+		this.precio_venta = precio_venta;
+	}
+
+	public int getStock() {
+		return stock;
+	}
+
+	public void setStock(int stock) {
+		this.stock = stock;
+	}
+
+	public int getStock_critico() {
+		return stock_critico;
+	}
+
+	public void setStock_critico(int stock_critico) {
+		this.stock_critico = stock_critico;
+	}
+
+	public Proveedor getId_proveedor() {
+		return id_proveedor;
+	}
+
+	public void setId_proveedor(Proveedor id_proveedor) {
+		this.id_proveedor = id_proveedor;
+	}
+
+	public Tipo getId_tipos() {
+		return id_tipos;
+	}
+
+	public void setId_tipos(Tipo id_tipos) {
+		this.id_tipos = id_tipos;
+	}
+
+	public Familia getId_familias() {
+		return id_familias;
+	}
+
+	public void setId_familias(Familia id_familias) {
+		this.id_familias = id_familias;
+	}
+
+	public List<Producto_reserva> getpProductoReserva() {
+		return pProductoReserva;
+	}
+
+	public void setpProductoReserva(List<Producto_reserva> pProductoReserva) {
+		this.pProductoReserva = pProductoReserva;
+	}
+
+	public List<Producto_pedido> getpProductoPedido() {
+		return pProductoPedido;
+	}
+
+	public void setpProductoPedido(List<Producto_pedido> pProductoPedido) {
+		this.pProductoPedido = pProductoPedido;
+	}
+
+	public void setActivo(boolean activo) {
+		this.activo = activo;
 	}
 	
 }

@@ -1,7 +1,7 @@
 package com.serviexpress.serviexpress.vista.resources;
 
+import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -12,15 +12,17 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.serviexpress.serviexpress.modelo.Cliente;
-import com.serviexpress.serviexpress.modelo.Empleado;
+import com.serviexpress.serviexpress.modelo.Producto_reserva;
 import com.serviexpress.serviexpress.modelo.Reserva;
+import com.serviexpress.serviexpress.modelo.Reserva_servicio;
 import com.serviexpress.serviexpress.negocio.services.ClienteService;
 import com.serviexpress.serviexpress.negocio.services.EmpleadoService;
+import com.serviexpress.serviexpress.negocio.services.ProductoService;
+import com.serviexpress.serviexpress.negocio.services.Producto_reservaService;
 import com.serviexpress.serviexpress.negocio.services.ReservaService;
+import com.serviexpress.serviexpress.negocio.services.Reserva_servicioService;
+import com.serviexpress.serviexpress.negocio.services.ServicioService;
 import com.serviexpress.serviexpress.vista.resources.vo.ReservaVO;
-
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -35,81 +37,151 @@ import io.swagger.annotations.ApiResponses;
 @RequestMapping("/api/reserva") //el nombre con el cual llamar a esta clase como Servicio web
 @Api(tags = "reserva")
 public class ReservaResource extends Elohim{
-	private final ReservaService reservaService;
+	private final ReservaService rService;
 	private final ClienteService clienteService;
 	private final EmpleadoService empleadoService;
+	private final Reserva_servicioService rsService;
+	private final Producto_reservaService prService;
+	private final ProductoService pService;
+	private final ServicioService sService;
 	
-	public ReservaResource(ReservaService reservaService, ClienteService clienteService, EmpleadoService empleadoService) {
-		this.reservaService = reservaService;
-		this.clienteService = clienteService;
-		this.empleadoService =  empleadoService;
+	public ReservaResource(
+			ReservaService rService,
+			ServicioService sService, 
+			ClienteService clienteService, 
+			EmpleadoService empleadoService,
+			Reserva_servicioService rsService,
+			Producto_reservaService prService,
+			ProductoService pService
+	){
+		this.rService 			= rService;
+		this.clienteService 	= clienteService;
+		this.empleadoService	= empleadoService;
+		this.rsService 			= rsService;
+		this.prService 			= prService;
+		this.pService 			= pService;
+		this.sService			= sService;
 	}
 	
-	@PostMapping("crea")
+	@PostMapping
 	@ApiOperation(value = "Crear Reserva", notes = "Servicio para crear una nueva Reserva")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Reserva CREADO correctamente"),@ApiResponse(code = 404, message = "Solicitud Invalida")})
-	public ResponseEntity<Reserva> createReserva(@RequestBody ReservaVO reservaVO){
-		Reserva reserva = new Reserva();
-		/*
-		reserva.setId_reservas(reservaVO.getId_reservas());
-		reserva.setEmpleados_id_personas(reservaVO.getEmpleados_id_personas());
-		reserva.setFecha(reservaVO.getFecha());
-		reserva.setObservaciones(reservaVO.getObservaciones());
-		reserva.setSe_atendio(reservaVO.getSe_atendio());
-		reserva.setClientes_id_personas(reservaVO.getClientes_id_personas());
-		*/
-		copiarPropiedadesNoNulas(reservaVO, reserva);
-		reserva.setEmpleadoReserva(this.empleadoService.findById_empleado(reservaVO.getID_EMPLEADO()));
-		reserva.setClienteReserva(this.clienteService.findById_cliente(reservaVO.getID_CLIENTE()));
-		//reserva.getEmpleadoReserva().setId_empleado(reservaVO.getID_EMPLEADO());
-		//reserva.getClienteReserva().setId_cliente(reservaVO.getID_EMPLEADO());
-		return new ResponseEntity<>(this.reservaService.create(reserva), HttpStatus.CREATED);
+	public ResponseEntity<ReservaVO> createReserva(@RequestBody ReservaVO rVO){
+		Reserva rva = new Reserva();
+		copiarPropiedadesNoNulas(rVO, rva);
+		rva.setEmpleadoReserva(this.empleadoService.findById_empleado(rVO.getId_empleado()));
+		rva.setClienteReserva(this.clienteService.findById_cliente(rVO.getId_cliente()));
+		this.rService.create(rva);
+		int idr=this.rService.getLastId();
+		rva.setId_reservas(idr);
+		if (rVO.getProductos()!=null) {
+			for (String pVO : rVO.getProductos()) {
+				Producto_reserva pr = new Producto_reserva();
+				pr.setId_productos(this.pService.findById_productos(pVO));
+				pr.setId_reservas(rva);
+				this.prService.create(pr);
+			}
+		}
+		if (rVO.getServicios()!=null) {
+			for (Integer sVO : rVO.getServicios()) {
+				Reserva_servicio rs = new Reserva_servicio();
+				rs.setId_servicios(this.sService.findById_servicios((int)sVO));
+				rs.setId_reservas(rva);
+				this.rsService.create(rs);
+			}
+		}
+		return new ResponseEntity<>(rVO, HttpStatus.CREATED);
 	}
 	
-	@PutMapping("/{id_reserva}")
+	@PutMapping("/{id_reservas}")
 	@ApiOperation(value = "actualizar Reserva", notes = "Servicio para actualizar un Reserva")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Reserva ACTUALIZADO correctamente"),@ApiResponse(code = 404, message = "Reserva NO encontrado")})
-	public ResponseEntity<Reserva> updateReserva(@PathVariable("id_reserva") int id_reserva, ReservaVO reservaVO){
-		Reserva reserva = this.reservaService.findById_reservas(id_reserva);
-		if (reserva==null) {
+	public ResponseEntity<Reserva> updateReserva(@PathVariable("id_reservas") int id_reservas, @RequestBody ReservaVO rVO){
+		Reserva rva = this.rService.findById_reservas(id_reservas);
+		rva.getClass().getName();
+		if (rva==null) {
 			return new ResponseEntity<Reserva>(HttpStatus.NOT_FOUND);
 		}else {
-			/*
-			reserva.setId_reservas(reservaVO.getId_reservas());
-			reserva.setEmpleados_id_personas(reservaVO.getEmpleados_id_personas());
-			reserva.setFecha(reservaVO.getFecha());
-			reserva.setObservaciones(reservaVO.getObservaciones());
-			reserva.setSe_atendio(reservaVO.getSe_atendio());
-			reserva.setClientes_id_personas(reservaVO.getClientes_id_personas());
-			*/
-			copiarPropiedadesNoNulas(reservaVO, reserva);
+			copiarPropiedadesNoNulas(rVO, rva);
+			try {
+				
+				this.rService.update(rva);
+				int idr=this.rService.getLastId();
+				rva.setId_reservas(idr);
+				if (rVO.getProductos()!=null) {
+					for (String pVO : rVO.getProductos()) {
+						Producto_reserva pr = new Producto_reserva();
+						pr.setId_productos(this.pService.findById_productos(pVO));
+						pr.setId_reservas(rva);
+						this.prService.update(pr);
+					}
+				}
+				if (rVO.getServicios()!=null) {
+					for (Integer sVO : rVO.getServicios()) {
+						Reserva_servicio rs = new Reserva_servicio();
+						rs.setId_servicios(this.sService.findById_servicios((int)sVO));
+						rs.setId_reservas(rva);
+						this.rsService.update(rs);
+					}
+				}
+			} catch (Exception e) {
+				return new ResponseEntity<Reserva>(HttpStatus.NOT_FOUND);
+			}
 		}
-		return new ResponseEntity<>(this.reservaService.update(reserva), HttpStatus.OK);
+		return new ResponseEntity<>(this.rService.update(rva), HttpStatus.OK);
 	}
 	
-	@DeleteMapping("/{id_Reserva}")
+	@DeleteMapping("/{id_reservas}")
 	@ApiOperation(value = "Eliminar Reserva", notes = "Servicio para eliminar una Reserva")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Reserva ELIMINADa correctamente"),@ApiResponse(code = 404, message = "Reserva NO encontrado")})
-	public void removeReserva(@PathVariable("id_Reserva") int id_Reserva) {
-		Reserva Reserva = this.reservaService.findById_reservas(id_Reserva);
-		if (Reserva!=null) {
-			this.reservaService.delete(Reserva);
+	public void removeReserva(@PathVariable("id_reservas") int id_reservas) {
+		Reserva rva = this.rService.findById_reservas(id_reservas);
+		if (rva!=null) {
+			this.rService.delete(rva);
 		}
 	}
 
- 	@GetMapping("/{id_Reserva}")
+ 	@GetMapping("/{id_reservas}")
 	@ApiOperation(value = "Buscar Reserva", notes = "Reserva para buscar un Reserva")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Reserva ENCONTRADO correctamente"),@ApiResponse(code = 404, message = "Reserva NO encontrado")})
-	public ResponseEntity<Reserva> findById_Reservas(int id_Reservas) {
-		Reserva resv = this.reservaService.findById_reservas(id_Reservas);
-		return ResponseEntity.ok(resv);
-		
+	public ResponseEntity<ReservaVO> findById_Reservas(int id_reservas) {
+		Reserva rva = this.rService.findById_reservas(id_reservas);
+		ReservaVO rVO = new ReservaVO();
+		copiarPropiedadesNoNulas(rva,rVO);
+		rVO.setId_reservas(rva.getId_reservas());
+		rVO.setFecha(rva.getFecha());
+		rVO.setObservaciones(rva.getObservaciones());
+		rVO.setSe_atendio(rva.getSe_atendio());
+		rVO.setId_cliente(rva.getClienteReserva().getId_cliente());
+		rVO.setId_empleado(rva.getEmpleadoReserva().getId_empleado());
+		return ResponseEntity.ok(rVO);
 	}
  
-	@GetMapping
+ 	@GetMapping
 	@ApiOperation(value = "Listar Reservas", notes = "Reserva para listar todos los Reservas")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Reservas ENCONTRADOS correctamente"),@ApiResponse(code = 404, message = "Reservas NO encontrado")})
-	public ResponseEntity<List<Reserva>> findAll() {
-		return ResponseEntity.ok(this.reservaService.findAll());
+	public ResponseEntity<List<ReservaVO>> findAll() {
+ 		List<Reserva>reservas = this.rService.findAll();
+ 		List<ReservaVO> rVos = new ArrayList();
+ 		
+ 		for (Reserva rva : reservas) {
+ 			ReservaVO rVO = new ReservaVO();
+ 			copiarPropiedadesNoNulas(rva,rVO);
+ 			rVO.setId_reservas(rva.getId_reservas());
+ 			rVO.setFecha(rva.getFecha());
+ 			rVO.setObservaciones(rva.getObservaciones());
+ 			rVO.setSe_atendio(rva.getSe_atendio());
+ 			rVO.setId_cliente(rva.getClienteReserva().getId_cliente());
+ 			rVO.setId_empleado(rva.getEmpleadoReserva().getId_empleado());
+ 			rVos.add(rVO);
+		}
+		return ResponseEntity.ok(rVos);
+		
+	}
+ 	@GetMapping("/findReservasByCliente")
+	@ApiOperation(value = "Listar Reservas", notes = "Reserva para listar todos los Reservas")
+	@ApiResponses(value = {@ApiResponse(code = 201, message = "Reservas ENCONTRADOS correctamente"),@ApiResponse(code = 404, message = "Reservas NO encontrado")})
+	public ResponseEntity<List<Reserva>> findReservasByCliente(int id_cliente) {
+		return ResponseEntity.ok(this.rService.findReservasByCliente(id_cliente));
 	}
 }

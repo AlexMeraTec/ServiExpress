@@ -3,6 +3,7 @@ package com.serviexpress.serviexpress.vista.resources;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -42,22 +43,6 @@ public class PersonaResource extends Elohim{
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "persona CREADO correctamente"),@ApiResponse(code = 404, message = "Solicitud Invalida")})
 	public ResponseEntity<Persona> createpersona(@RequestBody PersonaVO personaVO){
 		Persona persona = new Persona();
-		
-	/*
-		persona.setRut(personaVO.getRut());
-		persona.setDigito_verificador(personaVO.getDigito_verificador());
-		persona.setNombre(personaVO.getNombre());
-		persona.setPaterno(personaVO.getPaterno());
-		persona.setMaterno(personaVO.getMaterno());
-		persona.setDireccion(personaVO.getDireccion());
-		persona.setTelefono(personaVO.getTelefono());
-		persona.setTelefono2(personaVO.getTelefono2());
-		persona.setUsuario(personaVO.getUsuario());
-		persona.setPassword(personaVO.getPassword());
-		persona.setE_mail(personaVO.getE_mail());
-		persona.setActiva(personaVO.isActiva());
-		persona.setTipo_personas(personaVO.getTipo_personas());
-	*/
 		copiarPropiedadesNoNulas(personaVO, persona);
 		return new ResponseEntity<>(this.personaService.create(persona), HttpStatus.CREATED);
 	}
@@ -65,28 +50,12 @@ public class PersonaResource extends Elohim{
 	@PutMapping("/{id_personas}")
 	@ApiOperation(value = "actualizar persona", notes = "Servicio para actualizar un persona")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "persona ACTUALIZADA correctamente"),@ApiResponse(code = 404, message = "persona NO encontrada")})
-	public ResponseEntity<Persona> updatepersona(@PathVariable("id_personas") int id_personas, PersonaVO personaVO){
+	public ResponseEntity<Persona> updatepersona(@PathVariable("id_personas") int id_personas,@RequestBody PersonaVO personaVO){
 		Persona persona = this.personaService.findById_personas(id_personas);
 		if (persona==null) {
 			return new ResponseEntity<Persona>(HttpStatus.NOT_FOUND);
 		}else {
-			
-			/*
-			persona.setId_personas(personaVO.getId_personas());
-			persona.setRut(personaVO.getRut());
-			persona.setDigito_verificador(personaVO.getDigito_verificador());
-			persona.setNombre(personaVO.getNombre());
-			persona.setPaterno(personaVO.getPaterno());
-			persona.setMaterno(personaVO.getMaterno());
-			persona.setDireccion(personaVO.getDireccion());
-			persona.setTelefono(personaVO.getTelefono());
-			persona.setTelefono2(personaVO.getTelefono2());
-			persona.setUsuario(personaVO.getUsuario());
-			persona.setPassword(personaVO.getPassword());
-			persona.setE_mail(personaVO.getE_mail());
-			persona.setActiva(personaVO.isActiva());
-			persona.setTipo_personas(personaVO.getTipo_personas());
-			*/
+			personaVO.setId_personas(id_personas);
 			copiarPropiedadesNoNulas(personaVO, persona);
 		}
 		return new ResponseEntity<>(this.personaService.update(persona), HttpStatus.OK);
@@ -94,8 +63,8 @@ public class PersonaResource extends Elohim{
 	
 	@DeleteMapping("/{id_personas}")
 	@ApiOperation(value = "Eliminar persona", notes = "Servicio para eliminar una persona")
-	@ApiResponses(value = {@ApiResponse(code = 201, message = "persona ELIMINADa correctamente"),@ApiResponse(code = 404, message = "persona NO encontrado")})
-	public void removepersona(@PathVariable("id_persona") int id_personas) {
+	@ApiResponses(value = {@ApiResponse(code = 201, message = "persona ELIMINADA correctamente"),@ApiResponse(code = 404, message = "persona NO encontrado")})
+	public void removepersona(@PathVariable("id_personas") int id_personas) {
 		Persona persona = this.personaService.findById_personas(id_personas);
 		if (persona!=null) {
 			this.personaService.delete(persona);

@@ -35,4 +35,37 @@ public class Empleado{
 	@OneToMany(mappedBy = "empleadoReserva",cascade = CascadeType.ALL)//en mappedBy debe ir el nombre que tiene esta clase dentro de la otra clase
 	@JsonIgnore
 	private List<Reserva> reservasEmpleado;
+
+	public int getId_empleado() {
+		return id_empleado;
+	}
+
+	public void setId_empleado(int id_empleado) {
+		this.id_empleado = id_empleado;
+	}
+
+	public int getNivel_acceso() {
+		return nivel_acceso;
+	}
+
+	public void setNivel_acceso(int nivel_acceso) {
+		this.nivel_acceso = nivel_acceso;
+	}
+
+	public Persona getPersonaEmpleado() {
+		return personaEmpleado;
+	}
+
+	public void setPersonaEmpleado(Persona personaEmpleado) {
+		this.personaEmpleado = personaEmpleado;
+	}
+
+	public List<Reserva> getReservasEmpleado() {
+		return reservasEmpleado;
+	}
+
+	public void setReservasEmpleado(List<Reserva> reservasEmpleado) {
+		this.reservasEmpleado = reservasEmpleado;
+	}
+	
 }

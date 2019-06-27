@@ -59,5 +59,9 @@ public class PersonaService {
 	public List<Persona> findAll(){
 		return this.personaRepository.findAll();
 	}
+	@Transactional
+	public int getLastId() {
+		return this.personaRepository.getLastId();
+	}
 	
 }

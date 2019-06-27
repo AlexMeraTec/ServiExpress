@@ -8,6 +8,8 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -29,6 +31,7 @@ import lombok.Data;
 public class Servicio {
 	@Id
 	@Column(name = "id_servicios")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_servicios;
 	
 	@Column(name = "nombre")
@@ -43,5 +46,46 @@ public class Servicio {
 	@OneToMany(mappedBy = "id_servicios",cascade = CascadeType.ALL)
 	@JsonIgnore
 	List<Reserva_servicio> sReserva_servicio;
+
+	public int getId_servicios() {
+		return id_servicios;
+	}
+
+	public void setId_servicios(int id_servicios) {
+		this.id_servicios = id_servicios;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public boolean isActivo() {
+		return activo;
+	}
+
+	public void setActivo(boolean activo) {
+		this.activo = activo;
+	}
+
+	public int getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(int precio) {
+		this.precio = precio;
+	}
+
+	public List<Reserva_servicio> getsReserva_servicio() {
+		return sReserva_servicio;
+	}
+
+	public void setsReserva_servicio(List<Reserva_servicio> sReserva_servicio) {
+		this.sReserva_servicio = sReserva_servicio;
+	}
+	
 }
 
