@@ -75,7 +75,7 @@ public class VehiculoResource extends Elohim{
 	}
 
  	@GetMapping("/{patente}")
-	@ApiOperation(value = "Buscar Vehiculo", notes = "Reserva para buscar un vehiculo")
+	@ApiOperation(value = "Buscar Vehiculo", notes = "Reserva para buscar un vehículo")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Vehiculo ENCONTRADO correctamente"),@ApiResponse(code = 404, message = "Vehiculo NO encontrado")})
 	public ResponseEntity<VehiculoVO> findBypatentes(String patente) {
 		Vehiculo v = this.veService.findByPatente(patente);
