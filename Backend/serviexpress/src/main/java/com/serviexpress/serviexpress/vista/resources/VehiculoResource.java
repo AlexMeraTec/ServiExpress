@@ -65,7 +65,7 @@ public class VehiculoResource extends Elohim{
 	}
 	
 	@DeleteMapping("/{id_vehiculo}")
-	@ApiOperation(value = "Eliminar Vehiculo", notes = "Servicio para eliminar unes vehiculo")
+	@ApiOperation(value = "Eliminar Vehiculo", notes = "Servicio para eliminar un vehiculo")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Vehiculo ELIMINADO correctamente"),@ApiResponse(code = 404, message = "Vehiculo NO encontrado")})
 	public void removeVehiculo(@PathVariable("patente") String patente, VehiculoVO vo) {
 		Vehiculo vehiculo = this.veService.findByPatente(patente);
