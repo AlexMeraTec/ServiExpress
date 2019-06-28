@@ -1,4 +1,4 @@
-spring: 
+ spring: 
   datasource:
     url: jdbc:oracle:thin:@xe.chyuylsvwn3e.sa-east-1.rds.amazonaws.com:1521:xe
     username: SERVIEXPRESS
@@ -7,5 +7,5 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create-drop
-      generate-ddl: true
+    generate-ddl: true
     show-sql: true
