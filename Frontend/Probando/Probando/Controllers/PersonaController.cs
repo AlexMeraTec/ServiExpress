@@ -19,7 +19,7 @@ namespace Probando.Controllers
         }
 
         //The URL of the WEB API Service
-        private const string url = "http://10.15.69.9:8080/";
+        private const string url = global.ip;
          
         //The HttpClient Class, this will be used for performing 
         //HTTP Operations, GET, POST, PUT, DELETE

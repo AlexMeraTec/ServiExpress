@@ -124,7 +124,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
-    <Compile Include="Controllers\Direccion.cs" />
     <Compile Include="Controllers\EmpleadoController.cs" />
     <Compile Include="Controllers\FamiliaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -142,6 +141,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\Direccion_Ip.cs" />
     <Compile Include="Models\Empleado.cs" />
     <Compile Include="Models\Familia.cs" />
     <Compile Include="Models\LoginModel.cs" />

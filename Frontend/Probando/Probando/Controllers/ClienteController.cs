@@ -21,7 +21,8 @@ namespace Probando.Controllers
             get { return this.clientes; }
         }
 
-        private const string url = "http://10.15.69.9:8080/";
+        
+        private const string url = global.ip;
         public ClienteController()
         {
             this.clientes = null;
