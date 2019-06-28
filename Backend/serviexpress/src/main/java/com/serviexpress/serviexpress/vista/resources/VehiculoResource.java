@@ -1,5 +1,6 @@
 package com.serviexpress.serviexpress.vista.resources;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.w3c.dom.ls.LSInput;
+
 import com.serviexpress.serviexpress.modelo.Vehiculo;
 import com.serviexpress.serviexpress.negocio.services.ClienteService;
 import com.serviexpress.serviexpress.negocio.services.VehiculoService;
@@ -50,48 +53,53 @@ public class VehiculoResource extends Elohim{
 	@PutMapping("/{patente}")
 	@ApiOperation(value = "Actualizar Vehiculo", notes = "Servicio para actualizar un vehiculo")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Vehiculo ACTUALIZADO correctamente"),@ApiResponse(code = 404, message = "Vehiculo NO encontrado")})
-	public ResponseEntity<Vehiculo> updateReserva(@PathVariable("patente") String patente, @RequestBody VehiculoVO vo){
+	public ResponseEntity<VehiculoVO> updateReserva(@PathVariable("patente") String patente, @RequestBody VehiculoVO VO){
 		Vehiculo vehiculo = this.veService.findByPatente(patente);
 		if (vehiculo==null) {
-			return new ResponseEntity<Vehiculo>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<VehiculoVO>(HttpStatus.NOT_FOUND);
 		}else {
-			copiarPropiedadesNoNulas(vo, vehiculo);
-		}
-		return new ResponseEntity<>(this.veService.update(vehiculo), HttpStatus.OK);
-	}
-	@PutMapping("/{precio_venta}/{patente}")
-	@ApiOperation(value = "Actualizar precio_venta", notes = "Servicio para actualizar un vehiculo")
-	@ApiResponses(value = {@ApiResponse(code = 201, message = "Vehiculo ACTUALIZADO correctamente"),@ApiResponse(code = 404, message = "Vehiculo NO encontrado")})
-	public void updatePrecio_venta(@PathVariable("precio_venta") int precio_venta,@PathVariable("patente") String patente){
-		Vehiculo vehiculo = this.veService.findByPatente(patente);
-		if (vehiculo!=null) {
+			copiarPropiedadesNoNulas(VO, vehiculo);
 			this.veService.update(vehiculo);
+			return new ResponseEntity<>(VO, HttpStatus.OK);
 		}
 	}
+	
 	@DeleteMapping("/{id_vehiculo}")
 	@ApiOperation(value = "Eliminar Vehiculo", notes = "Servicio para eliminar una vehiculo")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Vehiculo ELIMINADO correctamente"),@ApiResponse(code = 404, message = "Vehiculo NO encontrado")})
 	public void removeVehiculo(@PathVariable("patente") String patente, VehiculoVO vo) {
 		Vehiculo vehiculo = this.veService.findByPatente(patente);
 		if (vehiculo!=null) {
-			this.veService.update(vehiculo);
+			this.veService.delete(vehiculo);
 		}
 	}
 
  	@GetMapping("/{patente}")
 	@ApiOperation(value = "Buscar Vehiculo", notes = "Reserva para buscar un vehiculo")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Vehiculo ENCONTRADO correctamente"),@ApiResponse(code = 404, message = "Vehiculo NO encontrado")})
-	public ResponseEntity<Vehiculo> findBypatentes(String patente) {
-		Vehiculo prod = this.veService.findByPatente(patente);
-		return ResponseEntity.ok(prod);
+	public ResponseEntity<VehiculoVO> findBypatentes(String patente) {
+		Vehiculo v = this.veService.findByPatente(patente);
+		VehiculoVO VO = new VehiculoVO();
+		copiarPropiedadesNoNulas(v, VO);
+		VO.setId_cliente(v.getClienteVehiculo().getId_cliente());
+		return ResponseEntity.ok(VO);
 	}
 	
 
 	@GetMapping
 	@ApiOperation(value = "Listar vehiculos", notes = "Servicio para listar todos los vehiculos")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Vehiculo ENCONTRADOS correctamente"),@ApiResponse(code = 404, message = "Vehiculo NO encontrado")})
-	public ResponseEntity<List<Vehiculo>> findAll() {
-		return ResponseEntity.ok(this.veService.findAll());
+	public ResponseEntity<List<VehiculoVO>> findAll() {
+		List<Vehiculo> VOS =this.veService.findAll();
+		List<VehiculoVO> VVOS = new ArrayList<VehiculoVO>();
+		for (Vehiculo v : VOS) {
+			VehiculoVO VO = new VehiculoVO();
+			copiarPropiedadesNoNulas(v, VO);
+			VO.setId_cliente(v.getClienteVehiculo().getId_cliente());
+			VVOS.add(VO);
+		}
+		
+		return ResponseEntity.ok(VVOS);
 	
 	}
  
