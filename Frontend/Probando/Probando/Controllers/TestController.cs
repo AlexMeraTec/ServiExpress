@@ -26,7 +26,7 @@ namespace MVCTutorial.Controllers
             get { return this.personas; }
         }
 
-        private const string url = "http://localhost:8080/";
+        private const string url = global.ip;
         public TestController()
         {
             this.loginModels = null;
