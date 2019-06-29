@@ -21,7 +21,7 @@ namespace Probando.Controllers
             get { return this.vehiculos; }
         }
 
-        private const string url = "http://10.15.69.9:8080/";
+        private const string url = global.ip;
         public VehiculoController()
         {
             this.vehiculos = null;
