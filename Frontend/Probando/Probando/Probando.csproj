@@ -135,6 +135,7 @@
     <Compile Include="Controllers\RecepcionController.cs" />
     <Compile Include="Controllers\ReservaController.cs" />
     <Compile Include="Controllers\ServicioController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\TipoController.cs" />
     <Compile Include="Controllers\VehiculoController.cs" />
     <Compile Include="Global.asax.cs">
