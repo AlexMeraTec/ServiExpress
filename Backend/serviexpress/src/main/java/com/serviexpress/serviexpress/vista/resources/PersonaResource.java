@@ -81,7 +81,7 @@ public class PersonaResource extends Elohim{
 	}
  
 	@GetMapping
-	@ApiOperation(value = "Listar personas", notes = "persona para listar todos los personas")
+	@ApiOperation(value = "Listar personas", notes = "Metodo para listar todas las personas")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "personas ENCONTRADOS correctamente"),@ApiResponse(code = 404, message = "personas NO encontrado")})
 	public ResponseEntity<List<Persona>> findAll() {
 		return ResponseEntity.ok(this.personaService.findAll());
