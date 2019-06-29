@@ -1,0 +1,73 @@
+﻿@model Probando.Models.LoginModel
+@{
+    ViewBag.Title = "Login";
+}
+
+<div class="panel panel-body">
+
+    <div class="col-md-9">
+
+        <form id="myForm">
+            <div class="form-group">
+                <div class="col-md-12">
+                    <h4>Login Here</h4>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = "EmailId" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.PasswordFor(m => m.UserPassword, new { @class = "form-control", @placeholder = "Password" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <a href="#" class="btn btn-primary " onclick="LoginUser()">Submit</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+
+    var LoginUser = function () {
+        debugger
+        var data = $("#myForm").serialize();
+
+        $.ajax({
+            type: "Post",
+            url: "/Test/LoginUser",
+            data: data,
+            success: function (response) {
+                debugger
+                if (response == "fail") {
+
+                    window.location.href = "/Test/Login";
+                }
+                else if (response == "Admin") {
+
+                    window.location.href = "/Test/Admin";
+                }
+                else {
+
+                    window.location.href = "/Test/Index";
+                }
+            }
+
+
+
+        })
+
+
+
+    }
+
+</script>
+
