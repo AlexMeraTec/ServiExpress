@@ -16,21 +16,21 @@ namespace MVCTutorial.Controllers
     {
         HttpClient client;
         private List<LoginModel> loginModels;
-        private List<Persona> personas;
+        private List<Cliente> clientes;
         public List<LoginModel> AllLogin
         {
             get { return this.loginModels; }
         }
-        public List<Persona> AllPersonas
+        public List<Cliente> AllPersonas
         {
-            get { return this.personas; }
+            get { return this.clientes; }
         }
 
         private const string url = global.ip;
         public TestController()
         {
             this.loginModels = null;
-            this.personas = null;
+            this.clientes = null;
             client = new HttpClient();
             client.BaseAddress = new Uri(url);
             client.DefaultRequestHeaders.Accept.Clear();
@@ -45,7 +45,7 @@ namespace MVCTutorial.Controllers
         public async Task<ActionResult> Registrar(Persona Emp)
         {
             HttpContent httpContent = new StringContent(JsonConvert.SerializeObject(Emp), Encoding.UTF8, "application/json");
-            HttpResponseMessage responseMessage = await client.PostAsync("api/persona", httpContent);
+            HttpResponseMessage responseMessage = await client.PostAsync("api/cliente", httpContent);
 
             if (responseMessage.IsSuccessStatusCode)
             {
