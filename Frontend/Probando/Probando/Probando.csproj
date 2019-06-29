@@ -259,6 +259,8 @@
     <Content Include="Views\Vehiculo\Delete.cshtml" />
     <Content Include="Views\Vehiculo\Edit.cshtml" />
     <Content Include="Views\Vehiculo\Index.cshtml" />
+    <Content Include="Views\Test\Login.cshtml" />
+    <Content Include="Views\Test\Registrar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
