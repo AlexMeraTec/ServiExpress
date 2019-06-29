@@ -21,7 +21,7 @@ namespace MVCTutorial.Controllers
         {
             get { return this.loginModels; }
         }
-        public List<Cliente> AllPersonas
+        public List<Cliente> AllClientes
         {
             get { return this.clientes; }
         }
@@ -39,10 +39,10 @@ namespace MVCTutorial.Controllers
         public ActionResult Registrar()
         {
 
-            return View(new Persona());
+            return View(new Cliente());
         }
         [HttpPost]
-        public async Task<ActionResult> Registrar(Persona Emp)
+        public async Task<ActionResult> Registrar(Cliente Emp)
         {
             HttpContent httpContent = new StringContent(JsonConvert.SerializeObject(Emp), Encoding.UTF8, "application/json");
             HttpResponseMessage responseMessage = await client.PostAsync("api/cliente", httpContent);
