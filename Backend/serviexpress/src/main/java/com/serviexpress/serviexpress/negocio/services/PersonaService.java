@@ -5,9 +5,12 @@ package com.serviexpress.serviexpress.negocio.services;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.serviexpress.serviexpress.modelo.Login;
 import com.serviexpress.serviexpress.modelo.Persona;
 import com.serviexpress.serviexpress.negocio.repository.PersonaRepository;
 
@@ -19,6 +22,7 @@ import com.serviexpress.serviexpress.negocio.repository.PersonaRepository;
 @Service
 //@Transactional(readOnly = true)
 public class PersonaService {
+	private EntityManager em;
 	private final PersonaRepository personaRepository;
 	
 	public PersonaService(PersonaRepository personaRepository) {
@@ -64,4 +68,13 @@ public class PersonaService {
 		return this.personaRepository.getLastId();
 	}
 	
+	public int LOGINUSER (String v_username, String v_password) {
+		return (int) this.personaRepository.LOGINUSER(v_username, v_password);
+	}
+	public Persona findByRut(int rut , char dv) {
+		return this.personaRepository.findByRut(rut, dv);
+	}
+	public Persona personaLogin(String v_username, String v_password) {
+		return this.personaRepository.personaLogin(v_username, v_password);
+	}
 }
