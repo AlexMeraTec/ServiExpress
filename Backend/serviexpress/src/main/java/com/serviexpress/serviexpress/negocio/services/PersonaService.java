@@ -71,5 +71,10 @@ public class PersonaService {
 	public int LOGINUSER (String v_username, String v_password) {
 		return (int) this.personaRepository.LOGINUSER(v_username, v_password);
 	}
-	
+	public Persona findByRut(int rut , char dv) {
+		return this.personaRepository.findByRut(rut, dv);
+	}
+	public Persona personaLogin(String v_username, String v_password) {
+		return this.personaRepository.personaLogin(v_username, v_password);
+	}
 }

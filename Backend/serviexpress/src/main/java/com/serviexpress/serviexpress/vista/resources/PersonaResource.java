@@ -74,9 +74,11 @@ public class PersonaResource extends Elohim{
  	@GetMapping("/{id_personas}")
 	@ApiOperation(value = "Buscar persona", notes = "persona para buscar un persona")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "persona ENCONTRADO correctamente"),@ApiResponse(code = 404, message = "persona NO encontrado")})
-	public ResponseEntity<Persona> findById_personas(int id_personas) {
+	public ResponseEntity<PersonaVO> findById_personas(int id_personas) {
  		Persona perso = this.personaService.findById_personas(id_personas);
-		return ResponseEntity.ok(perso);
+ 		PersonaVO pVO = new PersonaVO();
+ 		copiarPropiedadesNoNulas(perso, pVO);
+		return ResponseEntity.ok(pVO);
 		
 	}
  
@@ -102,9 +104,26 @@ public class PersonaResource extends Elohim{
 	
 	@GetMapping("/LOGINUSER") 
 	@ApiOperation(value = "LOGINUSER", notes = "Metodo para LOGINUSER")
-	@ApiResponses(value = {@ApiResponse(code = 201, message = "LOGINUSER ENCONTRADOS correctamente"),@ApiResponse(code = 404, message = "LOGINUSER NO encontrado")})
-	public ResponseEntity<Integer> LOGINUSER(String v_username, String v_password) {
-		return ResponseEntity.ok((int)this.personaService.LOGINUSER(v_username, v_password));
+	@ApiResponses(value = {@ApiResponse(code = 200, message = "LOGINUSER ENCONTRADOS correctamente"),@ApiResponse(code = 201, message = "LOGINUSER ENCONTRADOS correctamente"),@ApiResponse(code = 404, message = "REVISE SU USUARIO O PASSWORD")})
+	public ResponseEntity<PersonaVO> LOGINUSER(String v_username, String v_password) {
+		int si = (int) this.personaService.LOGINUSER(v_username, v_password);
+		if(si==1){
+			Persona perso =this.personaService.personaLogin(v_username, v_password);
+			PersonaVO pVO = new PersonaVO();
+	 		copiarPropiedadesNoNulas(perso, pVO);
+			return ResponseEntity.ok(pVO);
+			
+		}else {
+			return new ResponseEntity<PersonaVO>(HttpStatus.NOT_FOUND);
+		}
 	}
-	
+	@GetMapping("/findByRut") 
+	@ApiOperation(value = "findByRut", notes = "Metodo para encontrar por rut")
+	@ApiResponses(value = {@ApiResponse(code = 201, message = "Persona ENCONTRADA correctamente"),@ApiResponse(code = 404, message = "Persona NO encontrada")})
+	public ResponseEntity<PersonaVO> findByRut(int rut,char dv) {
+		PersonaVO pVO = new PersonaVO();
+		Persona perso = this.personaService.findByRut(rut, dv);
+		copiarPropiedadesNoNulas(perso, pVO);
+		return ResponseEntity.ok(pVO);
+	}
 }

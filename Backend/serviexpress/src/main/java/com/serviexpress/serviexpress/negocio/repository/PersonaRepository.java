@@ -13,4 +13,6 @@ public interface PersonaRepository extends JpaRepository<Persona, Integer>{
 	@Query(value = "select max(id_personas) from personas", nativeQuery = true)
 	public int getLastId();
 	public int LOGINUSER(String v_username, String v_password);
+	public Persona personaLogin(String v_username, String v_password);
+	public Persona findByRut(int rut,char dv);	
 }

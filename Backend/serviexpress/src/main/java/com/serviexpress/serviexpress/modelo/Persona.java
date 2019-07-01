@@ -32,6 +32,7 @@ import lombok.Data;
 //			@StoredProcedureParameter(mode= ParameterMode.IN, name= "v_password", type= String.class),
 //			@StoredProcedureParameter(mode= ParameterMode.OUT, name= "validador", type= int.class)
 //}) 
+@NamedQuery(name = "Persona.personaLogin",query = "select p from Persona p  where p.usuario = ?1 and p.password = ?2")
 @NamedQuery(name = "Persona.LOGINUSER",query = "select COUNT(p) from Persona p  where p.usuario = ?1 and p.password = ?2")
 @NamedQuery(name = "Persona.findById_personas", query = "select p from Persona p where p.id_personas = ?1") //no olvidar que from Producto es con mayuscula porque es la CLASE
 @NamedQuery(name = "Persona.findByRut", query = "select p from Persona p where p.rut = ?1 and p.digito_verificador = ?2") //no olvidar que from Producto es con mayuscula porque es la CLASE
