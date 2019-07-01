@@ -15,46 +15,20 @@ namespace MVCTutorial.Controllers
     public class TestController : Controller
     {
         HttpClient client;
-        private List<LoginModel> loginModels;
-        private List<Persona> personas;
+        private List<LoginModel> loginModels;        
         public List<LoginModel> AllLogin
         {
             get { return this.loginModels; }
-        }
-        public List<Persona> AllPersonas
-        {
-            get { return this.personas; }
-        }
-
+        }        
         private const string url = global.ip;
         public TestController()
         {
-            this.loginModels = null;
-            this.personas = null;
+            this.loginModels = null;            
             client = new HttpClient();
             client.BaseAddress = new Uri(url);
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
-        public ActionResult Registrar()
-        {
-
-            return View(new Persona());
-        }
-        [HttpPost]
-        public async Task<ActionResult> Registrar(Persona Emp)
-        {
-            HttpContent httpContent = new StringContent(JsonConvert.SerializeObject(Emp), Encoding.UTF8, "application/json");
-            HttpResponseMessage responseMessage = await client.PostAsync("api/persona", httpContent);
-
-            if (responseMessage.IsSuccessStatusCode)
-            {
-                return RedirectToAction("Index");
-            }
-            return RedirectToAction("Error");
-        }
-
-
         public ActionResult Login()
         {
 
