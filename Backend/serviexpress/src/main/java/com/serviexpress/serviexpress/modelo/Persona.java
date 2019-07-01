@@ -9,7 +9,11 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.NamedQuery;
+import javax.persistence.NamedStoredProcedureQueries;
+import javax.persistence.NamedStoredProcedureQuery;
 import javax.persistence.OneToOne;
+import javax.persistence.ParameterMode;
+import javax.persistence.StoredProcedureParameter;
 import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
@@ -21,9 +25,16 @@ import lombok.Data;
 @Entity
 @Table(name = "personas")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-//@Inheritance(strategy = InheritanceType.JOINED)
+
+//@NamedStoredProcedureQuery(name= "Persona.LOGINUSER", procedureName= "LOGINUSER", 
+//	parameters= {
+//			@StoredProcedureParameter(mode= ParameterMode.IN, name= "v_username", type= String.class), 
+//			@StoredProcedureParameter(mode= ParameterMode.IN, name= "v_password", type= String.class),
+//			@StoredProcedureParameter(mode= ParameterMode.OUT, name= "validador", type= int.class)
+//}) 
+@NamedQuery(name = "Persona.LOGINUSER",query = "select COUNT(p) from Persona p  where p.usuario = ?1 and p.password = ?2")
 @NamedQuery(name = "Persona.findById_personas", query = "select p from Persona p where p.id_personas = ?1") //no olvidar que from Producto es con mayuscula porque es la CLASE
-@NamedQuery(name = "Persona.findByRut", query = "select p from Persona p where p.rut = ?1 and p.digito_verificador = ?1") //no olvidar que from Producto es con mayuscula porque es la CLASE
+@NamedQuery(name = "Persona.findByRut", query = "select p from Persona p where p.rut = ?1 and p.digito_verificador = ?2") //no olvidar que from Producto es con mayuscula porque es la CLASE
 public class Persona {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="SEQ_PERSONA")

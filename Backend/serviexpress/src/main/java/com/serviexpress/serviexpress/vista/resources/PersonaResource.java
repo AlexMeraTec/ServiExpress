@@ -86,4 +86,25 @@ public class PersonaResource extends Elohim{
 	public ResponseEntity<List<Persona>> findAll() {
 		return ResponseEntity.ok(this.personaService.findAll());
 	}
+	
+//	@GetMapping("/LOGINUSER")
+//	@ApiOperation(value = "LOGINUSER", notes = "Metodo para LOGINUSER")
+//	@ApiResponses(value = {@ApiResponse(code = 201, message = "LOGINUSER ENCONTRADOS correctamente"),@ApiResponse(code = 404, message = "LOGINUSER NO encontrado")})
+//	public ResponseEntity<Boolean> LOGINUSER(@PathVariable String usuario,@PathVariable String password) {
+//		boolean login=false;
+//		try {
+//			
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//		}
+//		return ResponseEntity.ok(true);
+//	}
+	
+	@GetMapping("/LOGINUSER") 
+	@ApiOperation(value = "LOGINUSER", notes = "Metodo para LOGINUSER")
+	@ApiResponses(value = {@ApiResponse(code = 201, message = "LOGINUSER ENCONTRADOS correctamente"),@ApiResponse(code = 404, message = "LOGINUSER NO encontrado")})
+	public ResponseEntity<Integer> LOGINUSER(String v_username, String v_password) {
+		return ResponseEntity.ok((int)this.personaService.LOGINUSER(v_username, v_password));
+	}
+	
 }

@@ -46,14 +46,28 @@ Para conectarse con UNA BASE DE DATOS MYSQL
 
 package com.serviexpress.serviexpress;
 
+import java.util.Arrays;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication
 public class ServiexpressApplication {
 //run as maven build usando el comando clean install spring-boot:run
 	public static void main(String[] args) {
 		SpringApplication.run(ServiexpressApplication.class, args);
+//		ApplicationContext ctx = SpringApplication.run(ServiexpressApplication.class, args);
+//
+//        System.out.println("List of beans provided by Spring Boot:");
+//        String[] beanNames = ctx.getBeanDefinitionNames();
+//        Arrays.sort(beanNames);
+//        for (String beanName : beanNames) {
+//            System.out.print(beanName);
+//            System.out.print(" ");
+//        }
+//
+//        System.out.println("");
 	}
 
 }

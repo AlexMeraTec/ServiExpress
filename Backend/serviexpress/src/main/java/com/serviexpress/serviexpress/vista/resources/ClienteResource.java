@@ -103,7 +103,18 @@ public class ClienteResource extends Elohim{
 		}
 		 */
 	}
-	
+	@PutMapping("/fiable/{id_personas}")
+	@ApiOperation(value = "actualizar Cliente", notes = "Servicio para actualizar un Cliente")
+	@ApiResponses(value = {@ApiResponse(code = 201, message = "Cliente ACTUALIZADO correctamente"),@ApiResponse(code = 404, message = "Cliente NO encontrado")})
+	public ResponseEntity<Cliente> esfiable(@PathVariable("id_personas") int id_personas, @RequestBody Boolean fiable){
+		Cliente cliPerso = this.clienteService.findById_cliente(id_personas);
+		if (cliPerso==null) {
+			return new ResponseEntity<Cliente>(HttpStatus.NOT_FOUND);
+		}else{
+			cliPerso.setFiable(fiable);
+			return new ResponseEntity<>(this.clienteService.update(cliPerso), HttpStatus.OK);
+		}
+	}
 	@DeleteMapping("/{id_personas}")
 	@ApiOperation(value = "Eliminar Cliente", notes = "Servicio para eliminar una Cliente")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Cliente ELIMINADa correctamente"),@ApiResponse(code = 404, message = "Cliente NO encontrado")})

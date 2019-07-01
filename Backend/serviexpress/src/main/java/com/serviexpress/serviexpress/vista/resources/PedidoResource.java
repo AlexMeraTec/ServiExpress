@@ -41,10 +41,11 @@ public class PedidoResource extends Elohim{
 	@PostMapping
 	@ApiOperation(value = "Crear Pedido", notes = "Servicio para crear un nuevo Pedido")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Pedido CREADO correctamente"),@ApiResponse(code = 404, message = "Solicitud Invalida")})
-	public ResponseEntity<Pedido> createPedido(@RequestBody PedidoVO VO){
+	public ResponseEntity<PedidoVO> createPedido(@RequestBody PedidoVO VO){
 		Pedido pdo = new Pedido();
 		copiarPropiedadesNoNulas(VO, pdo);
-		return new ResponseEntity<>(this.pdoService.create(pdo), HttpStatus.CREATED);
+		this.pdoService.create(pdo);
+		return new ResponseEntity<>(VO, HttpStatus.CREATED);
 	}
 	
 	@PutMapping("/{id_pedidos}")
