@@ -11,14 +11,14 @@ using System.Net;
 using System.Text;
 using Probando.Models;
 
-namespace Probando
+namespace Leer_json
 {
     public partial class Index : System.Web.UI.Page
     {
         //declaro la direccion y el puerto por el que hacemos el pedido a la api 
-        static String puerto = "8080";
-        static String host = "http://localhost:";//"54.233.167.87"; cambiar localhost por la direccion que este en linea
-        String url = host + puerto;
+
+        static String host = "http://18.228.155.93:8080";//"54.233.167.87"; cambiar localhost por la direccion que este en linea
+        
         //Puede parecer tedioso pero ayuda cuando cambiamos el servidor o el puerto
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,7 +29,7 @@ namespace Probando
                 //string fileJson = File.ReadAllText(@"C:\Users\vina\Desktop\Leer_json\Leer_json\servicios.json");
                 //por URL
                 var http = new WebClient();
-                string fileJson = http.DownloadString(url+"/api/servicio");
+                string fileJson = http.DownloadString(host+"/api/servicio");
                 //creamos un objeto que controla la serealizacion o desealizacion
                 JavaScriptSerializer jsd = new JavaScriptSerializer();
                 //deserealizamos una lista de servicios que nos va a llegar
@@ -38,7 +38,7 @@ namespace Probando
                 foreach (Servicio ser in lstserv)
                 {
                     ddlservicios.DataSource = lstserv;
-                    ddlservicios.DataValueField = "id";
+                    ddlservicios.DataValueField = "id_servicios";
                     ddlservicios.DataTextField = "nombre";
                     ddlservicios.DataBind();
 
@@ -50,31 +50,28 @@ namespace Probando
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            //Reserva reserva = new Reserva
-            //{
-            //    nombre = txtnombre.Text,
-            //    fecha = txtFechaLaborables.Value,
-            //    servicio = ddlservicios.SelectedIndex,
-            //    hora = Text2.Value,
 
-            //};
-
-            //Session["ARCHIVOJSON"] = JsonConvert.SerializeObject(reserva);
-            //File.WriteAllText(@"C:\Users\vina\Desktop\Leer_json\Leer_json\hola.json", "[" + Session["ARCHIVOJSON"].ToString() + "]");
-            //Response.Write("<script>alert('json creado');</script>");
-            //TextBox1.Text = "";
-
+            DateTime f = DateTime.Parse(txtFechaLaborables.Value.ToString());
+                        
+           
+           TimeSpan  h = TimeSpan.Parse(Text2.Value.ToString());
+            List<int> s = new List<int>();
+            s.Add(2);
+            List<string> r = new List<string>();
+            r.Add();
             var reserva = new Reserva()
             {
-                id_cliente = 3,
-                id_empleado = 1,
-                fecha = DateTime.Parse("2019-05-01T14:08:53.819Z"),
-                id_reservas = 1,
-                observaciones ="Hola Pelao",
-                se_atendio = false,
+               id_cliente = int.Parse(txtid_cliente.Text),
+                id_empleado = int.Parse(txtid_empleado.Text),
+            fecha = f.Date.Add(h),
+                id_reservas = 0,
+                observaciones =TextBox1.Text,
+                se_atendio = chkse_atendio.Checked,
+               servicios = s,
+
             };
             string json = JsonConvert.SerializeObject(reserva);
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create(url + "/api/reserva");
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(host + "/api/reserva");
             httpWebRequest.ContentType = "application/json; charset=utf-8";
             httpWebRequest.Method = "POST";
             httpWebRequest.Accept = "application/json; charset=utf-8";
@@ -92,33 +89,7 @@ namespace Probando
                 }
 
             }
-                /*
-                var request = (HttpWebRequest)WebRequest.Create(host+"/api/reserva");
-                request.Method = "POST";
-                request.ContentType = "application/json; charset=utf-8";
-                request.Timeout = 30000;
-
-
-                byte[] byteArray = Encoding.UTF8.GetBytes(json);
-                //request.ContentLength = byteArray.Length;
-
-                var dataStream = new StreamWriter(request.GetRequestStream());
-                dataStream.Write(byteArray);
-                dataStream.Close();
-
-
-                using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-                {
-                    dataStream = response.GetResponseStream();
-                    using (Stream stream = response.GetResponseStream())
-                    {
-                        using (StreamReader reader = new StreamReader(stream))
-                        {
-                            string responseFromServer = reader.ReadToEnd();
-                        }
-                    }
-                }
-                */
+                
 
 
 
