@@ -9,9 +9,7 @@ import lombok.Data;
  */
 @Data
 public class PersonaVO {
-	@JsonIgnore
 	private int id_personas;
-	
 	private int rut;
 	private char digito_verificador;
 	private String nombre;

@@ -157,12 +157,32 @@
     <Compile Include="Models\Tipo.cs" />
     <Compile Include="Models\Vehiculo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="reservaasp\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="reservaasp\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\demo\320x180.png" />
+    <Content Include="Content\images\demo\avatar.png" />
+    <Content Include="Content\images\demo\backgrounds\001.png" />
+    <Content Include="Content\images\demo\backgrounds\01.png" />
+    <Content Include="Content\images\demo\backgrounds\02.png" />
+    <Content Include="Content\images\demo\backgrounds\03.png" />
+    <Content Include="Content\images\demo\backgrounds\index.html" />
+    <Content Include="Content\images\demo\gallery\01.png" />
+    <Content Include="Content\images\demo\gallery\index.html" />
+    <Content Include="Content\images\demo\imgl.gif" />
+    <Content Include="Content\images\demo\imgr.gif" />
+    <Content Include="Content\images\demo\index.html" />
+    <Content Include="Content\images\index.html" />
     <Content Include="Content\images\ui-icons_444444_256x240.png" />
     <Content Include="Content\images\ui-icons_555555_256x240.png" />
     <Content Include="Content\images\ui-icons_777620_256x240.png" />
@@ -175,8 +195,27 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="layout\index.html" />
+    <Content Include="layout\scripts\index.html" />
+    <Content Include="layout\scripts\jquery.backtotop.js" />
+    <Content Include="layout\scripts\jquery.flexslider-min.js" />
+    <Content Include="layout\scripts\jquery.min.js" />
+    <Content Include="layout\scripts\jquery.mobilemenu.js" />
+    <Content Include="layout\styles\custom.flexslider.css" />
+    <Content Include="layout\styles\fontawesome-4.6.3.min.css" />
+    <Content Include="layout\styles\fonts\fontawesome-webfont.svg" />
+    <Content Include="layout\styles\fonts\index.html" />
+    <Content Include="layout\styles\framework.css" />
+    <Content Include="layout\styles\index.html" />
+    <Content Include="layout\styles\layout.css" />
+    <Content Include="reservaasp\Index.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="layout\styles\fonts\fontawesome-webfont.eot" />
+    <Content Include="layout\styles\fonts\fontawesome-webfont.ttf" />
+    <Content Include="layout\styles\fonts\fontawesome-webfont.woff" />
+    <Content Include="layout\styles\fonts\fontawesome-webfont.woff2" />
+    <Content Include="layout\styles\fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\DatePickerReady.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />

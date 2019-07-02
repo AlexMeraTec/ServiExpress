@@ -112,7 +112,6 @@ public class PersonaResource extends Elohim{
 			PersonaVO pVO = new PersonaVO();
 	 		copiarPropiedadesNoNulas(perso, pVO);
 			return ResponseEntity.ok(pVO);
-			
 		}else {
 			return new ResponseEntity<PersonaVO>(HttpStatus.NOT_FOUND);
 		}
