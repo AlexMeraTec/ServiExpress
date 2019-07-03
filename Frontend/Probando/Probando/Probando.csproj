@@ -176,6 +176,7 @@
     <Content Include="Content\images\demo\backgrounds\01.png" />
     <Content Include="Content\images\demo\backgrounds\02.png" />
     <Content Include="Content\images\demo\backgrounds\03.png" />
+    <Content Include="Content\images\demo\backgrounds\baner.jpg" />
     <Content Include="Content\images\demo\backgrounds\index.html" />
     <Content Include="Content\images\demo\gallery\01.png" />
     <Content Include="Content\images\demo\gallery\index.html" />

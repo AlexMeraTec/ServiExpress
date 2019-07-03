@@ -27,7 +27,9 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "servicios")
-@NamedQuery(name = "Servicio.findById_servicios", query = "select s from Servicio s where s.id_servicios = ?1")
+@NamedQuery(name = "Servicio.findById_servicios", query = "select s from Servicio s where s.id_servicios = ?1 and s.activo=true")
+@NamedQuery(name = "Servicio.findAll2", query = "select s from Servicio s where s.activo=true")
+@NamedQuery(name = "Servicio.findAll3", query = "select s from Servicio s where s.activo=false")
 public class Servicio {
 	@Id
 	@Column(name = "id_servicios")

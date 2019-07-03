@@ -1,73 +1,61 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Probando.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using Probando.Models;
 
 namespace Probando.Controllers
 {
     public class HomeController : Controller
 
     {
-
-        public ActionResult Index()
-
+        HttpClient client;
+        private List<Servicio> servicios;
+        public List<Servicio> AllClientes
         {
-
-            LoginModel obj = new LoginModel();
-
-            return View(obj);
-
+            get { return this.servicios; }
         }
-
-        [HttpPost]
-
-        public ActionResult Index(LoginModel objuserlogin)
-
+        private const string url = global.ip;
+        public HomeController()
         {
+            this.servicios = null;
+            client = new HttpClient();
+            client.BaseAddress = new Uri(url);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        }
+        public async Task<ActionResult> Index()
+        {
+            HttpResponseMessage responseMessage = await client.GetAsync("api/servicio");
 
-            var display = Userloginvalues().Where(m => m.UserName == objuserlogin.UserName && m.UserPassword == objuserlogin.UserPassword).FirstOrDefault();
-
-            if (display != null)
-
+            if (responseMessage.IsSuccessStatusCode)
             {
+                var responseData = responseMessage.Content.ReadAsStringAsync().Result;
 
-                ViewBag.Status = "CORRECT UserNAme and Password";
+                var servi = JsonConvert.DeserializeObject<List<Servicio>>(responseData);
 
+                return View(servi);
             }
-
             else
-
             {
 
-                ViewBag.Status = "INCORRECT UserName or Password";
-
+                return View("Error");
             }
 
-            return View(objuserlogin);
 
         }
 
-        public List<LoginModel> Userloginvalues()
+       
 
-        {
+        
 
-            List<LoginModel> objModel = new List<LoginModel>();
-
-            objModel.Add(new LoginModel { UserName = "user1", UserPassword = "password1" });
-
-            objModel.Add(new LoginModel { UserName = "user2", UserPassword = "password2" });
-
-            objModel.Add(new LoginModel { UserName = "user3", UserPassword = "password3" });
-
-            objModel.Add(new LoginModel { UserName = "user4", UserPassword = "password4" });
-
-            objModel.Add(new LoginModel { UserName = "user5", UserPassword = "password5" });
-
-            return objModel;
-
-        }
+        
 
     }
 

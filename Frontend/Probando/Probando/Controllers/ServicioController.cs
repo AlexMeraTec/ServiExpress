@@ -73,7 +73,7 @@ namespace Probando.Controllers
         [HttpGet]
         public async Task<ActionResult> Edit(int id)
         {
-            HttpResponseMessage responseMessage = await client.GetAsync("api/servicio/{id_servicios}?id_servicios=" + id);
+            HttpResponseMessage responseMessage = await client.GetAsync("api/servicio/{id_servicio}?id_servicios=" + id);
 
             if (responseMessage.IsSuccessStatusCode)
             {
@@ -101,7 +101,7 @@ namespace Probando.Controllers
         [HttpGet]
         public async Task<ActionResult> Delete(int id)
         {
-            HttpResponseMessage responseMessage = await client.GetAsync("api/servicio/{id_servicios}?id_servicios=" + id);
+            HttpResponseMessage responseMessage = await client.GetAsync("api/servicio/{id_servicio}?id_servicios=" + id);
             if (responseMessage.IsSuccessStatusCode)
             {
                 var responseData = responseMessage.Content.ReadAsStringAsync().Result;
@@ -126,9 +126,9 @@ namespace Probando.Controllers
             return RedirectToAction("Error");
         }
         [HttpPost]
-        public async Task<ActionResult> Details(int Id, Servicio Emp)
+        public async Task<ActionResult> Details(int id, Servicio Emp)
         {
-            HttpResponseMessage responseMessage = await client.GetAsync("api/servicio/{id_servicios}?id_servicios =" + Id);
+            HttpResponseMessage responseMessage = await client.GetAsync("api/servicio/{id_servicio}?id_servicios=" + id);
             if (responseMessage.IsSuccessStatusCode)
             {
                 var responseData = responseMessage.Content.ReadAsStringAsync().Result;
@@ -140,9 +140,9 @@ namespace Probando.Controllers
             return View("Error");
         }
         [HttpGet]
-        public async Task<ActionResult> Details(int Id)
+        public async Task<ActionResult> Details(int id)
         {
-            HttpResponseMessage responseMessage = await client.GetAsync("api/cliente/{id_cliente}?id_cliente=" + Id);
+            HttpResponseMessage responseMessage = await client.GetAsync("api/servicio/{id_servicio}?id_servicios=" + id);
             if (responseMessage.IsSuccessStatusCode)
             {
                 var responseData = responseMessage.Content.ReadAsStringAsync().Result;

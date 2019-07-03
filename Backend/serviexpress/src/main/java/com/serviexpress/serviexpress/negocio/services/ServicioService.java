@@ -57,7 +57,10 @@ public class ServicioService {
 	}
 	
 	public List<Servicio> findAll(){
-		return this.servicioRepository.findAll();
+		return this.servicioRepository.findAll2();
+	}
+	public List<Servicio> findInactivos(){
+		return this.servicioRepository.findAll3();
 	}
 	
 }

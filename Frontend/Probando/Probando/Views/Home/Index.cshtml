@@ -1,10 +1,11 @@
-﻿@model Probando.Models.LoginModel
+﻿@model IEnumerable<Probando.Models.Servicio>
 
 @{
 
     ViewBag.Title = "Index";
 
 }
+
 
 <script language="javascript">
 
@@ -66,49 +67,10 @@
     </div>
 
 
-    @using (Html.BeginForm("Index", "Home"))
-    {
+   
 
         <div class="wrapper row3 coloured">
-            <main class="hoc container clear">
-                <!-- main body -->
-                <!-- ################################################################################################ -->
-
-                <div id="introblocks">
-                    <ul class="nospace group">
-                        <li class="one_third first">
-                            <article>
-                                <div>
-                                    <h6 class="heading">Revisión de Kilometraje</h6>                                    
-                                </div>
-                                <img src="images/demo/320x180.png" alt="">
-                                <footer><a href="../Servicio/Details">Más Detalles</a></footer>
-                            </article>
-                        </li>
-                        <li class="one_third">
-                            <article>
-                                <div>
-                                    <h6 class="heading">Mantenimiento</h6>                                    
-                                </div>
-                                <img src="images/demo/320x180.png" alt="">
-                                <footer><a href="#">More Details</a></footer>
-                            </article>
-                        </li>
-                        <li class="one_third">
-                            <article>
-                                <div>
-                                    <h6 class="heading">Cambio de aceite</h6>                                    
-                                </div>
-                                <img src="images/demo/320x180.png" alt="">
-                                <footer><a href="#">More Details</a></footer>
-                            </article>
-                        </li>
-                    </ul>
-                </div>                
-                <!-- ################################################################################################ -->
-                <!-- / main body -->
-                <div class="clear"></div>
-            </main>
+            <main class="mx-auto"> <img src="~/Content/images/demo/backgrounds/baner.jpg" class="rounded"> </main>
         </div>
         <div class="wrapper bgded overlay" style="background-image:url('images/demo/backgrounds/02.png');">
             <section class="hoc container clear">
@@ -118,67 +80,41 @@
                     <p>Estamos orientados en brindar la mejor atención y servicio en la mantención de su vehículo, dándole un valor agregado y ofreciéndole la seguridad que su inversión siempre estará en buenas manos.</p>
                 </div>
                 <ul class="nospace group center">
-                    <li class="one_third first">
-                        <article>
-                            <a href="Revision.aspx"><i class="btmspace-30 icon fa fa-500px"></i></a>
-                            <h2 class="heading">REVISÍON POR KILOMETRAJE</h2>
-                        </article>
-                    </li>
-                    <li class="one_third">
-                        <article>
-                            <a href="Mantenimiento.aspx"><i class="btmspace-30 icon fa fa-envira"></i></a>
-                            <h2 class="heading">Mantenimiento</h2>
-                        </article>
-                    </li>
-                    <li class="one_third">
-                        <article>
-                            <a href="Cambio.aspx"><i class="btmspace-30 icon fa fa-empire"></i></a>
-                            <h2 class="heading">CAMBIO DE ACEITE</h2>
-                        </article>
-                    </li>
+                    @{ int i = 0;}
+
+                    @foreach (var item in Model)
+                    {
+
+                        if (i == 0)
+                        {
+
+                        <li class="one_third first">
+                            <article>
+                                <a href="TrenDelantero.aspx"><i class="btmspace-30 icon fa fa-500px"></i></a>
+                                <h2 class="heading">@Html.DisplayFor(modelItem => item.nombre)</h2>
+                            </article>
+                        </li>
+                        }
+                        if (i >0 && i<3)
+                        {
+                        
+                        <li class="one_third">
+                            <article>
+                                <a href="TrenDelantero.aspx"><i class="btmspace-30 icon fa fa-500px"></i></a>
+                                <h2 class="heading">@Html.DisplayFor(modelItem => item.nombre)</h2>
+                            </article>
+                        </li>
+
+                        }
+                        i++;
+                        if (i == 3){
+                            i = 0;
+                        }
+                    }
                 </ul>
-                <ul class="nospace group center">
-                    <li class="one_third first">
-                        <article>
-                            <a href="TrenDelantero.aspx"><i class="btmspace-30 icon fa fa-500px"></i></a>
-                            <h2 class="heading">TREN DELANTERO</h2>
-                        </article>
-                    </li>
-                    <li class="one_third">
-                        <article>
-                            <a href="Freno.aspx"><i class="btmspace-30 icon fa fa-envira"></i></a>
-                            <h2 class="heading">FRENOS</h2>
-                        </article>
-                    </li>
-                    <li class="one_third">
-                        <article>
-                            <a href="Diagnostico.aspx"><i class="btmspace-30 icon fa fa-empire"></i></a>
-                            <h2 class="heading">DIAGNÓSTICO Y SCANNER</h2>
-                        </article>
-                    </li>
-                </ul>
-                <ul class="nospace group center">
-                    <li class="one_third first">
-                        <article>
-                            <a href="Motor.aspx"><i class="btmspace-30 icon fa fa-500px"></i></a>
-                            <h2 class="heading">MOTOR</h2>
-                        </article>
-                    </li>
-                    <li class="one_third">
-                        <article>
-                            <a href="Transmision.aspx"><i class="btmspace-30 icon fa fa-envira"></i></a>
-                            <h2 class="heading">TRANSMISIONES</h2>
-                        </article>
-                    </li>
-                    <li class="one_third">
-                        <article>
-                            <a href="Electronica.aspx"><i class="btmspace-30 icon fa fa-empire"></i></a>
-                            <h2 class="heading">ELECTRÓNICA Y PROGRAMACIÓN</h2>
-                        </article>
-                    </li>
-                </ul>
-                <!-- ################################################################################################ -->
-            </section>
+
+                        <!-- ################################################################################################ -->
+</section>
         </div>
             <!-- ################################################################################################ -->
             <!-- ################################################################################################ -->
@@ -204,4 +140,4 @@
             </div>
         
         
-    }
+    
