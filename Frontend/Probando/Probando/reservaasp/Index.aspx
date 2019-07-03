@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="Leer_json.Index" %>
+﻿
 
 <!DOCTYPE html>
 
@@ -15,55 +15,54 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
    
   <script type="text/javascript">
- $.datepicker.regional['es'] = {
- closeText: 'Cerrar',
- prevText: '< Ant',
- nextText: 'Sig >',
- currentText: 'Hoy',
- monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
- monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
- dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
- dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
- dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
- weekHeader: 'Sm',
- dateFormat: 'yy/mm/dd',
-     firstDay: 1,
- 
- isRTL: false,
- showMonthAfterYear: false,
- yearSuffix: ''
+      $.datepicker.regional['es'] = {
+          closeText: 'Cerrar',
+          prevText: '< Ant',
+          nextText: 'Sig >',
+          currentText: 'Hoy',
+          monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+          monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+          dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+          dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'],
+          dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
+          weekHeader: 'Sm',
+          dateFormat: 'dd/mm/yy',
+          firstDay: 1,
+          isRTL: false,
+          showMonthAfterYear: false,
+          yearSuffix: ''
       };
       $.datepicker.setDefaults($.datepicker.regional['es']);
-      $(document).ready(function() {
+      $(document).ready(function () {
           $('#txtFechaLaborables').datepicker({
-            changeMonth: true,
-            changeYear: true,
-         beforeShowDay: function (day) { 
-           var day = day.getDay(); 
-           if (day == 6|| day == 0) { 
-             return [false, "somecssclass"] 
-           } else { 
-             return [true, "someothercssclass"] 
-           } 
-            },
-            minDate:'+0d'
+              changeMonth: true,
+              changeYear: true,
+              beforeShowDay: function (day) {
+                  var day = day.getDay();
+                  if (day == 6 || day == 0) {
+                      return [false, "somecssclass"]
+                  } else {
+                      return [true, "someothercssclass"]
+                  }
+              },
+              minDate: '+0d'
           })
-          
-    $('#Text2').timepicker({
-    timeFormat: 'HH:mm ',
-    interval: 60,
-    minTime: '09:00',
-    maxTime: '18:00',
-    defaultTime: '09',
-    startTime: '09:00',
-    dynamic: false,
-    dropdown: true,
-    scrollbar: true
-});
-});; 
-          
+
+          $('#Text2').timepicker({
+              timeFormat: 'HH:mm ',
+              interval: 60,
+              minTime: '09:00',
+              maxTime: '18:00',
+              defaultTime: '09',
+              startTime: '09:00',
+              dynamic: false,
+              dropdown: true,
+              scrollbar: true
+          });
+      });;
+
       //});
-      
+
 
   </script> 
 
@@ -71,35 +70,34 @@
 <body style="font-size:12px;">
   <form id="form1" runat="server">
     
-      <asp:Panel ID="Panel1" runat="server" Height="167px">
-          <asp:Label ID="lblnombre" runat="server" Text="ID_Cliente"></asp:Label>
+      <Panel ID="Panel1" runat="server" Height="130px">
+          <Label ID="lblnombre" runat="server" Text="Nombre"></Label>
           &nbsp;
-          <asp:TextBox ID="txtid_cliente" runat="server" Width="225px"></asp:TextBox>
+          <TextBox ID="txtnombre" runat="server" Width="225px"></TextBox>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <asp:Label ID="Label1" runat="server" Text="ID_Empleado"></asp:Label>
+          <Label ID="Label1" runat="server" Text="Rut"></Label>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <asp:TextBox ID="txtid_empleado" runat="server" style="margin-left: 35px" Width="131px"></asp:TextBox>
+          <TextBox ID="txtrut" runat="server" style="margin-left: 35px" Width="131px"></TextBox>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <br />
           <br />
-          <asp:Label ID="lblObservaciones" runat="server" Text="Observaciones"></asp:Label>
-          <br />
+          <Label ID="Label3" runat="server" Text="Telefono"></Label>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <asp:TextBox ID="TextBox1" runat="server" Width="191px" Height="78px"></asp:TextBox>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:CheckBox ID="chkse_atendio" runat="server" Text="Se Atendio" />
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</asp:Panel>
+          <TextBox ID="TextBox1" runat="server" Width="191px"></TextBox>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <Label ID="Label4" runat="server" Text="Correo"></Label>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <TextBox ID="TextBox2" runat="server" style="margin-left: 0px" Width="125px"></TextBox>
+          &nbsp;</Panel>
   
     <p>Seleccione una fecha:
       <input id="txtFechaLaborables" type="text"  readonly="readonly" runat="server"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Label ID="Label2" runat="server" Text="Seleccione un servicio"></asp:Label>
+        <Label ID="Label2" runat="server" Text="Seleccione un servicio"></Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:DropDownList ID="ddlservicios" runat="server" AutoPostBack="True">
-        </asp:DropDownList>
+        <DropDownList ID="ddlservicios" runat="server" AutoPostBack="True">
+        </DropDownList>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hora&nbsp;
            <input id="Text2" type="text"  readonly="readonly" runat="server"/></p>
-      <p>
-           &nbsp;<asp:Button ID="Button1" runat="server" OnClick="Button1_Click" style="margin-left: 275px" Text="Guardar" />
-      </p>
       </form>
 </body>
 </html>
