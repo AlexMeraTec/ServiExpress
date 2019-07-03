@@ -60,6 +60,15 @@ namespace MVCTutorial.Controllers
 
             return View(new LoginModel());
         }
+        public async Task<ActionResult> LoginUser()
+        {
+            HttpResponseMessage responseMessage = await client.GetAsync("api/persona/LOGINUSER?password=0&usuario=0");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("~/HOME");
+            }
+            return RedirectToAction("Error");
+        }
 
         [HttpPost]
         //public JsonResult LoginUser(RegistrationViewModel model)
