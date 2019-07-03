@@ -35,7 +35,12 @@ import lombok.Data;
 @NamedQuery(
 		name = "Reserva.findReservasByEmpleado", 
 		query = "select r from Reserva r join r.empleadoReserva er where er.id_empleado = ?1 ")
-
+@NamedQuery(
+		name = "Reserva.findReservasAtendidas", 
+		query = "select r from Reserva r where r.se_atendio = 1")
+@NamedQuery(
+		name = "Reserva.findReservasSinAtender", 
+		query = "select r from Reserva r where r.se_atendio = 0")
 public class Reserva {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

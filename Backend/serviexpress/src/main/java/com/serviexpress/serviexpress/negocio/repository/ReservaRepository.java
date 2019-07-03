@@ -16,6 +16,8 @@ import com.serviexpress.serviexpress.modelo.Reserva;
  */
 public interface ReservaRepository extends JpaRepository<Reserva,Integer>{
 	public Reserva findById_reservas(int id_servicios);
+	public List<Reserva> findReservasAtendidas();
+	public List<Reserva> findReservasSinAtender();
 	public List<Reserva> findReservasByCliente(int id_cliente);
 	public List<Reserva> findReservasByEmpleado(int id_empleado);
 	@Query(value = "select max(id_reservas) from reservas", nativeQuery = true)

@@ -86,25 +86,10 @@ public class ClienteResource extends Elohim{
 			
 			return new ResponseEntity<>(this.clienteService.update(cliPerso), HttpStatus.OK);
 		}
-		//return new ResponseEntity<>(this.clienteService.update(cliPerso), HttpStatus.OK);
-		
-		/*
-		 Empleado empleadoPerso = this.empService.findById_empleado(id_personas);
-		if (empleadoPerso==null) {
-			return new ResponseEntity<Empleado>(HttpStatus.NOT_FOUND);
-		}else {
-			copiarPropiedadesNoNulas(VO, empleadoPerso);
-			Persona persona = this.personaService.findById_personas(id_personas);
-			copiarPropiedadesNoNulas(VO.getPersonaCliente(), persona);
-			persona.setTipo(true);
-			empleadoPerso.setPersonaEmpleado(persona);
-			this.personaService.update(persona);
-			return new ResponseEntity<>(this.empService.update(empleadoPerso), HttpStatus.OK);
-		}
-		 */
 	}
+	
 	@PutMapping("/fiable/{id_personas}")
-	@ApiOperation(value = "actualizar Cliente", notes = "Servicio para actualizar un Cliente")
+	@ApiOperation(value = "Cliente Fiable", notes = "Servicio para actualizar un Cliente")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Cliente ACTUALIZADO correctamente"),@ApiResponse(code = 404, message = "Cliente NO encontrado")})
 	public ResponseEntity<Cliente> esfiable(@PathVariable("id_personas") int id_personas, @RequestBody Boolean fiable){
 		Cliente cliPerso = this.clienteService.findById_cliente(id_personas);

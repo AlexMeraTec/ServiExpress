@@ -16,7 +16,11 @@ namespace Probando.Models
         public int id_cliente { get; set; }
         public int id_empleado { get; set; }
 
+        public String nombreCliente { get; set; }
+        public String nombreEmpleado { get; set; }
+
         public List<int> servicios { get; set; }
         public List<string> productos { get; set; }
+
     }
 }

@@ -13,17 +13,19 @@ using System.Web.Mvc;
 namespace Probando.Controllers
 {
     public class HomeController : Controller
-
     {
+
         HttpClient client;
         private List<Servicio> servicios;
-        public List<Servicio> AllClientes
+        public List<Servicio> AllServicios
         {
             get { return this.servicios; }
         }
         private const string url = global.ip;
         public HomeController()
         {
+            Persona p = new Persona();
+            Session["usuario"] = p;
             this.servicios = null;
             client = new HttpClient();
             client.BaseAddress = new Uri(url);

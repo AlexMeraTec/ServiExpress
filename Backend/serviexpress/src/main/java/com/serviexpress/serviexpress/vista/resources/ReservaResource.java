@@ -12,9 +12,12 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.serviexpress.serviexpress.modelo.Producto;
 import com.serviexpress.serviexpress.modelo.Producto_reserva;
 import com.serviexpress.serviexpress.modelo.Reserva;
 import com.serviexpress.serviexpress.modelo.Reserva_servicio;
+import com.serviexpress.serviexpress.modelo.Servicio;
 import com.serviexpress.serviexpress.negocio.services.ClienteService;
 import com.serviexpress.serviexpress.negocio.services.EmpleadoService;
 import com.serviexpress.serviexpress.negocio.services.ProductoService;
@@ -22,7 +25,10 @@ import com.serviexpress.serviexpress.negocio.services.Producto_reservaService;
 import com.serviexpress.serviexpress.negocio.services.ReservaService;
 import com.serviexpress.serviexpress.negocio.services.Reserva_servicioService;
 import com.serviexpress.serviexpress.negocio.services.ServicioService;
+import com.serviexpress.serviexpress.vista.resources.vo.ProductoVO;
 import com.serviexpress.serviexpress.vista.resources.vo.ReservaVO;
+import com.serviexpress.serviexpress.vista.resources.vo.ServicioVO;
+
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -71,6 +77,8 @@ public class ReservaResource extends Elohim{
 		copiarPropiedadesNoNulas(rVO, rva);
 		rva.setEmpleadoReserva(this.empleadoService.findById_empleado(rVO.getId_empleado()));
 		rva.setClienteReserva(this.clienteService.findById_cliente(rVO.getId_cliente()));
+		rVO.setNombreCliente(rva.getClienteReserva().getPersonaCliente().getNombre());
+		rVO.setNombreCliente(rva.getEmpleadoReserva().getPersonaEmpleado().getNombre());
 		this.rService.create(rva);
 		int idr=this.rService.getLastId();
 		rva.setId_reservas(idr);
@@ -102,6 +110,8 @@ public class ReservaResource extends Elohim{
 			return new ResponseEntity<ReservaVO>(HttpStatus.NOT_FOUND);
 		}else {
 			copiarPropiedadesNoNulas(rVO, rva);
+			rVO.setNombreCliente(rva.getClienteReserva().getPersonaCliente().getNombre());
+			rVO.setNombreCliente(rva.getEmpleadoReserva().getPersonaEmpleado().getNombre());
 			try {
 				this.rService.update(rva);
 				
@@ -154,6 +164,28 @@ public class ReservaResource extends Elohim{
 		rVO.setSe_atendio(rva.getSe_atendio());
 		rVO.setId_cliente(rva.getClienteReserva().getId_cliente());
 		rVO.setId_empleado(rva.getEmpleadoReserva().getId_empleado());
+		rVO.setNombreCliente(rva.getClienteReserva().getPersonaCliente().getNombre());
+		rVO.setNombreCliente(rva.getEmpleadoReserva().getPersonaEmpleado().getNombre());
+		if (rva.getrProductoReserva()!=null) {
+				List<String> prodsVO =new ArrayList();
+			for (Producto_reserva prva : rva.getrProductoReserva()) {
+				ProductoVO pVO = new ProductoVO();
+				Producto pro = this.pService.findById_productos(prva.getId_productos().getId_productos());
+				copiarPropiedadesNoNulas(pro, pVO);
+				prodsVO.add(pVO.getId_productos());
+			}
+			rVO.setProductos(prodsVO);
+		}
+			if (rva.getrReserva_servicio()!=null) {
+				List<Integer> servsVO =new ArrayList();
+			for (Reserva_servicio rserv : rva.getrReserva_servicio()) {
+				ServicioVO sVO = new ServicioVO();
+				Servicio serv = this.sService.findById_servicios(rserv.getId_servicios().getId_servicios());
+				copiarPropiedadesNoNulas(serv, sVO);
+				servsVO.add(sVO.getId_servicios());
+			}
+			rVO.setServicios(servsVO);
+		}
 		return ResponseEntity.ok(rVO);
 	}
  
@@ -173,15 +205,201 @@ public class ReservaResource extends Elohim{
  			rVO.setSe_atendio(rva.getSe_atendio());
  			rVO.setId_cliente(rva.getClienteReserva().getId_cliente());
  			rVO.setId_empleado(rva.getEmpleadoReserva().getId_empleado());
+ 			rVO.setNombreCliente(rva.getClienteReserva().getPersonaCliente().getNombre());
+ 			rVO.setNombreCliente(rva.getEmpleadoReserva().getPersonaEmpleado().getNombre());
+ 			if (rva.getrProductoReserva()!=null) {
+ 				List<String> prodsVO =new ArrayList();
+				for (Producto_reserva prva : rva.getrProductoReserva()) {
+					ProductoVO pVO = new ProductoVO();
+					Producto pro = this.pService.findById_productos(prva.getId_productos().getId_productos());
+					copiarPropiedadesNoNulas(pro, pVO);
+					prodsVO.add(pVO.getId_productos());
+				}
+				rVO.setProductos(prodsVO);
+			}
+ 			if (rva.getrReserva_servicio()!=null) {
+ 				List<Integer> servsVO =new ArrayList();
+				for (Reserva_servicio rserv : rva.getrReserva_servicio()) {
+					ServicioVO sVO = new ServicioVO();
+					Servicio serv = this.sService.findById_servicios(rserv.getId_servicios().getId_servicios());
+					copiarPropiedadesNoNulas(serv, sVO);
+					servsVO.add(sVO.getId_servicios());
+				}
+				rVO.setServicios(servsVO);
+			}
  			rVos.add(rVO);
 		}
 		return ResponseEntity.ok(rVos);
 		
 	}
+ 	
+ 	@GetMapping("/atendidas")
+	@ApiOperation(value = "Listar Reservas Atendidas", notes = "Reserva para listar todos los Reservas")
+	@ApiResponses(value = {@ApiResponse(code = 201, message = "Reservas ENCONTRADOS correctamente"),@ApiResponse(code = 404, message = "Reservas NO encontrado")})
+	public ResponseEntity<List<ReservaVO>> findReservasAtendidas() {
+ 		List<Reserva>reservas = this.rService.findReservasAtendidas();
+ 		List<ReservaVO> rVos = new ArrayList();
+ 		
+ 		for (Reserva rva : reservas) {
+ 			ReservaVO rVO = new ReservaVO();
+ 			copiarPropiedadesNoNulas(rva,rVO);
+ 			rVO.setId_reservas(rva.getId_reservas());
+ 			rVO.setFecha(rva.getFecha());
+ 			rVO.setObservaciones(rva.getObservaciones());
+ 			rVO.setSe_atendio(rva.getSe_atendio());
+ 			rVO.setId_cliente(rva.getClienteReserva().getId_cliente());
+ 			rVO.setId_empleado(rva.getEmpleadoReserva().getId_empleado());
+ 			rVO.setNombreCliente(rva.getClienteReserva().getPersonaCliente().getNombre());
+ 			rVO.setNombreCliente(rva.getEmpleadoReserva().getPersonaEmpleado().getNombre());
+ 			if (rva.getrProductoReserva()!=null) {
+ 				List<String> prodsVO =new ArrayList();
+				for (Producto_reserva prva : rva.getrProductoReserva()) {
+					ProductoVO pVO = new ProductoVO();
+					Producto pro = this.pService.findById_productos(prva.getId_productos().getId_productos());
+					copiarPropiedadesNoNulas(pro, pVO);
+					prodsVO.add(pVO.getId_productos());
+				}
+				rVO.setProductos(prodsVO);
+			}
+ 			if (rva.getrReserva_servicio()!=null) {
+ 				List<Integer> servsVO =new ArrayList();
+				for (Reserva_servicio rserv : rva.getrReserva_servicio()) {
+					ServicioVO sVO = new ServicioVO();
+					Servicio serv = this.sService.findById_servicios(rserv.getId_servicios().getId_servicios());
+					copiarPropiedadesNoNulas(serv, sVO);
+					servsVO.add(sVO.getId_servicios());
+				}
+				rVO.setServicios(servsVO);
+			}
+ 			rVos.add(rVO);
+		}
+		return ResponseEntity.ok(rVos);
+		
+	}
+ 	
+ 	@GetMapping("/sinatender")
+	@ApiOperation(value = "Listar Reservas Sin Atender", notes = "Reserva para listar todos los Reservas")
+	@ApiResponses(value = {@ApiResponse(code = 201, message = "Reservas ENCONTRADOS correctamente"),@ApiResponse(code = 404, message = "Reservas NO encontrado")})
+	public ResponseEntity<List<ReservaVO>> findReservasSinAtender() {
+ 		List<Reserva>reservas = this.rService.findReservasSinAtender();
+ 		List<ReservaVO> rVos = new ArrayList();
+ 		
+ 		for (Reserva rva : reservas) {
+ 			ReservaVO rVO = new ReservaVO();
+ 			copiarPropiedadesNoNulas(rva,rVO);
+ 			rVO.setId_reservas(rva.getId_reservas());
+ 			rVO.setFecha(rva.getFecha());
+ 			rVO.setObservaciones(rva.getObservaciones());
+ 			rVO.setSe_atendio(rva.getSe_atendio());
+ 			rVO.setId_cliente(rva.getClienteReserva().getId_cliente());
+ 			rVO.setId_empleado(rva.getEmpleadoReserva().getId_empleado());
+ 			rVO.setNombreCliente(rva.getClienteReserva().getPersonaCliente().getNombre());
+ 			rVO.setNombreCliente(rva.getEmpleadoReserva().getPersonaEmpleado().getNombre());
+ 			if (rva.getrProductoReserva()!=null) {
+ 				List<String> prodsVO =new ArrayList();
+				for (Producto_reserva prva : rva.getrProductoReserva()) {
+					ProductoVO pVO = new ProductoVO();
+					Producto pro = this.pService.findById_productos(prva.getId_productos().getId_productos());
+					copiarPropiedadesNoNulas(pro, pVO);
+					prodsVO.add(pVO.getId_productos());
+				}
+				rVO.setProductos(prodsVO);
+			}
+ 			if (rva.getrReserva_servicio()!=null) {
+ 				List<Integer> servsVO =new ArrayList();
+				for (Reserva_servicio rserv : rva.getrReserva_servicio()) {
+					ServicioVO sVO = new ServicioVO();
+					Servicio serv = this.sService.findById_servicios(rserv.getId_servicios().getId_servicios());
+					copiarPropiedadesNoNulas(serv, sVO);
+					servsVO.add(sVO.getId_servicios());
+				}
+				rVO.setServicios(servsVO);
+			}
+ 			rVos.add(rVO);
+		}
+		return ResponseEntity.ok(rVos);
+	}
+ 	
  	@GetMapping("/findReservasByCliente")
 	@ApiOperation(value = "Listar Reservas", notes = "Reserva para listar todos los Reservas")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Reservas ENCONTRADOS correctamente"),@ApiResponse(code = 404, message = "Reservas NO encontrado")})
-	public ResponseEntity<List<Reserva>> findReservasByCliente(int id_cliente) {
-		return ResponseEntity.ok(this.rService.findReservasByCliente(id_cliente));
+	public ResponseEntity<List<ReservaVO>> findReservasByCliente(int id_cliente) {
+ 		List<Reserva>reservas = (this.rService.findReservasByCliente(id_cliente));
+ 		List<ReservaVO> rVos = new ArrayList();
+		for (Reserva rva : reservas) {
+			ReservaVO rVO = new ReservaVO();
+			copiarPropiedadesNoNulas(rva,rVO);
+			rVO.setId_reservas(rva.getId_reservas());
+			rVO.setFecha(rva.getFecha());
+			rVO.setObservaciones(rva.getObservaciones());
+			rVO.setSe_atendio(rva.getSe_atendio());
+			rVO.setId_cliente(id_cliente);
+			rVO.setId_empleado(rva.getEmpleadoReserva().getId_empleado());
+			rVO.setNombreCliente(rva.getClienteReserva().getPersonaCliente().getNombre());
+			rVO.setNombreCliente(rva.getEmpleadoReserva().getPersonaEmpleado().getNombre());
+			if (rva.getrProductoReserva()!=null) {
+ 				List<String> prodsVO =new ArrayList();
+				for (Producto_reserva prva : rva.getrProductoReserva()) {
+					ProductoVO pVO = new ProductoVO();
+					Producto pro = this.pService.findById_productos(prva.getId_productos().getId_productos());
+					copiarPropiedadesNoNulas(pro, pVO);
+					prodsVO.add(pVO.getId_productos());
+				}
+				rVO.setProductos(prodsVO);
+			}
+ 			if (rva.getrReserva_servicio()!=null) {
+ 				List<Integer> servsVO =new ArrayList();
+				for (Reserva_servicio rserv : rva.getrReserva_servicio()) {
+					ServicioVO sVO = new ServicioVO();
+					Servicio serv = this.sService.findById_servicios(rserv.getId_servicios().getId_servicios());
+					copiarPropiedadesNoNulas(serv, sVO);
+					servsVO.add(sVO.getId_servicios());
+				}
+				rVO.setServicios(servsVO);
+			}
+			rVos.add(rVO);
+		}
+		return ResponseEntity.ok(rVos);
+	}
+ 	@GetMapping("/findReservasByEmpleado")
+	@ApiOperation(value = "Listar Reservas", notes = "Reserva para listar todos los Reservas")
+	@ApiResponses(value = {@ApiResponse(code = 201, message = "Reservas ENCONTRADOS correctamente"),@ApiResponse(code = 404, message = "Reservas NO encontrado")})
+	public ResponseEntity<List<ReservaVO>> findReservasByEmpleado(int id_empleado) {
+ 		List<Reserva>reservas = (this.rService.findReservasByEmpleado(id_empleado));
+ 		List<ReservaVO> rVos = new ArrayList();
+		for (Reserva rva : reservas) {
+			ReservaVO rVO = new ReservaVO();
+			copiarPropiedadesNoNulas(rva,rVO);
+			rVO.setId_reservas(rva.getId_reservas());
+			rVO.setFecha(rva.getFecha());
+			rVO.setObservaciones(rva.getObservaciones());
+			rVO.setSe_atendio(rva.getSe_atendio());
+			rVO.setId_cliente(rva.getClienteReserva().getId_cliente());
+			rVO.setId_empleado(id_empleado);
+			rVO.setNombreCliente(rva.getClienteReserva().getPersonaCliente().getNombre());
+			rVO.setNombreCliente(rva.getEmpleadoReserva().getPersonaEmpleado().getNombre());
+			if (rva.getrProductoReserva()!=null) {
+ 				List<String> prodsVO =new ArrayList();
+				for (Producto_reserva prva : rva.getrProductoReserva()) {
+					ProductoVO pVO = new ProductoVO();
+					Producto pro = this.pService.findById_productos(prva.getId_productos().getId_productos());
+					copiarPropiedadesNoNulas(pro, pVO);
+					prodsVO.add(pVO.getId_productos());
+				}
+				rVO.setProductos(prodsVO);
+			}
+ 			if (rva.getrReserva_servicio()!=null) {
+ 				List<Integer> servsVO =new ArrayList();
+				for (Reserva_servicio rserv : rva.getrReserva_servicio()) {
+					ServicioVO sVO = new ServicioVO();
+					Servicio serv = this.sService.findById_servicios(rserv.getId_servicios().getId_servicios());
+					copiarPropiedadesNoNulas(serv, sVO);
+					servsVO.add(sVO.getId_servicios());
+				}
+				rVO.setServicios(servsVO);
+			}
+			rVos.add(rVO);
+		}
+		return ResponseEntity.ok(rVos);
 	}
 }

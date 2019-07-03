@@ -88,11 +88,25 @@ public class ServicioResource extends Elohim {
 		return ResponseEntity.ok(serv);
 		
 	}
- 
+ 	
 	@GetMapping
 	@ApiOperation(value = "Listar Servicios", notes = "Servicio para listar todos los Servicios")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Servicios ENCONTRADOS correctamente"),@ApiResponse(code = 404, message = "Servicios NO encontrado")})
 	public ResponseEntity<List<Servicio>> findAll() {
 		return ResponseEntity.ok(this.servicioService.findAll());
+	}
+	
+	@GetMapping("/activos")
+	@ApiOperation(value = "Listar ServiciosActivos", notes = "Servicio para listar todos los Servicios")
+	@ApiResponses(value = {@ApiResponse(code = 201, message = "Servicios activos ENCONTRADOS correctamente"),@ApiResponse(code = 404, message = "Servicios NO encontrado")})
+	public ResponseEntity<List<Servicio>> findActivos() {
+		return ResponseEntity.ok(this.servicioService.findActivos());
+	}
+	
+	@GetMapping("/inactivos")
+	@ApiOperation(value = "Listar ServiciosInActivos", notes = "Servicio para listar todos los Servicios")
+	@ApiResponses(value = {@ApiResponse(code = 201, message = "Servicios inactivos ENCONTRADOS correctamente"),@ApiResponse(code = 404, message = "Servicios NO encontrado")})
+	public ResponseEntity<List<Servicio>> findInactivos() {
+		return ResponseEntity.ok(this.servicioService.findInactivos());
 	}
 }

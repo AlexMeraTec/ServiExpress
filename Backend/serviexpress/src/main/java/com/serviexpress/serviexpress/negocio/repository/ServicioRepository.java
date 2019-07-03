@@ -17,6 +17,7 @@ import com.serviexpress.serviexpress.modelo.Servicio;
 public interface ServicioRepository extends JpaRepository<Servicio, Integer>{
 	//public List<Servicio> findByNombreServ(String nombreServ);
 	public Servicio findById_servicios(int id_servicios);
-	public List<Servicio> findAll2();
+	public List<Servicio> findActivos();
+	public List<Servicio> findInactivos();
 	
 }

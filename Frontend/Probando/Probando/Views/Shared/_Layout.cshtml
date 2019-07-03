@@ -1,103 +1,104 @@
 ﻿<!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>@ViewBag.Title - Serviexpress </title>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Serviexpress </title>
+    @{
+        Probando.Models.Persona usuario;
+    }
 
-
-        @Styles.Render("~/Content/css")
-        @Styles.Render("~/Content/jquery-ui.css")
-        @Styles.Render("~/Content/jquery-ui.css")
-        @Styles.Render("~/Content/Site.css")
-        @Styles.Render("~/layout/styles/layout.css")
-        @Styles.Render("~/Content/table-dark.css")
-        <style type="text/css">
-            .auto-style1 {
-                background-color: #FFFFFF;
-            }
-        </style>
-        <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
-        <!-- ################################################################################################ -->
-        <!-- ################################################################################################ -->
-        <!-- ################################################################################################ -->
-        <!-- ################################################################################################ -->
-        <!-- ################################################################################################ -->
-        <!-- ################################################################################################ -->
-        <!-- Top Background Image Wrapper -->
-        <div class="wrapper row0">
-            <div id="topbar" class="hoc clear">
-                <!-- ################################################################################################ -->
-                <div class="fl_left">
-                    <ul>
-                        <li><i class="fa fa-phone"></i> +56 (9) 12345678</li>
-                        <li><i class="fa fa-envelope-o"></i> online@serviexpress.com</li>
-                    </ul>
-                </div>
-                <div class="fl_right">
-                    <ul>
-                        <li><a href="~/HOME"><i class="fa fa-lg fa-home"></i></a></li>
-                        <li><a href="../Test/Login">Iniciar Sesión</a></li>
-                        <li><a href="../Cliente/Create">Registrase</a></li>
-                    </ul>
-                </div>
-                <!-- ################################################################################################ -->
-            </div>
-        </div>
-        <div class="bgded overlay" style="background-image:url('../../Content/images/demo/backgrounds/01.png');">
-        
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/jquery-ui.css")
+    @Styles.Render("~/Content/jquery-ui.css")
+    @Styles.Render("~/Content/Site.css")
+    @Styles.Render("~/layout/styles/layout.css")
+    @Styles.Render("~/Content/table-dark.css")
+    <style type="text/css">
+        .auto-style1 {
+            background-color: #FFFFFF;
+        }
+    </style>
+    <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- Top Background Image Wrapper -->
+    <div class="wrapper row0">
+        <div id="topbar" class="hoc clear">
             <!-- ################################################################################################ -->
-            <div class="wrapper row1">
-                <header id="header" class="hoc clear">
-                    <!-- ################################################################################################ -->
-                    <div id="logo" class="fl_left">
-                        <h1><a href="~/HOME">ServiExpress</a></h1>
-                    </div>
-                    <center>
-                        <nav id="mainav" class="fl_right">
-                            <ul class="clear">
-                                <li class="active"><a href="~/HOME">Inicio</a></li>
-                                <li>
-                                    <a class="drop" href="#">SERVICIOS</a>
-                                    <ul>
-                                        <li><a href="Revision.aspx">REVISÍON POR KILOMETRAJE</a></li>
-                                        <li><a href="Mantenimiento.aspx">MANTENIMIENTO</a></li>
-                                        <li><a href="Cambio.aspx">CAMBIO DE ACEITE</a></li>
-                                        <li><a href="TrenDelantero.aspx">TREN DELANTERO</a></li>
-                                        <li><a href="Freno.aspx">FRENOS</a></li>
-                                        <li><a href="Diagnostico.aspx">DIAGNÓSTICO Y SCANNER</a></li>
-                                        <li><a href="Motor.aspx">MOTOR</a></li>
-                                        <li><a href="Transmision.aspx">TRANSMISIONES</a></li>
-                                        <li><a href="Electronica.aspx">ELECTRÓNICA Y PROGRAMACIÓN</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="../../reservaasp/Index.aspx">Reservar hora</a></li>
-                                <li><a href="#">PROMOCIONES</a></li>
-                                <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
-                            </ul>
-                        </nav>
-                    </center>
-                    <!-- ################################################################################################ -->
-                </header>
+            <div class="fl_left">
+                <ul>
+                    <li><i class="fa fa-phone"></i> +56 (9) 12345678</li>
+                    <li><i class="fa fa-envelope-o"></i> online@serviexpress.com</li>
+                </ul>
             </div>
-            <div id="pageintro" class="hoc clear">
-                @RenderBody()
+            <div class="fl_right">
+                <ul>
+                    <li><a href="~/HOME"><i class="fa fa-lg fa-home"></i></a></li>
+                    <li><a href="../Test/Login">Iniciar Sesión</a></li>
+                    <li><a href="../Cliente/Create">Registrase</a></li>
+                </ul>
             </div>
+            <!-- ################################################################################################ -->
         </div>
-        <!-- End Top Background Image Wrapper -->
-        <!-- ################################################################################################ -->
-        <!-- ################################################################################################ -->
-        <!-- ################################################################################################ -->
-        <!-- ################################################################################################ -->
-        <!-- ################################################################################################ -->
-        <!-- ################################################################################################ -->
-    
-        <!-- ################################################################################################ -->
-        <!-- ################################################################################################ -->
-        <!-- ################################################################################################ -->
+    </div>
+    <div class="bgded overlay" style="background-image:url('../../Content/images/demo/backgrounds/01.png');">
 
-    </head>
+        <!-- ################################################################################################ -->
+        <div class="wrapper row1">
+            <header id="header" class="hoc clear">
+                <!-- ################################################################################################ -->
+                <div id="logo" class="fl_left">
+                    <h1><a href="~/HOME">ServiExpress</a></h1>
+                </div>
+                <center>
+                    <nav id="mainav" class="fl_right">
+                        <ul class="clear">
+                            <li class="active"><a href="~/HOME">Inicio</a></li>
+                            <li>
+                                <a class="drop" href="#">SERVICIOS</a>
+                                <ul>
+                                    <li><a href="Revision.aspx">REVISÍON POR KILOMETRAJE</a></li>
+                                    <li><a href="Mantenimiento.aspx">MANTENIMIENTO</a></li>
+                                    <li><a href="Cambio.aspx">CAMBIO DE ACEITE</a></li>
+                                    <li><a href="TrenDelantero.aspx">TREN DELANTERO</a></li>
+                                    <li><a href="Freno.aspx">FRENOS</a></li>
+                                    <li><a href="Diagnostico.aspx">DIAGNÓSTICO Y SCANNER</a></li>
+                                    <li><a href="Motor.aspx">MOTOR</a></li>
+                                    <li><a href="Transmision.aspx">TRANSMISIONES</a></li>
+                                    <li><a href="Electronica.aspx">ELECTRÓNICA Y PROGRAMACIÓN</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="../../reservaasp/Index.aspx">Reservar hora</a></li>
+                            <li><a href="#">PROMOCIONES</a></li>
+                            <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                        </ul>
+                    </nav>
+                </center>
+                <!-- ################################################################################################ -->
+            </header>
+        </div>
+        <div id="pageintro" class="hoc clear">
+            @RenderBody()
+        </div>
+    </div>
+    <!-- End Top Background Image Wrapper -->
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+
+</head>
 
     
         

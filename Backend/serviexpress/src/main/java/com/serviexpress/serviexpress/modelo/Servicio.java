@@ -28,8 +28,8 @@ import lombok.Data;
 @Entity
 @Table(name = "servicios")
 @NamedQuery(name = "Servicio.findById_servicios", query = "select s from Servicio s where s.id_servicios = ?1 and s.activo=true")
-@NamedQuery(name = "Servicio.findAll2", query = "select s from Servicio s where s.activo=true")
-@NamedQuery(name = "Servicio.findAll3", query = "select s from Servicio s where s.activo=false")
+@NamedQuery(name = "Servicio.findActivos", query = "select s from Servicio s where s.activo=1")
+@NamedQuery(name = "Servicio.findInactivos", query = "select s from Servicio s where s.activo=0")
 public class Servicio {
 	@Id
 	@Column(name = "id_servicios")

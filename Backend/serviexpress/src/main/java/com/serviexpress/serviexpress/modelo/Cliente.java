@@ -20,7 +20,18 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "clientes")
-@NamedQuery(name = "Cliente.findById_cliente", query = "select c,p from Cliente c join c.personaCliente p where c.id_cliente = ?1 and c.id_cliente = p.id_personas")
+@NamedQuery(
+		name = "Cliente.findById_cliente", 
+		query = "select c,p from Cliente c join c.personaCliente p where c.id_cliente = ?1 and c.id_cliente = p.id_personas"
+)
+@NamedQuery(
+		name = "Cliente.findClientesActivos", 
+		query = "select c,p from Cliente c join c.personaCliente p where c.id_cliente = p.id_personas and p.activa = 1"
+)
+@NamedQuery(
+		name = "Cliente.findClientesInActivos", 
+		query = "select c,p from Cliente c join c.personaCliente p where c.id_cliente = p.id_personas and p.activa = 0"
+)
 public class Cliente{
 	@Id
 	@Column(name = "id_personas")

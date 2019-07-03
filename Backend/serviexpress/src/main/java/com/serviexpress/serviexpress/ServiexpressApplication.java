@@ -2,10 +2,13 @@
 nota IMPORTANTE:
 
 install:install-file -Dfile=ojdbc7.jar -DgroupId=com.oracle -DartifactId=ojdbc7 -Dversion=12.1.0 -Dpackaging=jar
+
 istala el driver para la conexion oracle
 siempre y cuando exista el ojdbc7 en la carpeta de inicio del proyecto
 
+
 clean install docker:build
+
 se usa para crear una imagen docker de la api
 - dependiendo de la version de MYSQL en la base de datos deberemos cambiar en las dependencias por la version necesarioa en el archivo pom.xml
 	<dependency>
@@ -19,8 +22,9 @@ docker start serviexpress
 docker exec -it serviexpress mysql -uroot -p
 127.0.0.1 
 password:serviexpress
-docker stop serviexpress 
 
+
+docker stop serviexpress 
 para detenerlo daaah!
 
 # Backup
@@ -33,7 +37,7 @@ para detenerlo daaah!
 - el comando para descargar la imagen subida al docker hub es el siguiente: docker pull NOMBREIMAGENCREADA
 
 - docker run -d --name servi2 --add-host=mysql_server:172.17.0.1 -p 8080:8080 timaeus8/serviexpress:latest
-
+- docker run -d --name servi2 -p 8080:8080 timaeus8/serviexpress:latest
 # Restore
 cat backup.sql | docker exec -i CONTAINER /usr/bin/mysql -u root --password=root DATABASE
 
