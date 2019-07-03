@@ -12,42 +12,42 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.id_empleado)
+            <b>@Html.DisplayNameFor(model => model.id_empleado)</b>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.nivel_acceso)
+            <b>@Html.DisplayNameFor(model => model.nivel_acceso)</b>
         </th>
-        <td>
+        <th>
             <b>@Html.DisplayNameFor(model => model.personaEmpleado.rut)</b>
-        </td>
-        <td>
-            <b>@Html.DisplayNameFor(model => model.personaEmpleado.digito_verificador)</b>
-        </td>
-        <td>
+        </th>
+        <th>
             <b>@Html.DisplayNameFor(model => model.personaEmpleado.nombre)</b>
-        </td>
-        <td>
+        </th>
+        <th>
             <b>@Html.DisplayNameFor(model => model.personaEmpleado.paterno)</b>
-        </td>
-        <td>
-            @Html.DisplayNameFor(model => model.personaEmpleado.materno)
-        </td>
-        <td>
-            @Html.DisplayNameFor(model => model.personaEmpleado.direccion)
-        </td>
-        <td>
-            @Html.DisplayNameFor(model => model.personaEmpleado.telefono)
-        </td>
-        <td>
-            @Html.DisplayNameFor(model => model.personaEmpleado.telefono2)
-        </td>
-        <td>
-            @Html.DisplayNameFor(model => model.personaEmpleado.usuario)
-        </td>
-        <td>
-            @Html.DisplayNameFor(model => model.personaEmpleado.e_mail)
-        </td>
-        <th></th>
+        </th>
+        <th>
+            <b>@Html.DisplayNameFor(model => model.personaEmpleado.materno)</b>
+        </th>
+        <th>
+            <b>@Html.DisplayNameFor(model => model.personaEmpleado.direccion)</b>
+        </th>
+        <th>
+            <b>@Html.DisplayNameFor(model => model.personaEmpleado.telefono)</b>
+        </th>
+        <th>
+            <b>@Html.DisplayNameFor(model => model.personaEmpleado.telefono2)</b>
+        </th>
+        <th>
+            <b>@Html.DisplayNameFor(model => model.personaEmpleado.usuario)</b>
+        </th>
+        <th>
+            <b>@Html.DisplayNameFor(model => model.personaEmpleado.e_mail)</b>
+        </th>
+        <th>Editar</th>
+        <th>Detalles</th>
+        <th>Borrar</th>
+        
     </tr>
 
 @foreach (var item in Model) {
@@ -59,10 +59,7 @@
         @Html.DisplayFor(modelItem => item.nivel_acceso)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.personaEmpleado.rut)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.personaEmpleado.digito_verificador)
+        @Html.DisplayFor(modelItem => item.personaEmpleado.rut)-@Html.DisplayFor(modelItem => item.personaEmpleado.digito_verificador)
     </td>
     <td>
         @Html.DisplayFor(modelItem => item.personaEmpleado.nombre)
@@ -89,8 +86,12 @@
         @Html.DisplayFor(modelItem => item.personaEmpleado.e_mail)
     </td>
     <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.id_empleado }) |
-        @Html.ActionLink("Details", "Details", new { id = item.id_empleado }) |
+        @Html.ActionLink("Edit", "Edit", new { id = item.id_empleado })
+    </td>
+    <td>
+        @Html.ActionLink("Details", "Details", new { id = item.id_empleado })
+    </td>
+    <td>
         @Html.ActionLink("Delete", "Delete", new { id = item.id_empleado })
     </td>
 </tr>

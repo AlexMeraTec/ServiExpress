@@ -29,8 +29,7 @@
             @Html.ValidationMessageFor(model => model.nivel_acceso, "", new { @class = "text-danger" })
         </div>
     </div>
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    
     <div class="form-group">
         @Html.LabelFor(model => model.personaEmpleado.id_personas, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
