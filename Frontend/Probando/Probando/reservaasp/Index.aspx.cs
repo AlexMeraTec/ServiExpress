@@ -57,8 +57,7 @@ namespace Leer_json
            TimeSpan  h = TimeSpan.Parse(Text2.Value.ToString());
             List<int> s = new List<int>();
             s.Add(2);
-            List<string> r = new List<string>();
-            r.Add();
+            
             var reserva = new Reserva()
             {
                id_cliente = int.Parse(txtid_cliente.Text),
