@@ -78,4 +78,20 @@ public class ReservaVO {
 	public void setProductos(List<String> productos) {
 		this.productos = productos;
 	}
+
+	public String getNombreCliente() {
+		return nombreCliente;
+	}
+
+	public void setNombreCliente(String nombreCliente) {
+		this.nombreCliente = nombreCliente;
+	}
+
+	public String getNombreEmpleado() {
+		return nombreEmpleado;
+	}
+
+	public void setNombreEmpleado(String nombreEmpleado) {
+		this.nombreEmpleado = nombreEmpleado;
+	}
 }
