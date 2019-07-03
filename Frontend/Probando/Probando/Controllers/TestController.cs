@@ -65,9 +65,13 @@ namespace MVCTutorial.Controllers
             HttpResponseMessage responseMessage = await client.GetAsync("api/persona/LOGINUSER?password=0&usuario=0");
             if (responseMessage.IsSuccessStatusCode)
             {
-                return RedirectToAction("~/HOME");
+                //metodopara rescatar los datos que trae responseMessage y guardarlos en una variablñe de sesion
+                var responseData = responseMessage.Content.ReadAsStringAsync().Result;
+                var perso = JsonConvert.DeserializeObject<Persona>(responseData);
+                Session.Add("datosPersona",perso);
+                return RedirectToAction("../HOME");
             }
-            return RedirectToAction("Error");
+            return RedirectToAction("Login");
         }
 
         [HttpPost]
