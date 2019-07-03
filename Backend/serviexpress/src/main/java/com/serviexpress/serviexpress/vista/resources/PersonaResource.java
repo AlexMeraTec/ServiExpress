@@ -103,12 +103,12 @@ public class PersonaResource extends Elohim{
 //	}
 	
 	@GetMapping("/LOGINUSER") 
-	@ApiOperation(value = "LOGINUSER", notes = "Metodo para LOGINUSER")
+	@ApiOperation(value = "LOGINUSER", notes = "Método para iniciar sesión")
 	@ApiResponses(value = {@ApiResponse(code = 200, message = "LOGINUSER ENCONTRADOS correctamente"),@ApiResponse(code = 201, message = "LOGINUSER ENCONTRADOS correctamente"),@ApiResponse(code = 404, message = "REVISE SU USUARIO O PASSWORD")})
-	public ResponseEntity<PersonaVO> LOGINUSER(String v_username, String v_password) {
-		int si = (int) this.personaService.LOGINUSER(v_username, v_password);
+	public ResponseEntity<PersonaVO> LOGINUSER(String usuario, String password) {
+		int si = (int) this.personaService.LOGINUSER(usuario, password);
 		if(si==1){
-			Persona perso =this.personaService.personaLogin(v_username, v_password);
+			Persona perso =this.personaService.personaLogin(usuario, password);
 			PersonaVO pVO = new PersonaVO();
 	 		copiarPropiedadesNoNulas(perso, pVO);
 			return ResponseEntity.ok(pVO);
@@ -117,11 +117,11 @@ public class PersonaResource extends Elohim{
 		}
 	}
 	@GetMapping("/findByRut") 
-	@ApiOperation(value = "findByRut", notes = "Metodo para encontrar por rut")
+	@ApiOperation(value = "findByRut", notes = "Método para encontrar por rut")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Persona ENCONTRADA correctamente"),@ApiResponse(code = 404, message = "Persona NO encontrada")})
-	public ResponseEntity<PersonaVO> findByRut(int rut,char dv) {
+	public ResponseEntity<PersonaVO> findByRut(int rut,char digito_verificador) {
 		PersonaVO pVO = new PersonaVO();
-		Persona perso = this.personaService.findByRut(rut, dv);
+		Persona perso = this.personaService.findByRut(rut, digito_verificador);
 		copiarPropiedadesNoNulas(perso, pVO);
 		return ResponseEntity.ok(pVO);
 	}

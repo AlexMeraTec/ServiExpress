@@ -6,6 +6,6 @@
     driver-class-name: oracle.jdbc.OracleDriver
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: validate
     generate-ddl: true
     show-sql: true
