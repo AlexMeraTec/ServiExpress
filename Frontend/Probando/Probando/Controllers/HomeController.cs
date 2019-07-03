@@ -25,7 +25,8 @@ namespace Probando.Controllers
         public HomeController()
         {
             Persona p = new Persona();
-            Session["usuario"] = p;
+            p.nombre = "Usuario Sin Nombre";
+            //session["usuario"] = p;
             this.servicios = null;
             client = new HttpClient();
             client.BaseAddress = new Uri(url);
