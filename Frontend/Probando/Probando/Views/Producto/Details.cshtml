@@ -1,0 +1,90 @@
+﻿@model Probando.Models.Producto
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Producto</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.id_productos)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.id_productos)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.nombre)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.nombre)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.fecha_vencimiento)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.fecha_vencimiento)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.precio_compra)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.precio_compra)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.precio_venta)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.precio_venta)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.stock)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.stock)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.stock_critico)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.stock_critico)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.activo)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.activo)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

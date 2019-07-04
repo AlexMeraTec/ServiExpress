@@ -15,14 +15,16 @@ namespace Leer_json
 {
     public partial class Index : System.Web.UI.Page
     {
-        //declaro la direccion y el puerto por el que hacemos el pedido a la api 
 
-        static String host = "http://18.228.155.93:8080";//"54.233.167.87"; cambiar localhost por la direccion que este en linea
-        
-        //Puede parecer tedioso pero ayuda cuando cambiamos el servidor o el puerto
+
+        static String host = "http://18.228.155.93:8080";
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack == false)
+           int sesion = (int)Session["id_cliente"];
+            int sse = (int)Session["id_empleado"];
+            txtid_cliente.Text = sesion.ToString();
+            txtid_empleado.Text = sse.ToString();
+            if (!Page.IsPostBack)
             {
 
                 //local
@@ -55,43 +57,54 @@ namespace Leer_json
                         
            
            TimeSpan  h = TimeSpan.Parse(Text2.Value.ToString());
-            List<int> s = new List<int>();
-            s.Add(2);
-            
-            var reserva = new Reserva()
+
+
+
+            var reserva = new Reserva();
+
+            int s;
+            reserva.id_cliente = int.Parse(txtid_cliente.Text);
+            reserva.id_empleado = int.Parse(txtid_empleado.Text);
+            reserva.fecha = f.Date.Add(h);
+            reserva.id_reservas = 0;
+            reserva.observaciones = TextBox1.Text;
+            reserva.se_atendio = chkse_atendio.Checked;
+            s = int.Parse(ddlservicios.SelectedValue);
+            reserva.servicios = new List<int>();
+            reserva.servicios.Add(s);
+            reserva.nombreCliente = "";
+            reserva.nombreEmpleado = "";
+
+
+            try
             {
-               id_cliente = int.Parse(txtid_cliente.Text),
-                id_empleado = int.Parse(txtid_empleado.Text),
-            fecha = f.Date.Add(h),
-                id_reservas = 0,
-                observaciones =TextBox1.Text,
-                se_atendio = chkse_atendio.Checked,
-               servicios = s,
+                string json = JsonConvert.SerializeObject(reserva);
+                var httpWebRequest = (HttpWebRequest)WebRequest.Create(host + "/api/reserva");
+                httpWebRequest.ContentType = "application/json; charset=utf-8";
+                httpWebRequest.Method = "POST";
+                httpWebRequest.Accept = "application/json; charset=utf-8";
 
-            };
-            string json = JsonConvert.SerializeObject(reserva);
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create(host + "/api/reserva");
-            httpWebRequest.ContentType = "application/json; charset=utf-8";
-            httpWebRequest.Method = "POST";
-            httpWebRequest.Accept = "application/json; charset=utf-8";
-
-            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
-            {
-                streamWriter.Write(json);
-                streamWriter.Flush();
-                streamWriter.Close();
-
-                var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
                 {
-                    var result = streamReader.ReadToEnd();
+                    streamWriter.Write(json);
+                    streamWriter.Flush();
+                    streamWriter.Close();
+
+                    var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+                    using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                    {
+                        var result = streamReader.ReadToEnd();
+                    }
+
                 }
 
+                Response.Redirect("~/Reserva");
+
             }
-                
+            catch (Exception )
+            {
 
-
-
+            }
 
          }
     }

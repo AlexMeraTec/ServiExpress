@@ -20,12 +20,14 @@
         </div>
         <div class="form-group">
             <div class="col-md-12">
+               
                 @Html.PasswordFor(m => m.password, new { @class = "form-control", @placeholder = "Password" })
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-12">
                 <a class="btn btn-primary " style="margin-top:2%;" onclick=@Html.ActionLink("Iniciar", "LoginUser") </a>
+               
             </div>
         </div>
     </form>

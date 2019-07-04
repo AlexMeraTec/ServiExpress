@@ -15,7 +15,13 @@
             @Html.DisplayNameFor(model => model.id_reservas)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.nombreCliente)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.fecha)
+        </th>
+        <th>
+            <b>Hora</b>
         </th>
         <th>
             @Html.DisplayNameFor(model => model.observaciones)
@@ -24,40 +30,42 @@
             @Html.DisplayNameFor(model => model.se_atendio)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.id_cliente)
+            @Html.DisplayNameFor(model => model.servicios)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.id_empleado)
-        </th>
+
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.id_reservas)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fecha)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.observaciones)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.se_atendio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.id_cliente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.id_empleado)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id_reservas }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id_reservas}) |
-            @Html.ActionLink("Delete", "Delete", new {  id=item.id_reservas})
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.id_reservas)
+    </td>
+    <th>
+        @Html.DisplayFor(modelItem => item.nombreCliente) 
+    </th>
+    <td>
+        @Html.DisplayFor(modelItem => item.fecha)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.fecha.TimeOfDay)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.observaciones)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.se_atendio)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.servicios)
+    </td>
+
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.id_reservas }) |
+        @Html.ActionLink("Details", "Details", new { id = item.id_reservas }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.id_reservas })
+    </td>
+</tr>
 }
 
 </table>

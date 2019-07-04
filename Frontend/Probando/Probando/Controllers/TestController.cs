@@ -62,12 +62,14 @@ namespace MVCTutorial.Controllers
         }
         public async Task<ActionResult> LoginUser()
         {
-            HttpResponseMessage responseMessage = await client.GetAsync("api/persona/LOGINUSER?password=online&usuario=online");
+            HttpResponseMessage responseMessage = await client.GetAsync("api/persona/LOGINUSER?password=password&usuario=usuario");
             if (responseMessage.IsSuccessStatusCode)
             {
                 //metodopara rescatar los datos que trae responseMessage y guardarlos en una variablñe de sesion
                 var responseData = responseMessage.Content.ReadAsStringAsync().Result;
                 Persona perso = JsonConvert.DeserializeObject<Persona>(responseData);
+                Session["id_cliente"] = 1;
+                Session["id_empleado"] = 0;
                 Session["usuario"] = perso.nombre;
                 Session.Add("datosPersona",perso);
                 return RedirectToAction("../HOME");
