@@ -63,9 +63,9 @@ namespace Probando.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> LoginUser()
+        public async Task<ActionResult> LoginUser(string __usuario, string __password)
         {
-            HttpResponseMessage responseMessage = await client.GetAsync("api/persona/LOGINUSER?password=online&usuario=online");
+            HttpResponseMessage responseMessage = await client.GetAsync("api/persona/LOGINUSER?password="+__password+"&usuario="+ __usuario);
             if (responseMessage.IsSuccessStatusCode)
             {
                 Session["id_empleado"] = 0;
@@ -84,7 +84,8 @@ namespace Probando.Controllers
                     Session["tipo"] = emp.personaEmpleado.tipo;
                     Session["usuario"] = emp.personaEmpleado.nombre;
                     Session["nivel"] = emp.nivel_acceso;
-                    if (emp.nivel_acceso==2) {
+                    if (emp.nivel_acceso == 2)
+                    {
                         Session["admin"] = true;
                     }
 

@@ -33,7 +33,7 @@
                     <li><i class="fa fa-phone"></i> +56 (9) 12345678</li>
                     <li><i class="fa fa-envelope-o"></i> online@serviexpress.com</li>
                     @{ 
-                        if ( @Session["usuario"] != null )
+                        if (@Session["usuario"] != null)
                         {
                             <li>Hola @Session["usuario"] </li>
                         }
@@ -44,8 +44,18 @@
             <div class="fl_right">
                 <ul>
                     <li><a href="~/HOME"><i class="fa fa-lg fa-home"></i></a></li>
-                    <li><a href="../Test/Login">Iniciar Sesión</a></li>
-                    <li><a href="../Cliente/Create">Registrase</a></li>
+                    @{
+                        if (@Session["usuario"] == null)
+                        {
+                            <li><a href="../Test/Login">Iniciar Sesión</a></li>
+                            <li><a href="../Cliente/Create">Registrase</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="~/Cliente/Edit/@Session["id_cliente"]" >Mis Datos</a></li>
+                            <li><a href="~/Test/Logout">Cerrar Sessión</a></li>
+                        }
+                    }
                 </ul>
             </div>
             <!-- ################################################################################################ -->
@@ -64,24 +74,36 @@
                     <nav id="mainav" class="fl_right">
                         <ul class="clear">
                             <li class="active"><a href="~/HOME">Inicio</a></li>
-                            <li>
-                                <a class="drop" href="#">SERVICIOS</a>
-                                <ul>
-                                    <li><a href="Revision.aspx">REVISÍON POR KILOMETRAJE</a></li>
-                                    <li><a href="Mantenimiento.aspx">MANTENIMIENTO</a></li>
-                                    <li><a href="Cambio.aspx">CAMBIO DE ACEITE</a></li>
-                                    <li><a href="TrenDelantero.aspx">TREN DELANTERO</a></li>
-                                    <li><a href="Freno.aspx">FRENOS</a></li>
-                                    <li><a href="Diagnostico.aspx">DIAGNÓSTICO Y SCANNER</a></li>
-                                    <li><a href="Motor.aspx">MOTOR</a></li>
-                                    <li><a href="Transmision.aspx">TRANSMISIONES</a></li>
-                                    <li><a href="Electronica.aspx">ELECTRÓNICA Y PROGRAMACIÓN</a></li>
+                            @{
+                                if (@Session["nivel"] != null)
+                                {
+                                    <li>
+
+                                        <a class="drop" href="#">mantenedores</a>
+                                        <ul>
+                                            <li><a href="Revision.aspx">REVISÍON POR KILOMETRAJE</a></li>
+                                            <li><a href="Mantenimiento.aspx">MANTENIMIENTO</a></li>
+                                            <li><a href="Cambio.aspx">CAMBIO DE ACEITE</a></li>
+                                            <li><a href="TrenDelantero.aspx">TREN DELANTERO</a></li>
+                                            <li><a href="Freno.aspx">FRENOS</a></li>
+                                            <li><a href="Diagnostico.aspx">DIAGNÓSTICO Y SCANNER</a></li>
+                                            <li><a href="Motor.aspx">MOTOR</a></li>
+                                            <li><a href="Transmision.aspx">TRANSMISIONES</a></li>
+                                            <li><a href="Electronica.aspx">ELECTRÓNICA Y PROGRAMACIÓN</a></li>
+                                        </ul>
+                                    </li>
+                                }
+                            }
+                            @{
+                                if (@Session["usuario"] != null)
+                                {
+                                    <li><a href="../../reservaasp/Index.aspx">Reservar hora</a></li>
+                                }
+                            }
+                                    <li><a href="#">PROMOCIONES</a></li>
+                                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
                                 </ul>
-                            </li>
-                            <li><a href="../../reservaasp/Index.aspx">Reservar hora</a></li>
-                            <li><a href="#">PROMOCIONES</a></li>
-                            <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
-                        </ul>
+
                     </nav>
                 </center>
                 <!-- ################################################################################################ -->
