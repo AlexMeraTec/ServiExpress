@@ -21,13 +21,13 @@
             @Html.DisplayNameFor(model => model.fecha_vencimiento)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.id_proveedor.nombre)
+            Proveedor
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.id_tipos.nombre)
+            Tipo
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.id_familias.nombre)
+           Familia
         </th>
         <th>
             @Html.DisplayNameFor(model => model.precio_compra)
@@ -59,13 +59,13 @@
             @Html.DisplayFor(modelItem => item.fecha_vencimiento)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.id_proveedor)
+            @Html.DisplayFor(modelItem => item.id_proveedor.nombre)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.id_tipos)
+            @Html.DisplayFor(modelItem => item.id_tipos.nombre)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.id_familias)
+            @Html.DisplayFor(modelItem => item.id_familias.nombre)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.precio_compra)
@@ -83,9 +83,9 @@
             @Html.DisplayFor(modelItem => item.activo)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_productos }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_productos }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_productos })
         </td>
     </tr>
 }
