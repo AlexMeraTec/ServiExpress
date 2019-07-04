@@ -4,10 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Serviexpress </title>
-    @{
-        Probando.Models.Persona usuario;
-    }
+    <title>@ViewBag.Title - Serviexpress </title> 
 
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/jquery-ui.css")
@@ -35,6 +32,13 @@
                 <ul>
                     <li><i class="fa fa-phone"></i> +56 (9) 12345678</li>
                     <li><i class="fa fa-envelope-o"></i> online@serviexpress.com</li>
+                    @{ 
+                        if ( @Session["usuario"] != null )
+                        {
+                            <li>mensajito si no esta nulo el usuario @Session["usuario "] </li>
+                        }
+                    }
+
                 </ul>
             </div>
             <div class="fl_right">

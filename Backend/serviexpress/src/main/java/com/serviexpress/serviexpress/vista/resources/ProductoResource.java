@@ -1,5 +1,6 @@
 package com.serviexpress.serviexpress.vista.resources;
 
+import java.text.DecimalFormat;
 import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,6 +32,10 @@ import io.swagger.annotations.ApiResponses;
 @RequestMapping("/api/producto") //el nombre con el cual llamar a esta clase como Servicio web
 @Api(tags = "producto")
 public class ProductoResource extends Elohim{
+	
+	DecimalFormat formato3 = new DecimalFormat("000");
+    
+    
 	private final ProductoService productoService;
 	private final FamiliaService fService;
 	private final TipoService tService;
@@ -48,6 +53,8 @@ public class ProductoResource extends Elohim{
 	public ResponseEntity<Producto> createProducto(@RequestBody ProductoVO ptoVO){
 		Producto pto = new Producto();
 		copiarPropiedadesNoNulas(ptoVO, pto);
+		String idFinal = formato3.format(ptoVO.getId_proveedor()) + formato3.format(ptoVO.getId_familias())+formato3.format(ptoVO.getId_tipos());
+		
 		pto.setId_familias(this.fService.findById_familias(ptoVO.getId_familias()));
 		pto.setId_tipos(this.tService.findById_tipos(ptoVO.getId_tipos()));
 		pto.setId_proveedor(this.pService.findById_proveedor(ptoVO.getId_proveedor()));

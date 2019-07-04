@@ -24,9 +24,6 @@ namespace Probando.Controllers
         private const string url = global.ip;
         public HomeController()
         {
-            Persona p = new Persona();
-            p.nombre = "Usuario Sin Nombre";
-            //session["usuario"] = p;
             this.servicios = null;
             client = new HttpClient();
             client.BaseAddress = new Uri(url);
@@ -40,7 +37,6 @@ namespace Probando.Controllers
             if (responseMessage.IsSuccessStatusCode)
             {
                 var responseData = responseMessage.Content.ReadAsStringAsync().Result;
-
                 var servi = JsonConvert.DeserializeObject<List<Servicio>>(responseData);
 
                 return View(servi);
