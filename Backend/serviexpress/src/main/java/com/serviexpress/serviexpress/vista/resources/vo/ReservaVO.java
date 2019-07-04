@@ -23,9 +23,9 @@ public class ReservaVO {
 	private int id_cliente;
 	private int id_empleado;
 	
-	@JsonIgnore
+	
 	private String nombreCliente;
-	@JsonIgnore
+	
 	private String nombreEmpleado;
 	
 	private List<Integer> servicios;
