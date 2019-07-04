@@ -10,6 +10,7 @@ siempre y cuando exista el ojdbc7 en la carpeta de inicio del proyecto
 clean install docker:build
 
 se usa para crear una imagen docker de la api
+
 - dependiendo de la version de MYSQL en la base de datos deberemos cambiar en las dependencias por la version necesarioa en el archivo pom.xml
 	<dependency>
 		<groupId>mysql</groupId>
@@ -52,9 +53,14 @@ Para conectarse con UNA BASE DE DATOS MYSQL
 
 package com.serviexpress.serviexpress;
 
+import java.text.DateFormat;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
-
+import java.util.Date;
+import java.sql.Timestamp;
 import org.apache.juli.DateFormatCache;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -65,7 +71,6 @@ public class ServiexpressApplication {
 //run as maven build usando el comando clean install spring-boot:run
 	public static void main(String[] args) {
 		SpringApplication.run(ServiexpressApplication.class, args);
-		//DateFormatCache formato3 = new DateFormatCache(8, format, parent) ;
 	}
 
 }

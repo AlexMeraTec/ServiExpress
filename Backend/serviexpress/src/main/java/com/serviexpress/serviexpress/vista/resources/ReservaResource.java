@@ -206,7 +206,7 @@ public class ReservaResource extends Elohim{
  			rVO.setId_cliente(rva.getClienteReserva().getId_cliente());
  			rVO.setId_empleado(rva.getEmpleadoReserva().getId_empleado());
  			rVO.setNombreCliente(rva.getClienteReserva().getPersonaCliente().getNombre());
- 			rVO.setNombreCliente(rva.getEmpleadoReserva().getPersonaEmpleado().getNombre());
+ 			rVO.setNombreEmpleado(rva.getEmpleadoReserva().getPersonaEmpleado().getNombre());
  			if (rva.getrProductoReserva()!=null) {
  				List<String> prodsVO =new ArrayList();
 				for (Producto_reserva prva : rva.getrProductoReserva()) {

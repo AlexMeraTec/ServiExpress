@@ -46,6 +46,9 @@ public class Pago {
 	@Column(name = "anulada")
 	private boolean anulada;
 	
+	@Column(name = "fiado")
+	private boolean fiado;
+	
 	@OneToOne
 	@JoinColumn(name = "id_reservas", updatable = false, nullable = false)
 	private Reserva id_reservas;

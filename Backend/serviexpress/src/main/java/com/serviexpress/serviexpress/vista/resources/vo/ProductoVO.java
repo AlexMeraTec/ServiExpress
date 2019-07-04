@@ -16,8 +16,11 @@ public class ProductoVO {
 	@DateTimeFormat(pattern = "yyyy-MM-dd") //esto permite la conversion del string entregado en la vista a formato DATE
 	private Date fecha_vencimiento;
 	private int id_proveedor;
+	private String nombreProveedor;
 	private int id_tipos;
+	private String nombreTipo;
 	private int id_familias;
+	private String nombreFamilia;
 	private int precio_compra;
 	private int precio_venta;
 	private int stock;

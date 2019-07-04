@@ -1,6 +1,9 @@
 package com.serviexpress.serviexpress.vista.resources;
 
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,6 +37,8 @@ import io.swagger.annotations.ApiResponses;
 public class ProductoResource extends Elohim{
 	
 	DecimalFormat formato3 = new DecimalFormat("000");
+	String DATE_FORMAT = "yyyyMMdd";
+	SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
     
     
 	private final ProductoService productoService;
@@ -50,34 +55,36 @@ public class ProductoResource extends Elohim{
 	@PostMapping
 	@ApiOperation(value = "Crear Producto", notes = "Servicio para crear un nuevo producto")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Producto CREADO correctamente"),@ApiResponse(code = 404, message = "Solicitud Invalida")})
-	public ResponseEntity<Producto> createProducto(@RequestBody ProductoVO ptoVO){
+	public ResponseEntity<ProductoVO> createProducto(@RequestBody ProductoVO ptoVO){
 		Producto pto = new Producto();
 		copiarPropiedadesNoNulas(ptoVO, pto);
-		String idFinal = formato3.format(ptoVO.getId_proveedor()) + formato3.format(ptoVO.getId_familias())+formato3.format(ptoVO.getId_tipos());
-		
-		pto.setId_familias(this.fService.findById_familias(ptoVO.getId_familias()));
+		Date date = ptoVO.getFecha_vencimiento();
+        String idFinal = formato3.format(ptoVO.getId_proveedor())+formato3.format(ptoVO.getId_familias())+sdf.format(date)+formato3.format(ptoVO.getId_tipos());
+        pto.setId_productos(idFinal);
+        pto.setId_familias(this.fService.findById_familias(ptoVO.getId_familias()));
 		pto.setId_tipos(this.tService.findById_tipos(ptoVO.getId_tipos()));
 		pto.setId_proveedor(this.pService.findById_proveedor(ptoVO.getId_proveedor()));
-		
-		return new ResponseEntity<>(this.productoService.create(pto), HttpStatus.CREATED);
+		this.productoService.create(pto);
+		return new ResponseEntity<>(ptoVO, HttpStatus.CREATED);
 	}
 	
 	@PutMapping("/{id_productos}")
 	@ApiOperation(value = "Actualizar Producto", notes = "Servicio para actualizar un producto")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Producto ACTUALIZADO correctamente"),@ApiResponse(code = 404, message = "Producto NO encontrado")})
-	public ResponseEntity<Producto> updateReserva(@PathVariable("id_productos") String id_productos, @RequestBody ProductoVO ptoVO){
+	public ResponseEntity<ProductoVO> updateReserva(@PathVariable("id_productos") String id_productos, @RequestBody ProductoVO ptoVO){
 		Producto pto = this.productoService.findById_productos(id_productos);
 		if (pto==null) {
-			return new ResponseEntity<Producto>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<ProductoVO>(HttpStatus.NOT_FOUND);
 		}else {
 			copiarPropiedadesNoNulas(ptoVO, pto);
 			pto.setId_familias(this.fService.findById_familias(ptoVO.getId_familias()));
 			pto.setId_tipos(this.tService.findById_tipos(ptoVO.getId_tipos()));
 			pto.setId_proveedor(this.pService.findById_proveedor(ptoVO.getId_proveedor()));
 		}
-		return new ResponseEntity<>(this.productoService.update(pto), HttpStatus.OK);
+		this.productoService.update(pto);
+		return new ResponseEntity<>(ptoVO, HttpStatus.OK);
 	}
-	@PutMapping("/{precio_venta}/{id_productos}")
+	@PutMapping("/{id_productos}/{precio_venta}")
 	@ApiOperation(value = "Actualizar precio_venta", notes = "Servicio para actualizar un producto")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Producto ACTUALIZADO correctamente"),@ApiResponse(code = 404, message = "Producto NO encontrado")})
 	public void updatePrecio_venta(@PathVariable("precio_venta") int precio_venta,@PathVariable("id_productos") String id_productos){
@@ -101,17 +108,40 @@ public class ProductoResource extends Elohim{
  	@GetMapping("/{id_productos}")
 	@ApiOperation(value = "Buscar Producto", notes = "Reserva para buscar un producto")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Producto ENCONTRADO correctamente"),@ApiResponse(code = 404, message = "Producto NO encontrado")})
-	public ResponseEntity<Producto> findByid_productoss(String id_productos) {
+	public ResponseEntity<ProductoVO> findByid_productoss(String id_productos) {
 		Producto pto = this.productoService.findById_productos(id_productos);
-		return ResponseEntity.ok(pto);
+		if (pto!=null) {
+			ProductoVO ptVO = new ProductoVO();
+			copiarPropiedadesNoNulas(pto, ptVO);
+			ptVO.setId_proveedor(pto.getId_proveedor().getId_proveedor());
+			ptVO.setId_familias(pto.getId_familias().getId_familias());
+			ptVO.setId_tipos(pto.getId_tipos().getId_tipos());
+			
+			return new ResponseEntity<ProductoVO>(HttpStatus.NOT_FOUND);
+		}else {
+			return new ResponseEntity<ProductoVO>(HttpStatus.NOT_FOUND);
+		}
 	}
 	
 
 	@GetMapping
 	@ApiOperation(value = "Listar productos", notes = "Servicio para listar todos los productos")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Producto ENCONTRADOS correctamente"),@ApiResponse(code = 404, message = "Producto NO encontrado")})
-	public ResponseEntity<List<Producto>> findAll() {
-		return ResponseEntity.ok(this.productoService.findAll());
+	public ResponseEntity<List<ProductoVO>> findAll() {
+		List<Producto> pts = this.productoService.findAll();
+		List<ProductoVO>ptsVO = new ArrayList<ProductoVO>();
+		for (Producto pto : pts) {
+			ProductoVO ptVO = new ProductoVO();
+			copiarPropiedadesNoNulas(pto, ptVO);
+			ptVO.setId_proveedor(pto.getId_proveedor().getId_proveedor());
+			ptVO.setId_familias(pto.getId_familias().getId_familias());
+			ptVO.setId_tipos(pto.getId_tipos().getId_tipos());
+			ptVO.setNombreProveedor(pto.getId_proveedor().getNombre());
+			ptVO.setNombreFamilia(pto.getId_familias().getNombre());
+			ptVO.setNombreTipo(pto.getId_tipos().getNombre());
+			ptsVO.add(ptVO);
+		}
+		return ResponseEntity.ok(ptsVO);
 	
 	}
  
