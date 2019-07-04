@@ -8,6 +8,13 @@
     <title></title>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/start/jquery-ui.css" />
      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css"/>
+    <style type="text/css">
+        .auto-style2 {
+            height: 1050px;
+            margin-top: 0px;
+        }
+    </style>
+    <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
 <script src="jquery.ui.datepicker-es.js"></script>
@@ -68,9 +75,9 @@
   </script> 
 
 </head>
-<body style="font-size:12px;">
-  <form id="form1" runat="server">
-    
+<body style="font-size:12px;color:aliceblue; height: 1049px;">    
+  <form id="form1" runat="server">  
+      <div class="auto-style2" style="background-image:url('../../Content/images/demo/backgrounds/01.png');">
       <asp:Panel ID="Panel1" runat="server" Height="167px">
           <asp:Label ID="lblnombre" runat="server" Text="ID_Cliente"></asp:Label>
           &nbsp;
@@ -100,6 +107,12 @@
       <p>
            &nbsp;<asp:Button ID="Button1" runat="server" OnClick="Button1_Click" style="margin-left: 275px" Text="Guardar" />
       </p>
-      </form>
+          <div>
+              <ul>
+                  <li class="active"><a href="../HOME">Inicio</a></>
+              </ul>
+          </div>
+          </div>
+      </form>      
 </body>
 </html>

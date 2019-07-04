@@ -67,11 +67,18 @@
 
   </script> 
 
+    <style type="text/css">
+        .auto-style1 {
+            height: 888px;
+            width: 1485px;
+        }
+    </style>
+
 </head>
-<body style="font-size:12px;">
+<body style="font-size:12px;color:aliceblue">
   <form id="form2" runat="server">
     
-     
+     <div class="auto-style1" style="background-image:url('../../Content/images/demo/backgrounds/01.png');">
 
       <asp:Panel ID="Panel1" runat="server" Height="240px" style="margin-left: 264px" Width="252px">
           <br />
@@ -94,7 +101,7 @@
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       </asp:Panel>
     
-     
+     </div>
 
     </form>
 </body>
