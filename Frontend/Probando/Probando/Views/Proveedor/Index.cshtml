@@ -4,10 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Proveedores</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear o Agregar nuevo Proveedor", "Create")
 </p>
 <table class="table">
     <tr>
@@ -38,7 +38,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.id_proveedor)
+            @Html.DisplayFor(modelItem => item.id_proveedor )
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.rubro)
@@ -59,9 +59,9 @@
             @Html.DisplayFor(modelItem => item.activo)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Editar Informacion", "Edit", new { id=item.id_proveedor}) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.id_proveedor}) |
+            @Html.ActionLink("Eliminar Proveedor", "Delete", new { id=item.id_proveedor})
         </td>
     </tr>
 }

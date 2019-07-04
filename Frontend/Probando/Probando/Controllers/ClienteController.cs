@@ -126,6 +126,7 @@ namespace Probando.Controllers
             }
             return RedirectToAction("Error");
         }
+
         [HttpPost]
         public async Task<ActionResult> Details(int Id, Cliente Emp)
         {
@@ -134,7 +135,7 @@ namespace Probando.Controllers
             {
                 var responseData = responseMessage.Content.ReadAsStringAsync().Result;
 
-                var Employee = JsonConvert.DeserializeObject<Cliente>(responseData);
+                var Employee = JsonConvert.DeserializeObject<Producto>(responseData);
 
                 return View(Employee);
             }
@@ -148,12 +149,13 @@ namespace Probando.Controllers
             {
                 var responseData = responseMessage.Content.ReadAsStringAsync().Result;
 
-                var Employee = JsonConvert.DeserializeObject<Cliente>(responseData);
+                var Employee = JsonConvert.DeserializeObject<Producto>(responseData);
 
                 return View(Employee);
             }
             return View("Error");
         }
+                    
 
     }
 }

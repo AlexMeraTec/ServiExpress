@@ -1,0 +1,83 @@
+﻿@model Probando.Models.Proveedor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Detalles</title>
+</head>
+<body>
+    <div>
+        <h4>Proveedor</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.id_proveedor)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.id_proveedor)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.rubro)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.rubro)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.nombre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.nombre)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.direccion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.direccion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.telefono)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.telefono)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.e_mail)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.e_mail)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.activo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.activo)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Regresar", "Index") |
+        @Html.ActionLink("Editar", "Edit", new { id = Model.id_proveedor })
+
+    </p>
+</body>
+</html>
