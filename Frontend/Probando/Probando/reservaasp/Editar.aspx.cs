@@ -41,7 +41,7 @@ namespace Probando.reservaasp
 
         protected void btnElegir_Click(object sender, EventArgs e)
         {
-            Valor = ddlReserva.SelectedIndex;
+            Valor = int.Parse(ddlReserva.SelectedValue);
             Response.Redirect("Editando.aspx?Valor="+Valor);
         }
     }
