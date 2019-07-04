@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
-namespace MVCTutorial.Controllers
+namespace Probando.Controllers
 {
     public class TestController : Controller
     {
