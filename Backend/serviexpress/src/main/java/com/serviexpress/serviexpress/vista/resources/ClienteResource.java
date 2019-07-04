@@ -79,7 +79,7 @@ public class ClienteResource extends Elohim{
 			copiarPropiedadesNoNulas(cVO.getPersonaCliente(), persona);
 			cliPerso.setId_cliente(id_personas);
 			persona.setId_personas(id_personas);
-			persona.setTipo(true);
+			persona.setTipo(false);
 			cliPerso.setPersonaCliente(persona);
 			this.personaService.update(persona);
 			

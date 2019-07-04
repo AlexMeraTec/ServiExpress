@@ -36,10 +36,6 @@ namespace MVCTutorial.Controllers
             client.BaseAddress = new Uri(url);
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            client2 = new HttpClient();
-            client2.BaseAddress = new Uri(url);
-            client2.DefaultRequestHeaders.Accept.Clear();
-            client2.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
         public ActionResult Registrar()
         {
@@ -69,17 +65,23 @@ namespace MVCTutorial.Controllers
         [HttpGet]
         public async Task<ActionResult> LoginUser()
         {
-            HttpResponseMessage responseMessage = await client.GetAsync("api/persona/LOGINUSER?password=password&usuario=usuario");
+            HttpResponseMessage responseMessage = await client.GetAsync("api/persona/LOGINUSER?password=online&usuario=online");
             if (responseMessage.IsSuccessStatusCode)
             {
-                //metodopara rescatar los datos que trae responseMessage y guardarlos en una variablñe de sesion
-                var responseData = responseMessage.Content.ReadAsStringAsync().Result;
-                Persona perso = JsonConvert.DeserializeObject<Persona>(responseData);
                 Session["id_empleado"] = 0;
                 Session["id_cliente"] = 1;
-                Session["tipo"] = perso.tipo;
-                Session["usuario"] = perso.nombre;
-                Session.Add("datosPersona",perso);
+                //metodopara rescatar los datos que trae responseMessage y guardarlos en una variablñe de sesion
+                var responseData = responseMessage.Content.ReadAsStringAsync().Result;
+                try
+                {
+                    Cliente cli = JsonConvert.DeserializeObject<Cliente>(responseData);
+                    Session["tipo"] = cli.personaCliente.tipo;
+                }
+                catch (Exception)
+                {
+                    Empleado emp = JsonConvert.DeserializeObject<Empleado>(responseData);
+                    Session["tipo"] = emp.personaEmpleado.tipo;
+                }
                 return RedirectToAction("../HOME");
             }
             return RedirectToAction("Login");
