@@ -157,6 +157,20 @@
     <Compile Include="Models\Tipo.cs" />
     <Compile Include="Models\Vehiculo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="reservaasp\Editando.aspx.cs">
+      <DependentUpon>Editando.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="reservaasp\Editando.aspx.designer.cs">
+      <DependentUpon>Editando.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="reservaasp\Editar.aspx.cs">
+      <DependentUpon>Editar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="reservaasp\Editar.aspx.designer.cs">
+      <DependentUpon>Editar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="reservaasp\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -210,6 +224,8 @@
     <Content Include="layout\styles\framework.css" />
     <Content Include="layout\styles\index.html" />
     <Content Include="layout\styles\layout.css" />
+    <Content Include="reservaasp\Editando.aspx" />
+    <Content Include="reservaasp\Editar.aspx" />
     <Content Include="reservaasp\Index.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
