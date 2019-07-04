@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.serviexpress.serviexpress.modelo.Cliente;
 import com.serviexpress.serviexpress.modelo.Empleado;
+import com.serviexpress.serviexpress.modelo.Login;
 import com.serviexpress.serviexpress.modelo.Persona;
 import com.serviexpress.serviexpress.negocio.services.ClienteService;
 import com.serviexpress.serviexpress.negocio.services.EmpleadoService;
@@ -110,13 +111,13 @@ public class PersonaResource extends Elohim{
 //		return ResponseEntity.ok(true);
 //	}
 	
-	@GetMapping("/LOGINUSER") 
+	@PostMapping("/LOGINUSER") 
 	@ApiOperation(value = "LOGINUSER", notes = "Método para iniciar sesión")
 	@ApiResponses(value = {@ApiResponse(code = 200, message = "LOGINUSER ENCONTRADOS correctamente"),@ApiResponse(code = 201, message = "LOGINUSER ENCONTRADOS correctamente"),@ApiResponse(code = 404, message = "REVISE SU USUARIO O PASSWORD")})
-	public ResponseEntity<Object> LOGINUSER(String usuario, String password) {
-		int si = (int) this.personaService.LOGINUSER(usuario, password);
+	public ResponseEntity<Object> LOGINUSER(@RequestBody Login login) {
+		int si = (int) this.personaService.LOGINUSER(login.getUsuario(), login.getPassword());
 		if(si==1){
-			Persona perso =this.personaService.personaLogin(usuario, password);
+			Persona perso =this.personaService.personaLogin(login.getUsuario(), login.getPassword());
 			PersonaVO pVO = new PersonaVO();
 			copiarPropiedadesNoNulas(perso, pVO);
 			if(perso.isTipo()) {

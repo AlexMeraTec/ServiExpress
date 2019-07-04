@@ -1,6 +1,6 @@
 ﻿@model Probando.Models.LoginModel
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("LoginUser","TestController"))
 {
     @Html.AntiForgeryToken()
 }
@@ -15,19 +15,20 @@
         </div>
         <div class="form-group">
             <div class="col-md-12">
-                @Html.TextBoxFor(m => m.usuario, new { @class = "form-control", @placeholder = "Usuario" })
+                @Html.TextBoxFor(model => model.usuario, new { @class = "form-control", @placeholder = "Usuario" })
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-12">
-               
-                @Html.PasswordFor(m => m.password, new { @class = "form-control", @placeholder = "Password" })
+
+                @Html.TextBoxFor(model => model.password, new { @class = "form-control", @placeholder = "Password" })
             </div>
         </div>
+        
         <div class="form-group">
             <div class="col-md-12">
-                <a class="btn btn-primary " style="margin-top:2%;" onclick=@Html.ActionLink("Iniciar", "LoginUser") </a>
-               
+                <a class="btn btn-primary " style="margin-top:2%;" onclick=@Html.ActionLink("Iniciar", "LoginUser", new { __usuario = "usuario" ,  __password = "password" } ) </a>
+
             </div>
         </div>
     </form>
