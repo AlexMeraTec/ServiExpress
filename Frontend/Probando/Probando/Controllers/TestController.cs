@@ -15,6 +15,7 @@ namespace MVCTutorial.Controllers
     public class TestController : Controller
     {
         HttpClient client;
+        HttpClient client2;
         private List<LoginModel> loginModels;
         private List<Persona> personas;
         public List<LoginModel> AllLogin
@@ -35,6 +36,10 @@ namespace MVCTutorial.Controllers
             client.BaseAddress = new Uri(url);
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            client2 = new HttpClient();
+            client2.BaseAddress = new Uri(url);
+            client2.DefaultRequestHeaders.Accept.Clear();
+            client2.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
         public ActionResult Registrar()
         {
@@ -60,6 +65,8 @@ namespace MVCTutorial.Controllers
 
             return View(new LoginModel());
         }
+
+        [HttpGet]
         public async Task<ActionResult> LoginUser()
         {
             HttpResponseMessage responseMessage = await client.GetAsync("api/persona/LOGINUSER?password=password&usuario=usuario");
@@ -68,8 +75,9 @@ namespace MVCTutorial.Controllers
                 //metodopara rescatar los datos que trae responseMessage y guardarlos en una variablñe de sesion
                 var responseData = responseMessage.Content.ReadAsStringAsync().Result;
                 Persona perso = JsonConvert.DeserializeObject<Persona>(responseData);
-                Session["id_cliente"] = 1;
                 Session["id_empleado"] = 0;
+                Session["id_cliente"] = 1;
+                Session["tipo"] = perso.tipo;
                 Session["usuario"] = perso.nombre;
                 Session.Add("datosPersona",perso);
                 return RedirectToAction("../HOME");

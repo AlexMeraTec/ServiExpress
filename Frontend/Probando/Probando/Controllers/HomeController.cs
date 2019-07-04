@@ -29,9 +29,11 @@ namespace Probando.Controllers
             client.BaseAddress = new Uri(url);
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
         }
         public async Task<ActionResult> Index()
         {
+
             HttpResponseMessage responseMessage = await client.GetAsync("api/servicio");
 
             if (responseMessage.IsSuccessStatusCode)

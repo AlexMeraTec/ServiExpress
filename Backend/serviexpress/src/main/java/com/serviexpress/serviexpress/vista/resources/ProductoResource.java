@@ -116,8 +116,10 @@ public class ProductoResource extends Elohim{
 			ptVO.setId_proveedor(pto.getId_proveedor().getId_proveedor());
 			ptVO.setId_familias(pto.getId_familias().getId_familias());
 			ptVO.setId_tipos(pto.getId_tipos().getId_tipos());
-			
-			return new ResponseEntity<ProductoVO>(HttpStatus.NOT_FOUND);
+			ptVO.setNombreProveedor(pto.getId_proveedor().getNombre());
+			ptVO.setNombreFamilia(pto.getId_familias().getNombre());
+			ptVO.setNombreTipo(pto.getId_tipos().getNombre());
+			return new ResponseEntity<>(ptVO, HttpStatus.OK);
 		}else {
 			return new ResponseEntity<ProductoVO>(HttpStatus.NOT_FOUND);
 		}
