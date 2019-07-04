@@ -134,8 +134,7 @@ namespace Probando.Controllers
             if (responseMessage.IsSuccessStatusCode)
             {
                 var responseData = responseMessage.Content.ReadAsStringAsync().Result;
-
-                var Employee = JsonConvert.DeserializeObject<Producto>(responseData);
+                var Employee = JsonConvert.DeserializeObject<Cliente>(responseData);
 
                 return View(Employee);
             }
@@ -149,7 +148,7 @@ namespace Probando.Controllers
             {
                 var responseData = responseMessage.Content.ReadAsStringAsync().Result;
 
-                var Employee = JsonConvert.DeserializeObject<Producto>(responseData);
+                var Employee = JsonConvert.DeserializeObject<Cliente>(responseData);
 
                 return View(Employee);
             }

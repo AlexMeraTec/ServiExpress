@@ -304,6 +304,7 @@
     <Content Include="Views\Test\Login.cshtml" />
     <Content Include="Views\Servicio\Details.cshtml" />
     <Content Include="Views\Proveedor\Details.cshtml" />
+    <Content Include="Views\Producto\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
