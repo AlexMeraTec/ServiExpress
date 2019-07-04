@@ -74,32 +74,37 @@ namespace Leer_json
             reserva.servicios.Add(s);
             reserva.nombreCliente = "";
             reserva.nombreEmpleado = "";
-            
 
-            
-            string json = JsonConvert.SerializeObject(reserva);
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create(host + "/api/reserva");
-            httpWebRequest.ContentType = "application/json; charset=utf-8";
-            httpWebRequest.Method = "POST";
-            httpWebRequest.Accept = "application/json; charset=utf-8";
 
-            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            try
             {
-                streamWriter.Write(json);
-                streamWriter.Flush();
-                streamWriter.Close();
+                string json = JsonConvert.SerializeObject(reserva);
+                var httpWebRequest = (HttpWebRequest)WebRequest.Create(host + "/api/reserva");
+                httpWebRequest.ContentType = "application/json; charset=utf-8";
+                httpWebRequest.Method = "POST";
+                httpWebRequest.Accept = "application/json; charset=utf-8";
 
-                var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
                 {
-                    var result = streamReader.ReadToEnd();
+                    streamWriter.Write(json);
+                    streamWriter.Flush();
+                    streamWriter.Close();
+
+                    var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+                    using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                    {
+                        var result = streamReader.ReadToEnd();
+                    }
+
                 }
 
+                Response.Redirect("~/Reserva");
+
             }
+            catch (Exception )
+            {
 
-            Response.Redirect("~/Reserva");
-
-
+            }
 
          }
     }
