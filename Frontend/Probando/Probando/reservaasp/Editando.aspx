@@ -67,10 +67,17 @@
 
   </script> 
 
+    <style type="text/css">
+        .auto-style1 {
+            height: 1195px;
+            width: 1490px;
+        }
+    </style>
+
 </head>
-<body>
+<body style="font-size:12px;color:aliceblue">
     <form id="form1" runat="server">
-        <div>
+        <div class="auto-style1" style="background-image:url('../../Content/images/demo/backgrounds/01.png');">
             <asp:Panel ID="Panel1" runat="server" Height="240px" style="margin-left: 264px" Width="252px">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="Label2" runat="server" Text="Seleccione Fecha"></asp:Label>
                 <br />
