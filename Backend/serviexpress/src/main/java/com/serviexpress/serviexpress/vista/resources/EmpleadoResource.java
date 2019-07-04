@@ -44,20 +44,16 @@ public class EmpleadoResource extends Elohim{
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "Empleado CREADO correctamente"),@ApiResponse(code = 404, message = "Solicitud Invalida"),@ApiResponse(code = 208, message = "Empleado con la ID YA EXISTE")})
 	public ResponseEntity<Empleado> createEmpleado(@RequestBody EmpleadoVO eVO){
 		Empleado empleadoPerso = new Empleado();
-		if(empService.findById_empleado(eVO.getId_empleado()) != null) {
-			return new ResponseEntity<>(HttpStatus.ALREADY_REPORTED);
-		}else{
-			copiarPropiedadesNoNulas(eVO, empleadoPerso);
-			Persona persona = new Persona();
-
-			copiarPropiedadesNoNulas(eVO.getPersonaEmpleado(), persona);
-			persona.setTipo(true);
-			persona.setActiva(true);
-			empleadoPerso.setPersonaEmpleado(persona);
-			this.personaService.create(persona);
-			empleadoPerso.setId_empleado(this.personaService.getLastId());
-			return new ResponseEntity<>(this.empService.create(empleadoPerso), HttpStatus.CREATED);
-		}
+		copiarPropiedadesNoNulas(eVO, empleadoPerso);
+		Persona persona = new Persona();
+		copiarPropiedadesNoNulas(eVO.getPersonaEmpleado(), persona);
+		persona.setTipo(true);
+		persona.setActiva(true);
+		empleadoPerso.setPersonaEmpleado(persona);
+		this.personaService.create(persona);
+		empleadoPerso.setId_empleado(this.personaService.getLastId());
+		return new ResponseEntity<>(this.empService.create(empleadoPerso), HttpStatus.CREATED);
+		
 		
 	}
 	

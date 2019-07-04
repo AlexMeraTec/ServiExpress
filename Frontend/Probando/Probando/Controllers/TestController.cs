@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
-namespace MVCTutorial.Controllers
+namespace Probando.Controllers
 {
     public class TestController : Controller
     {
@@ -76,11 +76,18 @@ namespace MVCTutorial.Controllers
                 {
                     Cliente cli = JsonConvert.DeserializeObject<Cliente>(responseData);
                     Session["tipo"] = cli.personaCliente.tipo;
+                    Session["usuario"] = cli.personaCliente.nombre;
                 }
                 catch (Exception)
                 {
                     Empleado emp = JsonConvert.DeserializeObject<Empleado>(responseData);
                     Session["tipo"] = emp.personaEmpleado.tipo;
+                    Session["usuario"] = emp.personaEmpleado.nombre;
+                    Session["nivel"] = emp.nivel_acceso;
+                    if (emp.nivel_acceso==2) {
+                        Session["admin"] = true;
+                    }
+
                 }
                 return RedirectToAction("../HOME");
             }
