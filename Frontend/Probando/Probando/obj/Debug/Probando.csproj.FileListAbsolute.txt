@@ -509,3 +509,4 @@ C:\Users\Droze\Documents\GitHub\ServiExpress\Frontend\Probando\Probando\obj\Debu
 C:\Users\Droze\Documents\GitHub\ServiExpress\Frontend\Probando\Probando\obj\Debug\Probando.csproj.CopyComplete
 C:\Users\Droze\Documents\GitHub\ServiExpress\Frontend\Probando\Probando\obj\Debug\Probando.dll
 C:\Users\Droze\Documents\GitHub\ServiExpress\Frontend\Probando\Probando\obj\Debug\Probando.pdb
+C:\Users\Droze\Documents\GitHub\ServiExpress\Frontend\Probando\Probando\obj\Debug\Probando.csprojAssemblyReference.cache
