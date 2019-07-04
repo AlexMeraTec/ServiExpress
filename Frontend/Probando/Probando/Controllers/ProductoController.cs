@@ -71,7 +71,7 @@ namespace Probando.Controllers
             return RedirectToAction("Error");
         }
         [HttpGet]
-        public async Task<ActionResult> Edit(int id)
+        public async Task<ActionResult> Edit(string id)
         {
             HttpResponseMessage responseMessage = await client.GetAsync("api/producto/{id_productos}?id_productos=" + id);
 
@@ -87,7 +87,7 @@ namespace Probando.Controllers
         }
         //The PUT Method
         [HttpPost]
-        public async Task<ActionResult> Edit(int id, Producto Emp)
+        public async Task<ActionResult> Edit(string id, Producto Emp)
         {
             var cliSon = JsonConvert.SerializeObject(Emp);
             HttpContent httpContent = new StringContent(cliSon, Encoding.UTF8, "application/json");
@@ -99,7 +99,7 @@ namespace Probando.Controllers
             return RedirectToAction("Error");
         }
         [HttpGet]
-        public async Task<ActionResult> Delete(int id)
+        public async Task<ActionResult> Delete(string id)
         {
             HttpResponseMessage responseMessage = await client.GetAsync("api/producto/{id_productos}?id_productos=" + id);
             if (responseMessage.IsSuccessStatusCode)
@@ -115,7 +115,7 @@ namespace Probando.Controllers
 
         //The DELETE method
         [HttpPost]
-        public async Task<ActionResult> Delete(int id, Producto Emp)
+        public async Task<ActionResult> Delete(string id, Producto Emp)
         {
 
             HttpResponseMessage responseMessage = await client.DeleteAsync("api/producto/" + id);
@@ -126,9 +126,9 @@ namespace Probando.Controllers
             return RedirectToAction("Error");
         }
         [HttpPost]
-        public async Task<ActionResult> Details(int Id, Producto Emp)
+        public async Task<ActionResult> Details(string id, Producto Emp)
         {
-            HttpResponseMessage responseMessage = await client.GetAsync("api/producto/{id_productos}?id_productos =" + Id);
+            HttpResponseMessage responseMessage = await client.GetAsync("api/producto/{id_productos}?id_productos="+id);
             if (responseMessage.IsSuccessStatusCode)
             {
                 var responseData = responseMessage.Content.ReadAsStringAsync().Result;
@@ -140,9 +140,9 @@ namespace Probando.Controllers
             return View("Error");
         }
         [HttpGet]
-        public async Task<ActionResult> Details(int Id)
+        public async Task<ActionResult> Details(string Id)
         {
-            HttpResponseMessage responseMessage = await client.GetAsync("api/producto/{id_productos}?id_productos=" + Id);
+            HttpResponseMessage responseMessage = await client.GetAsync("api/producto/{id_productos}?id_productos="+Id);
             if (responseMessage.IsSuccessStatusCode)
             {
                 var responseData = responseMessage.Content.ReadAsStringAsync().Result;

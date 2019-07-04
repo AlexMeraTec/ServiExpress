@@ -14,7 +14,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.serviexpress.serviexpress.modelo.Cliente;
+import com.serviexpress.serviexpress.modelo.Empleado;
 import com.serviexpress.serviexpress.modelo.Persona;
+import com.serviexpress.serviexpress.negocio.services.ClienteService;
+import com.serviexpress.serviexpress.negocio.services.EmpleadoService;
 import com.serviexpress.serviexpress.negocio.services.PersonaService;
 import com.serviexpress.serviexpress.vista.resources.vo.PersonaVO;
 
@@ -33,11 +37,15 @@ import io.swagger.annotations.ApiResponses;
 @Api(tags = "persona")
 public class PersonaResource extends Elohim{
 	private final PersonaService personaService;
+	private final EmpleadoService empService;
+	private final ClienteService cliService;
 	
-	public PersonaResource(PersonaService personaService) {
+	public PersonaResource(PersonaService personaService, EmpleadoService empService, ClienteService cliService) {
 		this.personaService = personaService;
+		this.empService = empService;
+		this.cliService = cliService;
 	}
-	
+
 	@PostMapping
 	@ApiOperation(value = "Crear persona", notes = "Servicio para crear una nueva persona")
 	@ApiResponses(value = {@ApiResponse(code = 201, message = "persona CREADO correctamente"),@ApiResponse(code = 404, message = "Solicitud Invalida")})
@@ -105,16 +113,23 @@ public class PersonaResource extends Elohim{
 	@GetMapping("/LOGINUSER") 
 	@ApiOperation(value = "LOGINUSER", notes = "Método para iniciar sesión")
 	@ApiResponses(value = {@ApiResponse(code = 200, message = "LOGINUSER ENCONTRADOS correctamente"),@ApiResponse(code = 201, message = "LOGINUSER ENCONTRADOS correctamente"),@ApiResponse(code = 404, message = "REVISE SU USUARIO O PASSWORD")})
-	public ResponseEntity<PersonaVO> LOGINUSER(String usuario, String password) {
+	public ResponseEntity<Object> LOGINUSER(String usuario, String password) {
 		int si = (int) this.personaService.LOGINUSER(usuario, password);
 		if(si==1){
 			Persona perso =this.personaService.personaLogin(usuario, password);
 			PersonaVO pVO = new PersonaVO();
-	 		copiarPropiedadesNoNulas(perso, pVO);
-			return ResponseEntity.ok(pVO);
+			copiarPropiedadesNoNulas(perso, pVO);
+			if(perso.isTipo()) {
+				Empleado emp = this.empService.findById_empleado(perso.getId_personas());
+				return new ResponseEntity<>(emp, HttpStatus.OK);
+			}else{
+				Cliente cli = this.cliService.findById_cliente(perso.getId_personas());
+				return new ResponseEntity<>(cli, HttpStatus.OK);
+			}
 		}else {
-			return new ResponseEntity<PersonaVO>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<Object>(HttpStatus.NOT_FOUND);
 		}
+		
 	}
 	@GetMapping("/findByRut") 
 	@ApiOperation(value = "findByRut", notes = "Método para encontrar por rut")
