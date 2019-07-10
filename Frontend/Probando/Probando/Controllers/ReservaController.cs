@@ -99,7 +99,7 @@ namespace Probando.Controllers
         [HttpGet]
         public async Task<ActionResult> Delete(int id)
         {
-            HttpResponseMessage responseMessage = await client.GetAsync("api/reserva/{id_reservas}?id_reservas =" + id);
+            HttpResponseMessage responseMessage = await client.GetAsync("api/reserva/{id_reservas}?id_reservas=" + id);
             if (responseMessage.IsSuccessStatusCode)
             {
                 var responseData = responseMessage.Content.ReadAsStringAsync().Result;
@@ -126,7 +126,7 @@ namespace Probando.Controllers
         [HttpPost]
         public async Task<ActionResult> Details(int Id, Reserva rva)
         {
-            HttpResponseMessage responseMessage = await client.GetAsync("api/reserva/{id_reservas}?id_reservas =" + Id);
+            HttpResponseMessage responseMessage = await client.GetAsync("api/reserva/{id_reservas}?id_reservas=" + Id);
             if (responseMessage.IsSuccessStatusCode)
             {
                 var responseData = responseMessage.Content.ReadAsStringAsync().Result;

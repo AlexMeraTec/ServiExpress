@@ -81,7 +81,7 @@
       <asp:Panel ID="Panel1" runat="server" Height="167px">
           <asp:Label ID="lblnombre" runat="server" Text="ID_Cliente"></asp:Label>
           &nbsp;
-          <asp:TextBox ID="txtid_cliente" runat="server" Width="225px" ReadOnly="True"></asp:TextBox>
+          <asp:TextBox ID="txtid_cliente" runat="server" Width="225px"></asp:TextBox>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <asp:Label ID="Label1" runat="server" Text="ID_Empleado"></asp:Label>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

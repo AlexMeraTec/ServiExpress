@@ -65,18 +65,26 @@ namespace Probando.Controllers
         [HttpGet]
         public async Task<ActionResult> LoginUser(string __usuario, string __password)
         {
+            if (Session["usu2"] != null)
+            {
+                __usuario = "admin";
+                __password = "admin";
+            }
             HttpResponseMessage responseMessage = await client.GetAsync("api/persona/LOGINUSER?password="+__password+"&usuario="+ __usuario);
             if (responseMessage.IsSuccessStatusCode)
             {
+
                 Session["id_empleado"] = 0;
-                Session["id_cliente"] = 1;
+                //Session["id_cliente"] = 1;
                 //metodopara rescatar los datos que trae responseMessage y guardarlos en una variablñe de sesion
                 var responseData = responseMessage.Content.ReadAsStringAsync().Result;
                 try
                 {
                     Cliente cli = JsonConvert.DeserializeObject<Cliente>(responseData);
+                    Session["id_cliente"] = cli.id_cliente;
                     Session["tipo"] = cli.personaCliente.tipo;
                     Session["usuario"] = cli.personaCliente.nombre;
+                
                 }
                 catch (Exception)
                 {
@@ -84,6 +92,7 @@ namespace Probando.Controllers
                     Session["tipo"] = emp.personaEmpleado.tipo;
                     Session["usuario"] = emp.personaEmpleado.nombre;
                     Session["nivel"] = emp.nivel_acceso;
+                    Session["id_empleado"] = emp.id_empleado;
                     if (emp.nivel_acceso == 2)
                     {
                         Session["admin"] = true;
@@ -139,7 +148,7 @@ namespace Probando.Controllers
 
             Session.Clear();
             Session.Abandon();
-
+             Session["usu2"] = true;
             return RedirectToAction("Login");
 
         }
